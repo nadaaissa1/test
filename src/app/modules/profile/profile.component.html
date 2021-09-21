@@ -1,0 +1,113 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <div class="flex-auto p-6 sm:p-10">
+        <!-- CONTENT GOES HERE -->
+        <div>
+            <table id="tableconfiguration1" style="width: 98%;">
+                <tr>
+                    <td class="headtdconfiguration" colspan="2">
+                        Profile
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td colspan="2">
+                        <div class="bg-card" id="tdfullborder">
+
+                            <!-- Avatar and name -->
+                            <div class="flex flex-auto items-center min-w-0">
+                                <div class="flex flex-col min-w-0 ml-4">
+                                    <ng-container>
+                                        <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                            id="divconfiguration">
+                                            Bienvenue Brian dans votre espace cloud !</div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="informationtd">
+                        Client: "nom entreprise"
+                    </td>
+                    <td class="informationtd">
+                        Adresse client: "adresse"
+                    </td>
+                </tr>
+                <tr>
+                    <td class="informationtd">
+                        Support: "type de support"
+                    </td>
+                    <td class="informationtd">
+                        Email: "email"
+                    </td>
+                </tr>
+                <tr>
+                    <td class="informationtd" colspan="2">
+                        Type de contrat: "......"
+                    </td>
+                </tr>
+                <tr>
+                    <td class="informationtd" colspan="2">
+                        Durée du contrat: "date début - date fin"
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td colspan="2" class="tdpadding">
+                        <div class="grid grid-cols-6 place-items-end h-15">
+                            <p class="contacttitle">Contacts</p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <button mat-raised-button (click)="addContact()"
+                                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+                                id="addcontactbutton">
+                                Ajouter Contact
+                            </button>
+                            <!-- <button mat-raised-button [disabled]="!dataSource.length" (click)="removeContact()"
+                                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="removecontactbutton">
+                                Remove data
+                            </button> -->
+                        </div>
+                        <br>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"
+                            id="tableconfiguration2">
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Nom (Profession)</th>
+                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.name}}</td>
+                            </ng-container>
+
+                            <!-- Departement Column -->
+                            <ng-container matColumnDef="departement">
+                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Département</th>
+                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.departement}}</td>
+                            </ng-container>
+
+                            <!-- Nickname Column -->
+                            <ng-container matColumnDef="nickname">
+                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Surnom</th>
+                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.nickname}}</td>
+                            </ng-container>
+
+                            <!-- Employee Column -->
+                            <ng-container matColumnDef="employee">
+                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Employée</th>
+                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.employee}}</td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td id="tableconfiguration1" style="padding-top: 20px;" colspan="2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

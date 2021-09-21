@@ -72,7 +72,7 @@ export class UserComponent implements OnInit, OnDestroy
     /**
      * Update the user status
      *
-     * @param status
+     * @param statusz
      */
     updateUserStatus(status: string): void
     {
@@ -95,5 +95,10 @@ export class UserComponent implements OnInit, OnDestroy
     signOut(): void
     {
         this._router.navigate(['/sign-out']);
+    }
+
+    Profile(): void
+    {
+        this._router.navigate(['/profile'])
     }
 }

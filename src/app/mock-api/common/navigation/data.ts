@@ -3,37 +3,73 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        //icon : 
+        link : '/dashboard'
+    },
+    {
+        id   : 'services',
+        title: 'Services',
+        type : 'basic',
+        link : '/services'
+    },
+    {
+        id   : 'administration',
+        title: 'Administration',
+        type : 'basic',
+        link : '/administration'
+    },
+    {
+        id   : 'contact',
+        title: 'Contact',
+        type : 'basic',
+        link : '/contact'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        //icon : 
+        link : '/dashboard'
+    },
+    {
+        id   : 'services',
+        title: 'Services',
+        type : 'basic',
+        link : '/services'
+    },
+    {
+        id   : 'administration',
+        title: 'Administration',
+        type : 'basic',
+        link : '/administration'
+    },
+    {
+        id   : 'contact',
+        title: 'Contact',
+        type : 'basic',
+        link : '/contact'
     }
 ];
