@@ -24,23 +24,23 @@ export class PortalServicesComponent implements OnInit, OnDestroy
 
     ngOnInit(): void
     {
-        // // Subscribe to media changes
-        // this._fuseMediaWatcherService.onMediaChange$
-        //     .pipe(takeUntil(this._unsubscribeAll))
-        //     .subscribe(({matchingAliases}) => {
+        // Subscribe to media changes
+        this._fuseMediaWatcherService.onMediaChange$
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe(({matchingAliases}) => {
 
-        //         // Set the drawerMode and drawerOpened if the given breakpoint is active
-        //         if ( matchingAliases.includes('md') )
-        //         {
-        //             this.drawerMode = 'side';
-        //             this.drawerOpened = true;
-        //         }
-        //         else
-        //         {
-        //             this.drawerMode = 'over';
-        //             this.drawerOpened = false;
-        //         }
-        //     });
+                // Set the drawerMode and drawerOpened if the given breakpoint is active
+                if ( matchingAliases.includes('md') )
+                {
+                    this.drawerMode = 'side';
+                    this.drawerOpened = true;
+                }
+                else
+                {
+                    this.drawerMode = 'over';
+                    this.drawerOpened = false;
+                }
+            });
     }
     ngOnDestroy(): void
     {
