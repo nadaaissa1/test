@@ -77,6 +77,7 @@ export const appRoutes: Route[] = [
             {path: 'services', loadChildren: () => import('app/modules/portalservices/portalservices.module').then(m => m.PortalServicesModule)},
             {path: 'administration', loadChildren: () => import('app/modules/administration/administration.module').then(m => m.AdministrationModule)},
             {path: 'contact', loadChildren: () => import('app/modules/contact/contact.module').then(m => m.ContactModule)},
+            {path: 'back-office', loadChildren: () => import('app/modules/back-office/back-office.module').then(m => m.BackOfficeModule)},
             {path: 'profile', loadChildren: () => import('app/modules/profile/profile.module').then(m => m.ProfileModule)},
         ]
     }

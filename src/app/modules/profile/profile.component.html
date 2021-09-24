@@ -55,52 +55,8 @@
                 </tr>
                 <tr></tr>
                 <tr>
-                    <td colspan="2" class="tdpadding">
-                        <div class="grid grid-cols-6 place-items-end h-15">
-                            <p class="contacttitle">Contacts</p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <button mat-raised-button (click)="addContact()"
-                                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
-                                id="addcontactbutton">
-                                Ajouter Contact
-                            </button>
-                            <!-- <button mat-raised-button [disabled]="!dataSource.length" (click)="removeContact()"
-                                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="removecontactbutton">
-                                Remove data
-                            </button> -->
-                        </div>
-                        <br>
-                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table"
-                            id="tableconfiguration2">
-                            <!-- Name Column -->
-                            <ng-container matColumnDef="name">
-                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Nom (Profession)</th>
-                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.name}}</td>
-                            </ng-container>
-
-                            <!-- Departement Column -->
-                            <ng-container matColumnDef="departement">
-                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Département</th>
-                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.departement}}</td>
-                            </ng-container>
-
-                            <!-- Nickname Column -->
-                            <ng-container matColumnDef="nickname">
-                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Surnom</th>
-                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.nickname}}</td>
-                            </ng-container>
-
-                            <!-- Employee Column -->
-                            <ng-container matColumnDef="employee">
-                                <th id="tableconfiguration2" mat-header-cell *matHeaderCellDef>Employée</th>
-                                <td id="tdborder" mat-cell *matCellDef="let element">{{element.employee}}</td>
-                            </ng-container>
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                        </table>
+                    <td colspan="2" class="tdpadding">                      
+                        <app-contactlist></app-contactlist>
                     </td>
                 </tr>
                 <br>

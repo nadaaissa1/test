@@ -26,6 +26,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Contact',
         type : 'basic',
         link : '/contact'
+    },
+    {
+        id   : 'back-office',
+        title: 'Back-Office',
+        type : 'basic',
+        link : '/back-office'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -71,5 +77,11 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         title: 'Contact',
         type : 'basic',
         link : '/contact'
+    },
+    {
+        id   : 'back-office',
+        title: 'Back-Office',
+        type : 'basic',
+        link : '/back-office'
     }
 ];

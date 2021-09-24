@@ -1,0 +1,53 @@
+<div class="grid grid-cols-6 place-items-end h-15">
+    <p class="clienttitle">Clients</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button mat-raised-button (click)="addClient()"
+        class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="addclientbutton">
+        Ajouter Client
+    </button>
+    <!-- <button mat-raised-button [disabled]="!dataSource.length" (click)="removeContact()"
+        class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="removecontactbutton">
+        Remove data
+    </button> -->
+</div>
+<br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table tableconfiguration2">
+    <!-- Organization Column -->
+    <ng-container matColumnDef="organization">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Organisation</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">{{element.organization}}</td>
+    </ng-container>
+
+    <!-- Social Reason Column -->
+    <ng-container matColumnDef="socialReason">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Raison Sociale</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">{{element.socialReason}}</td>
+    </ng-container>
+
+    <!-- Adress Column -->
+    <ng-container matColumnDef="adress">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Adresse</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">{{element.adress}}</td>
+    </ng-container>
+
+    <!-- Domaine Column -->
+    <ng-container matColumnDef="domain">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Domaine</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">{{element.domain}}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Actions</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">
+            <button>test</button>
+            <button>aaaaaa</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
