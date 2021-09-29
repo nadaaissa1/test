@@ -3,15 +3,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-editcontact',
-  templateUrl: './add-editcontact.component.html',
-  styleUrls: ['./add-editcontact.component.scss']
+  selector: 'app-add-editcontrat',
+  templateUrl: './add-editcontrat.component.html',
+  styleUrls: ['./add-editcontrat.component.scss']
 })
-export class AddEditcontactComponent implements OnInit {
+export class AddEditcontratComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private dialogRef: MatDialogRef<AddEditcontactComponent>, private fb: FormBuilder,) { }
+  constructor(private dialogRef: MatDialogRef<AddEditcontratComponent>, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({

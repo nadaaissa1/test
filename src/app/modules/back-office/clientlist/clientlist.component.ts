@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { AddEditclientComponent } from '../add-editclient/add-editclient.component';
 
 export interface Clients {
   organization: string;
@@ -20,7 +22,7 @@ const ELEMENT_DATA: Clients[] = [
 })
 export class ClientlistComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -36,10 +38,10 @@ export class ClientlistComponent implements OnInit {
     // this.table.renderRows();
     // this.router.navigate(['role']);
 
-    // const dialogRef = this.dialog.open(AddEditcontactComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    const dialogRef = this.dialog.open(AddEditclientComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   
   

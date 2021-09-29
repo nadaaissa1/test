@@ -5,6 +5,9 @@ import { ClientlistComponent } from './clientlist/clientlist.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContactlistModule } from '../contactlist/contactlist.module';
 import { AddEditclientComponent } from './add-editclient/add-editclient.component';
+import { ContratModule } from '../contrat/contrat.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const backofficeRoutes: Route[] = [
@@ -22,7 +25,10 @@ const backofficeRoutes: Route[] = [
   ],
   imports: [
     MatTableModule,
+    ContratModule,
     ContactlistModule,
+    MatDialogModule,
+    ReactiveFormsModule,
     RouterModule.forChild(backofficeRoutes)
   ]
 })
