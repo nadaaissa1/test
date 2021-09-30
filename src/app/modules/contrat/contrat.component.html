@@ -27,16 +27,10 @@
         <td class="tdborder" mat-cell *matCellDef="let element">{{element.type}}</td>
     </ng-container>
 
-    <!-- Date Debut Column -->
-    <ng-container matColumnDef="dateDebut">
-        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Date Debut</th>
-        <td class="tdborder" mat-cell *matCellDef="let element">{{element.dateDebut}}</td>
-    </ng-container>
-
-    <!-- Date Fin Column -->
-    <ng-container matColumnDef="dateFin">
-        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Date Fin</th>
-        <td class="tdborder" mat-cell *matCellDef="let element">{{element.dateFin}}</td>
+    <!-- Durée du Contrat Column -->
+    <ng-container matColumnDef="dureeDuContrat">
+        <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Durée du Contrat</th>
+        <td class="tdborder" mat-cell *matCellDef="let element">{{element.dureeDuContrat}}</td>
     </ng-container>
 
     <!-- Commercial Column -->

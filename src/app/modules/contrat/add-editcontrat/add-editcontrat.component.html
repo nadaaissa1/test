@@ -28,27 +28,17 @@
         <br>
         <tr>
             <td>
-                <mat-label>Date Début : </mat-label>
+                <label>Durée du Contrat : </label>
             </td>
             <td>
                 <mat-form-field class="w-full">
-                    <input matInput [matDatepicker]="picker1" placeholder="Choisir une date" formControlName="firstform">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-            </td>
-        </tr>
-        <br>
-        <tr>
-            <td>
-                <label>Date Fin : </label>
-            </td>
-            <td>
-                <mat-form-field class="w-full">
-                    <input matInput [matDatepicker]="picker2" placeholder="Choisir une date" formControlName="firstform">
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start date" formControlName="firstform">
+                      <input matEndDate placeholder="End date" formControlName="firstform">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
             </td>
         </tr>
         <br>

@@ -6,13 +6,12 @@ import { AddEditcontratComponent } from './add-editcontrat/add-editcontrat.compo
 export interface Contrats {
   name: string;
   type: string;
-  dateDebut: string;
-  dateFin: string;
+  dureeDuContrat: string;
   commercial: string;
 }
 
 const ELEMENT_DATA: Contrats[] = [
-  {name: 'Contrat IaaS', type: 'POC', dateDebut: '01/02/2020', dateFin: '15/04/2022', commercial: 'Amel'},
+  {name: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel'},
 ];
 
 @Component({
@@ -27,7 +26,7 @@ export class ContratComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['name', 'type', 'dateDebut', 'dateFin', 'commercial', 'actions'];
+  displayedColumns: string[] = ['name', 'type', 'dureeDuContrat', 'commercial', 'actions'];
   dataSource = [...ELEMENT_DATA];
 
   @ViewChild(MatTable) table: MatTable<Contrats>;
