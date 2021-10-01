@@ -8,20 +8,36 @@ import { AddEditclientComponent } from './add-editclient/add-editclient.componen
 import { ContratModule } from '../contrat/contrat.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-const backofficeRoutes: Route[] = [
-  {
-      path     : '',
-      component: BackOfficeComponent
-  }
-];
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
+import { SharedModule } from 'app/shared/shared.module';
+import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
+import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
+import { FuseNavigationModule } from '@fuse/components/navigation';
+import { ListComponent } from './list/list.component';
+import { ContactlistComponent } from '../contactlist/contactlist.component';
+import { BackOfficeRoutes } from './back-office.routing';
 
 @NgModule({
   declarations: [
     BackOfficeComponent,
+    SidebarComponent,
+    ListComponent,
     ClientlistComponent,
-    AddEditclientComponent
+    AddEditclientComponent,
+    //ContactlistComponent,
+    
   ],
   imports: [
     MatTableModule,
@@ -29,7 +45,24 @@ const backofficeRoutes: Route[] = [
     ContactlistModule,
     MatDialogModule,
     ReactiveFormsModule,
-    RouterModule.forChild(backofficeRoutes)
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatTabsModule,
+    MatInputModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatSidenavModule,
+    RouterModule.forChild(BackOfficeRoutes),
+    FuseFindByKeyPipeModule,
+    FuseNavigationModule,
+    FuseScrollbarModule,
+    FuseScrollResetModule,
+    SharedModule,
   ]
 })
 export class BackOfficeModule { }

@@ -15,20 +15,11 @@ import { portalservicesmenudata } from './portalservicesmenudata';
 })
 export class PortalServicesSidebarComponent implements OnInit, OnDestroy
 {
-    filters: MailFilter[];
-    folders: MailFolder[];
-    labels: MailLabel[];
     menuData: FuseNavigationItem[] = [];
-    private _filtersMenuData: FuseNavigationItem[] = [];
-    private _foldersMenuData: FuseNavigationItem[] = [];
-    private _labelsMenuData: FuseNavigationItem[] = [];
-    private _otherMenuData: FuseNavigationItem[] = [];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     constructor(
-        private _portalservicesService: PortalServicesService,
-        private _matDialog: MatDialog,
-        private _fuseNavigationService: FuseNavigationService
+        
     )
     {
     }

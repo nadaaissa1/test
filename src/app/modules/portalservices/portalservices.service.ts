@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
-import { MailCategory, MailFilter, MailFolder, MailLabel, Mail } from './portalservices.types';
+import { MailCategory, MailFilter, MailFolder, MailLabel, PortalServices } from './portalservices.types';
 
 
 @Injectable({
@@ -15,9 +15,9 @@ export class PortalServicesService
     private _filters: BehaviorSubject<MailFilter[]> = new BehaviorSubject(null);
     private _folders: BehaviorSubject<MailFolder[]> = new BehaviorSubject(null);
     private _labels: BehaviorSubject<MailLabel[]> = new BehaviorSubject(null);
-    private _mails: BehaviorSubject<Mail[]> = new BehaviorSubject(null);
+    private _mails: BehaviorSubject<PortalServices[]> = new BehaviorSubject(null);
     private _mailsLoading: BehaviorSubject<boolean> = new BehaviorSubject(false);
-    private _mail: BehaviorSubject<Mail> = new BehaviorSubject(null);
+    private _mail: BehaviorSubject<PortalServices> = new BehaviorSubject(null);
     private _pagination: BehaviorSubject<any> = new BehaviorSubject(null);
 
     /**
@@ -66,7 +66,7 @@ export class PortalServicesService
     /**
      * Getter for mails
      */
-    get mails$(): Observable<Mail[]>
+    get mails$(): Observable<PortalServices[]>
     {
         return this._mails.asObservable();
     }
@@ -82,7 +82,7 @@ export class PortalServicesService
     /**
      * Getter for mail
      */
-    get mail$(): Observable<Mail>
+    get mail$(): Observable<PortalServices>
     {
         return this._mail.asObservable();
     }
@@ -143,7 +143,7 @@ export class PortalServicesService
         // Execute the mails loading with true
         this._mailsLoading.next(true);
 
-        return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
+        return this._httpClient.get<PortalServices[]>('api/apps/mailbox/mails', {
             params: {
                 filter,
                 page
@@ -181,7 +181,7 @@ export class PortalServicesService
         // Execute the mails loading with true
         this._mailsLoading.next(true);
 
-        return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
+        return this._httpClient.get<PortalServices[]>('api/apps/mailbox/mails', {
             params: {
                 folder,
                 page
@@ -219,7 +219,7 @@ export class PortalServicesService
         // Execute the mails loading with true
         this._mailsLoading.next(true);
 
-        return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
+        return this._httpClient.get<PortalServices[]>('api/apps/mailbox/mails', {
             params: {
                 label,
                 page
@@ -285,7 +285,7 @@ export class PortalServicesService
      * @param id
      * @param mail
      */
-    updateMail(id: string, mail: Mail): Observable<any>
+    updateMail(id: string, mail: PortalServices): Observable<any>
     {
         return this._httpClient.patch('api/apps/mailbox/mail', {
             id,

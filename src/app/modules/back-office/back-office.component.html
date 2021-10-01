@@ -1,29 +1,12 @@
-<div class="flex flex-col flex-auto min-w-0">
-    <div class="flex-auto p-6 sm:p-10">
-        <!-- CONTENT GOES HERE -->
-        <div>
-            <table id="tableconfiguration1" style="width: 98%;">
-                <tr>
-                    <td class="headtdconfiguration">
-                        Administration Back-Office
-                    </td>
-                </tr>
-                <br>
-                <tr>
-                    <td class="tdpadding">                      
-                        <app-clientlist></app-clientlist>
-                        <br>
-                        <app-contrat></app-contrat>
-                        <br>
-                        <app-contactlist></app-contactlist>
-                        <br>
-                    </td>
-                </tr>
-                <br>
-                <tr>
-                    <td id="tableconfiguration1" style="padding-top: 20px;" colspan="2"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="flex flex-col min-w-0">   
+    <mat-drawer-container class="flex-auto h-full">
+        <mat-drawer class="w-72 dark:bg-gray-900" [mode]="drawerMode" [opened]="drawerOpened" #drawer>
+           <app-sidebar></app-sidebar>
+        </mat-drawer>
+        <mat-drawer-content class="flex flex-col">
+            <div class="flex flex-auto">
+                <router-outlet></router-outlet> 
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
 </div>

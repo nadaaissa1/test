@@ -1,4 +1,4 @@
-export interface Mail
+export interface PortalServices
 {
     id?: string;
     type?: string;

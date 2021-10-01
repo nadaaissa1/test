@@ -33,7 +33,7 @@ export class ContactlistComponent implements OnInit {
 
   @ViewChild(MatTable) table: MatTable<Contacts>;
 
-  addContact() {
+  addUser() {
     // const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
     // this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
     // this.table.renderRows();
@@ -45,7 +45,7 @@ export class ContactlistComponent implements OnInit {
   }
   
   
-  // removeContact() {
+  // removeUser() {
   //   this.dataSource.pop();
   //   this.table.renderRows();
   // }
