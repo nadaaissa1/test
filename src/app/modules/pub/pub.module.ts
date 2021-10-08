@@ -10,6 +10,9 @@ import { PubComponent } from './pub.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PubComponent
   ]
 })
 export class PubModule { }

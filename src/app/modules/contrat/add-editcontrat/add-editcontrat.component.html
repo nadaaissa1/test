@@ -17,12 +17,12 @@
                 <label>Type : </label>
             </td>
             <td>
-                <SELECT class="inputborder" name="type">
-                    <OPTION>Veuillez choisir un type</OPTION>
-                    <OPTION>POC</OPTION>
-                    <OPTION>Contrat 1</OPTION>
-                    <OPTION>Contrat 2</OPTION>
-                </SELECT>
+                <mat-select class="inputborder" [(value)]="selected" name="type">
+                    <mat-option value="Veuillez choisir un type">Veuillez choisir un type</mat-option>
+                    <mat-option value="POC">POC</mat-option>
+                    <mat-option value="Contrat 1">Contrat 1</mat-option>
+                    <mat-option value="Contrat 2">Contrat 2</mat-option>
+                </mat-select>
             </td>
         </tr>
         <br>

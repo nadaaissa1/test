@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class AddEditcontratComponent implements OnInit {
 
   form: FormGroup;
+  selected = 'Veuillez choisir un type';
 
   constructor(private dialogRef: MatDialogRef<AddEditcontratComponent>, private fb: FormBuilder,) { }
 

@@ -1,10 +1,10 @@
 import { ActivatedRouteSnapshot, Route, UrlMatchResult, UrlSegment } from '@angular/router';
 import { isEqual } from 'lodash-es';
-import { ContactlistComponent } from '../contactlist/contactlist.component';
 import { ContratComponent } from '../contrat/contrat.component';
 import { BackOfficeComponent } from './back-office.component';
 import { ClientlistComponent } from './clientlist/clientlist.component';
 import { ListComponent } from './list/list.component';
+import { UserlistComponent } from './userlist/userlist.component';
 
 export const backOfficeRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: UrlSegment[]) => {
 
@@ -112,8 +112,8 @@ export const BackOfficeRoutes: Route[] = [
                         component: ContratComponent,
                     },
                     {
-                        path     : 'utilisateur',
-                        component: ContactlistComponent,
+                        path     : 'user',
+                        component: UserlistComponent,
                     }
                 ]
             }

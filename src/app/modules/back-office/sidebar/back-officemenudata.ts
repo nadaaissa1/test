@@ -17,11 +17,11 @@ export const backofficemenudata:FuseNavigationItem[] = [
         link : '/back-office/contrat'
     }, 
     {
-        id   : 'utilisateur',
+        id   : 'user',
         title: 'Utilisateur',
         type: 'basic',
         //icon : 'Multicloud_Portal_icons-09',
-        link : '/back-office/utilisateur'
+        link : '/back-office/user'
     }
 ];
 

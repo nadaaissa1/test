@@ -16,7 +16,7 @@ const dashboardRoutes: Route[] = [
     DashboardComponent
   ],
   imports: [
-    RouterModule.forChild(dashboardRoutes)
+    RouterModule.forChild(dashboardRoutes),
   ]
 })
 export class DashboardModule { }

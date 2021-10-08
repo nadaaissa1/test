@@ -28,6 +28,12 @@ import { FuseNavigationModule } from '@fuse/components/navigation';
 import { ListComponent } from './list/list.component';
 import { ContactlistComponent } from '../contactlist/contactlist.component';
 import { BackOfficeRoutes } from './back-office.routing';
+import { PubComponent } from '../pub/pub.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserlistComponent } from './userlist/userlist.component';
+import { AddEdituserComponent } from './add-edituser/add-edituser.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,9 @@ import { BackOfficeRoutes } from './back-office.routing';
     ListComponent,
     ClientlistComponent,
     AddEditclientComponent,
+    PubComponent,
+    UserlistComponent,
+    AddEdituserComponent,
     //ContactlistComponent,
     
   ],
@@ -52,6 +61,7 @@ import { BackOfficeRoutes } from './back-office.routing';
     MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
+    MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
     MatProgressBarModule,
@@ -63,6 +73,9 @@ import { BackOfficeRoutes } from './back-office.routing';
     FuseScrollbarModule,
     FuseScrollResetModule,
     SharedModule,
+    MatPaginatorModule,
+    MatSortModule,
+    FlexLayoutModule,
   ]
 })
 export class BackOfficeModule { }

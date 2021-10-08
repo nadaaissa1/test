@@ -1,58 +1,85 @@
 <div class="flex flex-col flex-auto min-w-0">
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
-        <div class="grid grid-cols-6 place-items-end h-15">
-            <p class="contrattittle">Contrats</p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <button mat-raised-button (click)="addContrat()"
-                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="addcontratbutton">
-                Ajouter Contrat
-            </button>
-            <!-- <button mat-raised-button [disabled]="!dataSource.length" (click)="removecontrat()"
-            class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="removecontratbutton">
-            Remove data
-        </button> -->
+        <div class="gap-2" fxLayout="column" fxLayoutAlign="center
+            center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
+            <div class="float-left font-bold text-2xl">
+                <div>
+                    Contracts
+                </div>
+            </div>
+            <div class="w-full">
+                <mat-form-field appearance="fill" floatLabel="always" class="w-full">
+                    <input matInput placeholder="search" (keyup)="applyFilter($event)" />
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button (click)="addContrat()"
+                    class="bg-amber-700 hover:bg-amber-700 text-white font-bold px-4 rounded" id="addcontratbutton">
+                    Ajouter Contrat
+                </button>
+            </div>
         </div>
-        <br>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table tableconfiguration2">
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Nom</th>
-                <td mat-cell *matCellDef="let element">{{element.name}}</td>
-            </ng-container>
+        <div class="mat-elevation-z8">
+            <table mat-table matSort [dataSource]="dataSource" class="tableconfig">
+                <!-- Name Column -->
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
+                    <td mat-cell *matCellDef="let element">{{element.title}}</td>
+                </ng-container>
 
-            <!-- Type Column -->
-            <ng-container matColumnDef="type">
-                <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Type de Contrat</th>
-                <td mat-cell *matCellDef="let element">{{element.type}}</td>
-            </ng-container>
+                <!-- Type Column -->
+                <ng-container matColumnDef="type">
+                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Type de Contrat</th>
+                    <td mat-cell *matCellDef="let element">{{element.type}}</td>
+                </ng-container>
 
-            <!-- Durée du Contrat Column -->
-            <ng-container matColumnDef="dureeDuContrat">
-                <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Durée du Contrat</th>
-                <td mat-cell *matCellDef="let element">{{element.dureeDuContrat}}</td>
-            </ng-container>
+                <!-- Durée du Contrat Column -->
+                <ng-container matColumnDef="dureeDuContrat">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Durée du Contrat</th>
+                    <td mat-cell *matCellDef="let element">{{element.dureeDuContrat}}</td>
+                </ng-container>
 
-            <!-- Commercial Column -->
-            <ng-container matColumnDef="commercial">
-                <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Commercial</th>
-                <td mat-cell *matCellDef="let element">{{element.commercial}}</td>
-            </ng-container>
+                <!-- Commercial Column -->
+                <ng-container matColumnDef="commercial">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Commercial</th>
+                    <td mat-cell *matCellDef="let element">{{element.commercial}}</td>
+                </ng-container>
 
-            <!-- Actions Column -->
-            <ng-container matColumnDef="actions">
-                <th class="tableconfiguration2 border-black" mat-header-cell *matHeaderCellDef>Actions</th>
-                <td mat-cell *matCellDef="let element">
-                    <button>test</button>
-                    <button>aaaaaa</button>
-                </td>
-            </ng-container>
+                <!-- Note Column -->
+                <ng-container matColumnDef="note">
+                    <th class="w-2/6" mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+                    <td mat-cell *matCellDef="let element">{{element.note}}</td>
+                </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                    <td mat-cell *matCellDef="let element">{{element.description}}</td>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                    <th class="w-1/6 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell class="text-center" *matCellDef="let element">
+                        <button title="Modifier">
+                            <mat-icon [svgIcon]="'heroicons_solid:document-add'"></mat-icon>
+                        </button>
+                        <button title="Détails">
+                            <mat-icon [svgIcon]="'heroicons_solid:document'"></mat-icon>
+                        </button>
+                        <button title="Supprimer">
+                            <mat-icon [svgIcon]="'heroicons_solid:document-remove'"></mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
     </div>
 </div>

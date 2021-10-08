@@ -1,3 +1,8 @@
+.tableconfig {
+    width: 100%;
+    border-spacing: 10px 5px;
+    border-collapse: separate;
+}
 #tableconfiguration1 {
     text-align: center;
     margin: auto;
@@ -43,4 +48,8 @@
 }
 #divconfiguration {
     padding-bottom: 5%;
+}
+.mat-paginator {
+    display: flex;
+    justify-content: flex-end;
 }

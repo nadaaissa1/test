@@ -1,6 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTable } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { tap } from 'rxjs/operators';
 import { AddEditcontactComponent } from './add-editcontact/add-editcontact.component';
 
 export interface Contacts {
@@ -21,17 +25,30 @@ const ELEMENT_DATA: Contacts[] = [
   templateUrl: './contactlist.component.html',
   styleUrls: ['./contactlist.component.scss']
 })
-export class ContactlistComponent implements OnInit {
+export class ContactlistComponent implements OnInit, AfterViewInit {
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    
   }
 
   displayedColumns: string[] = ['name', 'jobTitle', 'mail', 'phoneNumber', 'actions'];
-  dataSource = [...ELEMENT_DATA];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatTable) table: MatTable<Contacts>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   addUser() {
     // const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
