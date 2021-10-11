@@ -2,19 +2,6 @@
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
 
-        <!-- <div class="grid grid-cols-6 place-items-end h-15">
-            <p class="usertitle">Utilisateurs</p>
-            <p></p>
-            <mat-form-field appearance="fill" floatLabel="always" class="w-full">
-                <input matInput placeholder="search" (keyup)="applyFilter($event)" />
-            </mat-form-field>
-            <p></p>
-            <p></p>
-            <button mat-raised-button (click)="addUser()"
-                class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="adduserbutton">
-                Ajouter Utilisateur
-            </button>
-        </div> -->
         <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
             <div class="float-left font-bold text-2xl">
@@ -34,7 +21,7 @@
                 </button>
             </div>
         </div>
-        <div class="mat-elevation-z8">
+        <div class="mat-elevation-z8 overflow-x-scroll bg-white">
             <table mat-table matSort  [dataSource]="dataSource" class="tableconfig">
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
