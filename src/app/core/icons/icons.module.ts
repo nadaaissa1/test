@@ -21,15 +21,15 @@ export class IconsModule
         this._matIconRegistry.addSvgIconSetInNamespace('feather', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/feather.svg'));
         this._matIconRegistry.addSvgIconSetInNamespace('heroicons_outline', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/heroicons-outline.svg'));
         this._matIconRegistry.addSvgIconSetInNamespace('heroicons_solid', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/heroicons-solid.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-01', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-02', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-03', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-04', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-05', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-06', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-07', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-01', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-01.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-02', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-02.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-03', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-03.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-04', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-04.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-05', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-05.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-06', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-06.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-07', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-07.svg'));
         this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-08', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-09', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
-        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-10', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-08.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-09', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-09.svg'));
+        this._matIconRegistry.addSvgIcon('Multicloud_Portal_icons-10', this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/Multicloud_Portal_icons-10.svg'));
     }
 }

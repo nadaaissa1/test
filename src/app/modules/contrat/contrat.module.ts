@@ -29,6 +29,7 @@ import { SharedModule } from 'app/shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     ContratComponent,
@@ -67,7 +68,7 @@ import { SharedModule } from 'app/shared/shared.module';
     MatDialogModule,
     MatDatepickerModule,
     MatMomentDateModule,  
-    MatSelectModule 
+    MatSelectModule
   ],
   exports: [
     ContratComponent

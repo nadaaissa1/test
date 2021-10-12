@@ -12,4 +12,19 @@ export class PubComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  imageObject: Array<object> = [
+    {
+      image: '../../../assets/ImageSlider1.PNG',
+      thumbImage: '../../../assets/ImageSlider1.PNG',
+    }, 
+    {
+      image: '../../../assets/ImageSlider2.png',
+      thumbImage: '../../../assets/ImageSlider2.png',
+    },
+    {
+      image: '../../../assets/ImageSlider3.png',
+      thumbImage: '../../../assets/ImageSlider3.png',
+    }
+  ];
+
 }

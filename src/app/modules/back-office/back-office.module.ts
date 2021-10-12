@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BackOfficeComponent } from './back-office.component';
-import { Route, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ClientlistComponent } from './clientlist/clientlist.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContactlistModule } from '../contactlist/contactlist.module';
@@ -26,7 +26,6 @@ import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
 import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { ListComponent } from './list/list.component';
-import { ContactlistComponent } from '../contactlist/contactlist.component';
 import { BackOfficeRoutes } from './back-office.routing';
 import { PubComponent } from '../pub/pub.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -76,6 +75,7 @@ import { AddEdituserComponent } from './add-edituser/add-edituser.component';
     MatPaginatorModule,
     MatSortModule,
     FlexLayoutModule,
+    
   ]
 })
 export class BackOfficeModule { }

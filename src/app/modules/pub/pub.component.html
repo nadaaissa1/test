@@ -1,1 +1,8 @@
-<p id="color" style="text-align: center;">pub works!</p>
+<div class="grid grid-cols-3 gap-2 place-items-center">
+    <div></div>
+    <div #container [ngStyle]="{width: 300+'px'}" >      
+        <ng-image-slider [images]="imageObject" [autoSlide]="{interval: 5, stopOnHover: true}" [animationSpeed]="5" [infinite]="true"
+        [imageSize]="{width: container.style.width, space:0}" [showArrow]="false"  #nav></ng-image-slider>    
+    </div>
+    <div></div>
+</div>
