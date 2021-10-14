@@ -1,6 +1,6 @@
-<div #container [ngStyle]="{width: 100+'%', height: 100+'%'}">
+<div #container [ngStyle]="{width: 100+'%', height: 60+'%'}">
     <ng-image-slider [images]="imageObject" [autoSlide]="{interval: 5, stopOnHover: true}" [animationSpeed]="2"
         [infinite]="true" [manageImageRatio]="false"
-        [imageSize]="{width: container.style.width, height: '100%', space:0}" [showArrow]="true" [arrowKeyMove]="true"
+        [imageSize]="{width: container.style.width, height: container.style.height, space:0}" [showArrow]="true" [arrowKeyMove]="true"
         #nav></ng-image-slider>
 </div>
