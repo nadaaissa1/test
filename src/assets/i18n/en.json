@@ -1,5 +1,26 @@
 {
-    "welcome-back": "Welcome back",
-    "Project": "Project",
-    "Analytics": "Analytics"
+    "availableLangs"      : [
+        {
+            "id"   : "fr",
+            "label": "Frensh"
+        },
+        {
+            "id"   : "en",
+            "label": "English"
+        }
+    ],
+
+    "Dashboard": "Dashboard",
+    "Content de te revoir": "Welcome back",
+    "dans votre espace cloud": "in your cloud space",
+    "nom entreprise": "entreprise name",
+    "type de support": "support type",
+    "Type de contrat": "Contrat type",
+    "Voici les services auquels vous êtes inscrits": "Here are the services you are registered with",
+    "Durée du contrat": "Contract time",
+    "date début - date fin": "start date - end date",
+    "Portail d'administration": "Administration portal",
+    "Support - Système Ticketing": "Support - Ticketing System",
+
+    "Services": "Services"
 }

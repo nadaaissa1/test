@@ -1,5 +1,26 @@
 {
-    "content-de-te-revoir": "Content de te revoir",
-    "Projet": "Projet",
-    "Analytique": "Analytique"
+    "availableLangs"      : [
+        {
+            "id"   : "fr",
+            "label": "Français"
+        },
+        {
+            "id"   : "en",
+            "label": "Anglais"
+        }
+    ],
+
+    "Dashboard": "Dashboard",
+    "Content de te revoir": "Content de te revoir",
+    "dans votre espace cloud": "dans votre espace cloud",
+    "nom entreprise": "nom entreprise",
+    "type de support": "type de support",
+    "Type de contrat": "Type de contrat",
+    "Voici les services auquels vous êtes inscrits": "Voici les services auquels vous êtes inscrits",
+    "Durée du contrat": "Durée du contrat",
+    "date début - date fin": "Durée du contrat",
+    "Portail d'administration": "Portail d'administration",
+    "Support - Système Ticketing": "Support - Système Ticketing",
+
+    "Services": "Services"
 }

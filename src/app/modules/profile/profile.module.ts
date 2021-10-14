@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ContactlistModule } from '../contactlist/contactlist.module';
 import { AddEditcontactComponent } from '../contactlist/add-editcontact/add-editcontact.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 const profileRoutes: Route[] = [
   {
@@ -30,7 +31,8 @@ const profileRoutes: Route[] = [
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    RouterModule.forChild(profileRoutes)
+    RouterModule.forChild(profileRoutes),
+    SharedModule,
   ]
 })
 export class ProfileModule { }

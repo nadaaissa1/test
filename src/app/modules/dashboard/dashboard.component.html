@@ -1,4 +1,7 @@
-<div class="flex flex-col flex-auto min-w-0">
+
+<div class="flex flex-col flex-auto min-w-0" *transloco="let t" fxLayout="column">
+
+    <app-pub></app-pub>
 
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
@@ -12,29 +15,29 @@
             </tr>
             <br>
             <tr>
-                <td>
-                    Bienvenue Brian dans votre espace cloud !
+                <td >
+                    {{t('Content de te revoir')}}, Brian {{t('dans votre espace cloud')}} !
                 </td>
-                <td class="text-right">
-                    Client: "nom entreprise"
-                </td>
-            </tr>
-            <tr>
-                <td class="text-right" colspan="2">
-                    Support: "type de support"
+                <td class="text-right" >
+                    Client: {{t('nom entreprise')}}
                 </td>
             </tr>
             <tr>
                 <td class="text-right" colspan="2">
-                    Type de contrat: "......"
+                    Support: {{t('type de support')}}
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" colspan="2">
+                    {{t('Type de contrat')}}: "......"
                 </td>
             </tr>
             <tr>
                 <td>
-                    Voici les services auquels vous êtes inscrits :
+                    {{t('Voici les services auquels vous êtes inscrits')}} :
                 </td>
                 <td class="text-right">
-                    Durée du contrat: "date début - date fin"
+                    {{t('Durée du contrat')}}: "{{t('date début - date fin')}}"
                 </td>
             </tr>
         </table>
@@ -44,7 +47,7 @@
                     <a [href]='vCloudDirectorUrlLogin' target="_blank">
                         <figure>
                             <img class="w-100" src="assets/Multicloud Portal_icons-10.png" alt="Portail d'administration">
-                            <figcaption class="font-bold ">Portail d'administration</figcaption>
+                            <figcaption class="font-bold ">{{t("Portail d'administration")}}</figcaption>
                         </figure>
                         <!-- style="margin-right: +48px; margin-top: -70px; margin-bottom: 60px;" -->
                     </a>                   
@@ -53,7 +56,7 @@
                     <a [href]='ManageEngineUrlLogin' target="_blank">
                         <figure>
                             <img class="w-100" src="assets/Multicloud Portal_icons-11.png" alt="Support - Système Ticketing">
-                            <figcaption class="font-bold ">Support - Système Ticketing</figcaption>
+                            <figcaption class="font-bold ">{{t('Support - Système Ticketing')}}</figcaption>
                         </figure>
                         <!-- style="margin-top: -70px; margin-bottom: 60px;" -->
                     </a>                    

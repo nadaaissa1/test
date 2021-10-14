@@ -11,7 +11,9 @@ export class DashboardComponent implements OnInit {
   vCloudDirectorUrlLogin = environment.vCloudDirectorUrlLogin;
   ManageEngineUrlLogin = environment.ManageEngineUrlLogin;
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

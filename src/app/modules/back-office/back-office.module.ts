@@ -27,7 +27,6 @@ import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { ListComponent } from './list/list.component';
 import { BackOfficeRoutes } from './back-office.routing';
-import { PubComponent } from '../pub/pub.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -41,7 +40,6 @@ import { AddEdituserComponent } from './add-edituser/add-edituser.component';
     ListComponent,
     ClientlistComponent,
     AddEditclientComponent,
-    PubComponent,
     UserlistComponent,
     AddEdituserComponent,
     //ContactlistComponent,
