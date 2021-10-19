@@ -12,7 +12,9 @@
 }
 .informationtd {
     text-align: left;
-    padding-left: 10px;
+}
+.tdbold {
+    font-weight: bold;
 }
 .contacttitle {
     font-weight: bold;
@@ -43,4 +45,26 @@
 }
 #divconfiguration {
     padding-bottom: 5%;
+}
+.namecolor {
+    color: #e57d03;
+}
+.tdwidth1 {
+    width: 16.666667%;
+}
+.tdwidth2 {
+    width: 33.333333%;
+}
+@media only screen and (max-width: 600px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    td {
+        width: 100%;
+    }
 }
