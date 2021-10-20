@@ -9,12 +9,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
         //icon : 
         link : '/dashboard'
     },
-    {
-        id   : 'services',
-        title: 'Services',
-        type : 'basic',
-        link : '/services'
-    },
+    // {
+    //     id   : 'services',
+    //     title: 'Services',
+    //     type : 'basic',
+    //     link : '/services'
+    // },
     {
         id   : 'administration',
         title: 'Administration',
@@ -60,12 +60,12 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         //icon : 
         link : '/dashboard'
     },
-    {
-        id   : 'services',
-        title: 'Services',
-        type : 'basic',
-        link : '/services'
-    },
+    // {
+    //     id   : 'services',
+    //     title: 'Services',
+    //     type : 'basic',
+    //     link : '/services'
+    // },
     {
         id   : 'administration',
         title: 'Administration',
