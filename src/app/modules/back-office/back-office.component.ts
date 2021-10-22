@@ -24,12 +24,9 @@ export class BackOfficeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void
     {
-        // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) => {
-
-                // Set the drawerMode and drawerOpened if the given breakpoint is active
                 if ( matchingAliases.includes('md') )
                 {
                     this.drawerMode = 'side';

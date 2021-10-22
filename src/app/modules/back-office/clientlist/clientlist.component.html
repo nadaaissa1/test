@@ -1,7 +1,5 @@
 <div class="flex flex-col flex-auto min-w-0" id="color">
-    <!-- Main -->
     <div class="flex-auto p-6 sm:p-10" id="color">
-        <!-- <div>  class="grid grid-cols-4 gap-2 place-items-stretch h-15" -->
         <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
             <div class="float-left font-bold text-2xl">
@@ -23,31 +21,22 @@
         </div>
         <div class="mat-elevation-z8 overflow-x-scroll bg-white">
             <table mat-table matSort [dataSource]="dataSource" class="tableconfig">
-                <!-- Organization Column -->
                 <ng-container matColumnDef="organization">
                     <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Organisation</th>
                     <td mat-cell *matCellDef="let element">{{element.organization}}</td>
                 </ng-container>
-
-                <!-- Social Reason Column -->
                 <ng-container matColumnDef="socialReason">
                     <th class="w-1/6" mat-header-cell mat-sort-header *matHeaderCellDef>Raison Sociale</th>
                     <td mat-cell *matCellDef="let element">{{element.socialReason}}</td>
                 </ng-container>
-
-                <!-- Adress Column -->
                 <ng-container matColumnDef="adress">
                     <th mat-header-cell mat-sort-header *matHeaderCellDef>Adresse</th>
                     <td mat-cell *matCellDef="let element">{{element.adress}}</td>
                 </ng-container>
-
-                <!-- Domaine Column -->
                 <ng-container matColumnDef="domain">
                     <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header >Domaine</th>
                     <td mat-cell *matCellDef="let element" >{{element.domain}}</td>
                 </ng-container>
-
-                <!-- Actions Column -->
                 <ng-container matColumnDef="actions">
                     <th class="w-1/6 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell class="text-center" *matCellDef="let element">
@@ -62,7 +51,6 @@
                         </button>
                     </td>
                 </ng-container>
-
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>

@@ -41,9 +41,7 @@ import { AddEdituserComponent } from './add-edituser/add-edituser.component';
     ClientlistComponent,
     AddEditclientComponent,
     UserlistComponent,
-    AddEdituserComponent,
-    //ContactlistComponent,
-    
+    AddEdituserComponent    
   ],
   imports: [
     MatTableModule,

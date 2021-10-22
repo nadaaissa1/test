@@ -1,11 +1,6 @@
 <div class="flex flex-col flex-auto min-w-0" *transloco="let t" fxLayout="column">
-
     <app-pub class="w-full"></app-pub>
-
-    <!-- Main -->
     <div class="flex-auto p-6 sm:p-10 overflow-x-hidden">
-
-        <!-- CONTENT GOES HERE -->
         <table style="width: 98%;" >
             <tr>
                 <td class="headtdconfiguration" colspan="3" >
@@ -32,7 +27,7 @@
             </tr>
         </table>
         <br>
-        <table id="tableconfiguration1" style="width: 98%;">
+        <table class="tableconfiguration1" style="width: 98%;">
             <tr>
                 <td class="w-2/6">
                     <a [href]='vCloudDirectorUrlLogin' target="_blank">
@@ -40,7 +35,6 @@
                             <img class="w-100" src="assets/Multicloud Portal_icons-10.png" alt="Portail d'administration">
                             <figcaption class="font-bold ">{{t("Portail d'administration cloud")}}</figcaption>
                         </figure>
-                        <!-- style="margin-right: +48px; margin-top: -70px; margin-bottom: 60px;" -->
                     </a>                 
                 </td>
                 <td class="w-4/6">
@@ -51,7 +45,7 @@
                 <td class="foottdconfiguration" colspan="2"></td>
             </tr>
         </table>
-        <table id="tableconfiguration1" style="width: 98%;">
+        <table class="tableconfiguration1" style="width: 98%;">
             <tr>
                 <td class="w-2/6">
                     <a [href]='ManageEngineUrlLogin' target="_blank">
@@ -59,7 +53,6 @@
                             <img class="w-100" src="assets/Multicloud Portal_icons-11.png" alt="Support - Système Ticketing">
                             <figcaption class="font-bold text-center">{{t('Support - Système Ticketing')}}</figcaption>
                         </figure>
-                        <!-- style="margin-top: -70px; margin-bottom: 60px;" -->
                     </a>                   
                 </td>
                 <td class="w-4/6">

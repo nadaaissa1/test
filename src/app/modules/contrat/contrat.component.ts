@@ -51,10 +51,6 @@ export class ContratComponent implements OnInit {
   }
 
   addContrat() {
-    // const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    // this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-    // this.table.renderRows();
-    // this.router.navigate(['role']);
     const dialogRef = this.dialog.open(AddEditcontratComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

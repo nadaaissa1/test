@@ -1,55 +1,9 @@
-#tableconfiguration1 {
-    text-align: center;
-    margin: auto;
-}
-#tableconfiguration2 {
+.tableconfiguration1 {
     text-align: center;
     margin: auto;
 }
 .headtdconfiguration {
     text-align: left;
-    font-weight: bold;
-}
-.informationtd {
-    text-align: left;
-}
-.contacttitle {
-    font-weight: bold;
-    font-size: large;
-}
-#addcontactbutton {
-    border: 1px solid black;
-}
-#removecontactbutton {
-    border: 1px solid black;
-}
-.demo-table {
-    width: 100%;
-}
-.demo-button-container {
-    padding-bottom: 16px;
-}
-.demo-button + .demo-button {
-    margin-left: 8px;
-}
-.tdpadding {
-    padding-left: 1%;
-    padding-right: 1%;
-}
-#tdfullborder {
-    margin-right: 1%;
-    margin-left: 1%;
-}
-#divconfiguration {
-    padding-bottom: 5%;
-}
-#tableconfiguration1 {
-    text-align: center;
-    margin: auto;
-}
-.headtdconfiguration {
-    text-align: left;
-
     font-weight: bold;
 }
 .foottdconfiguration {
@@ -71,7 +25,6 @@ figcaption {
 .tdbold {
     font-weight: bold;
 }
-
 @media only screen and (max-width: 600px) {
     table,
     thead,

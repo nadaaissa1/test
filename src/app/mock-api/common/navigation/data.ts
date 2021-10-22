@@ -56,8 +56,7 @@ export const horizontalNavigation: FuseNavigationItem[] = [
     {
         id   : 'dashboard',
         title: 'Dashboard',
-        type : 'basic',
-        //icon : 
+        type : 'basic', 
         link : '/dashboard'
     },
     // {

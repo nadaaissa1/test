@@ -1,8 +1,4 @@
-#tableconfiguration1 {
-    text-align: center;
-    margin: auto;
-}
-#tableconfiguration2 {
+.tableconfiguration1 {
     text-align: center;
     margin: auto;
 }
@@ -15,25 +11,6 @@
 }
 .tdbold {
     font-weight: bold;
-}
-.contacttitle {
-    font-weight: bold;
-    font-size: large;
-}
-#addcontactbutton {
-    border: 1px solid black;
-}
-#removecontactbutton {
-    border: 1px solid black;
-}
-.demo-table {
-    width: 100%;
-}
-.demo-button-container {
-    padding-bottom: 16px;
-}
-.demo-button + .demo-button {
-    margin-left: 8px;
 }
 .tdpadding {
     padding-left: 1%;
@@ -48,12 +25,6 @@
 }
 .namecolor {
     color: #e57d03;
-}
-.tdwidth1 {
-    width: 16.666667%;
-}
-.tdwidth2 {
-    width: 33.333333%;
 }
 @media only screen and (max-width: 600px) {
     table,

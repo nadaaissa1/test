@@ -9,7 +9,6 @@ import { MailCategory, PortalServices } from '../portalservices.types';
 @Component({
     selector     : 'portalservices-list',
     templateUrl  : './list.component.html',
-    //encapsulation: ViewEncapsulation.None
 })
 export class PortalServicesListComponent implements OnInit, OnDestroy
 {

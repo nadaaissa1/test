@@ -9,35 +9,26 @@ import { PortalServicesComponent } from './portalservices.component';
 
 export const portalservicesRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: UrlSegment[]) => {
 
-    // Prepare consumed url and positional parameters
     let consumed = url;
     const posParams = {};
 
-    // Settings
     if ( url[0].path === 'settings' )
     {
-        // Do not match
         return null;
     }
-    // Filter or label
     else if ( url[0].path === 'filter' || url[0].path === 'label' )
     {
         posParams[url[0].path] = url[1];
         posParams['page'] = url[2];
-
-        // Remove the id if exists
         if ( url[3] )
         {
             consumed = url.slice(0, -1);
         }
     }
-    // Folder
     else
     {
         posParams['folder'] = url[0];
         posParams['page'] = url[1];
-
-        // Remove the id if exists
         if ( url[2] )
         {
             consumed = url.slice(0, -1);
@@ -63,14 +54,11 @@ export const portalservicesRunGuardsAndResolvers: (from: ActivatedRouteSnapshot,
     {
         toCurrentRoute = toCurrentRoute.firstChild;
     }
-
-    // Trigger the resolver if the condition met
     if ( fromCurrentRoute.paramMap.get('id') && !toCurrentRoute.paramMap.get('id') )
     {
         return true;
     }
-
-    // If the from and to params are equal, don't trigger the resolver
+    
     const fromParams = {};
     const toParams = {};
 
