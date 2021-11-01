@@ -25,8 +25,6 @@ import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     ContactlistComponent,

@@ -69,10 +69,10 @@ export class AuthSignInComponent implements OnInit
     {
         this.authService.signIn(this.signInForm.value)
         .subscribe((res: any) => {
-           // console.log('token',res);
+            console.log('token',res);
            // const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
            // this._router.navigateByUrl(redirectURL);
-             this._router.navigate(["/dashboard"]);
+            this._router.navigate(["/dashboard"]);
         });
         
         // Return if the form is invalid

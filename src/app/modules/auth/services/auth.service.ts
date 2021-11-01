@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginModel } from '../models/login.model';
 
 @Injectable({
@@ -9,7 +9,9 @@ import { LoginModel } from '../models/login.model';
 })
 export class AuthService {
 
-  private readonly apiEndpoint = environment.MultiPortalEndPoint;
+  private readonly apiEndpoint = environment.ManageEngineEndPoint;
+  // private userSubject: BehaviorSubject<UserComponent>;
+  // public user: Observable<User>;
   
   constructor(private httpclient: HttpClient) { 
   }
