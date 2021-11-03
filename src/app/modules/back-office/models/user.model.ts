@@ -1,8 +1,11 @@
-export interface UserModel {
+import { RoleModel } from "./role.model";
+
+export class UserModel {
+
     id: number;
-    first_Name: string;
-    middle_Name: string;
-    last_Name: string;
+    first_name: string;
+    middle_name: string;
+    last_name: string;
     name: string;
     account: string;
     site: string;
@@ -18,4 +21,5 @@ export interface UserModel {
     userpassword: string;
     isVIPUser: Boolean;
     landline: string;
+    roles: RoleModel[];
   }

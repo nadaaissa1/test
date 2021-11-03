@@ -31,7 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserlistComponent } from './userlist/userlist.component';
-import { AddEdituserComponent } from './add-edituser/add-edituser.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { AddEdituserComponent } from './add-edituser/add-edituser.component';
     ClientlistComponent,
     AddEditclientComponent,
     UserlistComponent,
-    AddEdituserComponent  
+    AdduserComponent,
+    AdduserComponent  
 
   ],
   imports: [
