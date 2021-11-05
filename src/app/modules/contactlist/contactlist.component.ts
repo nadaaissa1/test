@@ -4,45 +4,44 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { tap } from 'rxjs/operators';
-import { AddEditcontactComponent } from './add-editcontact/add-editcontact.component';
-
-export interface Contacts {
-  name: string;
-  jobTitle: string;
-  mail: string;
-  phoneNumber: number;
-}
-
-const ELEMENT_DATA: Contacts[] = [
-  {name: 'Giacomo Guilizzoni', jobTitle: 'Founder & CEO', mail: 'giacomo.guilizzoni@gmail.com', phoneNumber: 21584965},
-  {name: 'Marco Botton', jobTitle: 'Tuttofare', mail: 'marco.botton@gmail.com', phoneNumber: 58963159},
-  {name: 'Maria Maclachlan', jobTitle: 'Better Half', mail: 'maria.maclachlan@gmail.com', phoneNumber: 90874563},
-];
+import { AdduserComponent } from './adduser/adduser.component';
+import { Content, UserResponse } from './models/IUserResponse.model';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-contactlist',
   templateUrl: './contactlist.component.html',
   styleUrls: ['./contactlist.component.scss']
 })
-export class ContactlistComponent implements OnInit, AfterViewInit {
+export class ContactlistComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    
-  }
-
-  displayedColumns: string[] = ['name', 'jobTitle', 'mail', 'phoneNumber', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-
-  @ViewChild(MatTable) table: MatTable<Contacts>;
+  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'domain_Name', 'phone', 'mobile', 'account', 'site', 'actions'];
+  // @ViewChild(MatTable) table: MatTable<Users>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  users: Content[];
+  dataSource: any;
+  constructor(public dialog: MatDialog, private userService: UserService) {
+    this.userService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.initDataSource();
+    })
+  }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngOnInit(): void {
+    this.initDataSource()
+  }
+
+  initDataSource() {
+    this.userService.getUsers().subscribe(
+      (response: UserResponse) => {
+        this.users = response.content;
+        console.log(this.users);
+        console.log(this.paginator);
+        this.dataSource = new MatTableDataSource(this.users);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;      
+    }); 
   }
 
   applyFilter(event: Event) {
@@ -51,11 +50,7 @@ export class ContactlistComponent implements OnInit, AfterViewInit {
   }
 
   addUser() {
-    // const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    // this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-    // this.table.renderRows();
-    // this.router.navigate(['role']);
-    const dialogRef = this.dialog.open(AddEditcontactComponent);
+    const dialogRef = this.dialog.open(AdduserComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

@@ -27,8 +27,7 @@ import { SharedModule } from 'app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    ContactlistComponent,
-    
+    ContactlistComponent,    
   ],
   imports: [
     CommonModule,
