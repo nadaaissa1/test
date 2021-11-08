@@ -56,6 +56,14 @@ export class UserlistComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  desactivateUser(user: UserModel):void {
+    if (user.active == true) {
+      this.userService.desactivateUser(user).subscribe(data => {
+        console.log('User desactivation' + user);
+      });
+    }
+  }
   
   
   // removeUser() {

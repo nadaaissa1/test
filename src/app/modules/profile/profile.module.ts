@@ -4,10 +4,9 @@ import { Route, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ContactlistModule } from '../contactlist/contactlist.module';
-import { ContactlistComponent } from '../contactlist/contactlist.component';
 
 const profileRoutes: Route[] = [
   {
@@ -27,6 +26,7 @@ const profileRoutes: Route[] = [
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    FormsModule,
     RouterModule.forChild(profileRoutes),
   ]
 })

@@ -6,7 +6,7 @@ import { PubComponent } from '../pub/pub.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -24,13 +24,17 @@ import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
 import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { AdduserComponent } from './adduser/adduser.component';
 
 @NgModule({
   declarations: [
-    ContactlistComponent,    
+    ContactlistComponent,  
+    AdduserComponent,  
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MatTableModule,
     MatDialogModule,
     ReactiveFormsModule,

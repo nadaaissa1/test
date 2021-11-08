@@ -76,7 +76,7 @@
                         <button title="Détails">
                             <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
                         </button>
-                        <button title="Supprimer">
+                        <button title="Supprimer" (click)="desactivateUser(user)">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>
                     </td>

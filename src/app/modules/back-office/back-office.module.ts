@@ -41,8 +41,7 @@ import { AdduserComponent } from './adduser/adduser.component';
     ClientlistComponent,
     AddEditclientComponent,
     UserlistComponent,
-    AdduserComponent,
-    AdduserComponent  
+    AdduserComponent 
 
   ],
   imports: [

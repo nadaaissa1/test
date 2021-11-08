@@ -22,4 +22,5 @@ export class UserModel {
     isVIPUser: Boolean;
     landline: string;
     roles: RoleModel[];
+    active: Boolean; 
   }

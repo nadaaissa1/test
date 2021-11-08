@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AdduserComponent } from './adduser/adduser.component';
 import { Content, UserResponse } from './models/IUserResponse.model';
+import { UserModel } from './models/user.model';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -56,6 +57,13 @@ export class ContactlistComponent implements OnInit {
     });
   }
   
+  desactivateUser(user: UserModel):void {
+    if (user.active == true) {
+      this.userService.desactivateUser(user).subscribe(data => {
+        console.log('User desactivation' + user);
+      });
+    }
+  }
   
   // removeUser() {
   //   this.dataSource.pop();

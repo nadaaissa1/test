@@ -24,6 +24,7 @@
         landline?: any;
         roles: Role[];
         costPerHour: number;
+        active: Boolean;
     }
 
     export interface Sort {

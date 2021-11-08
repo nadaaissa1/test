@@ -16,12 +16,21 @@ export class UserService {
   constructor(private httpclient: HttpClient) { }
 
   // CRUD
+  // CRUD
   getUsers(): Observable<UserResponse> {
     return this.httpclient.get<UserResponse>(this.apiEndpoint + 'user/all?size=999999&page=0');
   }
 
+  getUserById(id: number) {
+    return this.httpclient.get<UserResponse>(this.apiEndpoint + '/' + id);
+  }
+
   createUser(user: UserModel): Observable<UserModel> {
     return this.httpclient.post<UserModel>(this.apiEndpoint + 'auth/addUser', user);
+  }
+
+  desactivateUser(user: UserModel) {
+    return this.httpclient.put<UserModel>(this.apiEndpoint + 'user/' + user.id + '/deactivate', user);
   }
 
   listen(): Observable<any> {
