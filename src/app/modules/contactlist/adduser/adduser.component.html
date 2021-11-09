@@ -1,13 +1,22 @@
 <h2>Ajouter Utilisateur</h2>
 <br><br>
 <mat-dialog-content>
-    <table>
-        <tr>
+    <table [formGroup]="form">
+        <tr class="form-group col">
             <td>
                 <label>UID : </label>
             </td>
             <td>
-                <input class="inputborder" type="text" required [(ngModel)]="user.employeeID" name="employeeID">
+                <input class="inputborder" type="text" formControlName="employeeID" [(ngModel)]="user.employeeID" name="employeeID" [ngClass]="{ 'is-invalid': submitted && f.employeeID.errors }">
+            </td>           
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.employeeID.errors" class="invalid-feedback">
+                    <div *ngIf="f.employeeID.errors.required" class="text-red-500">Champ UID est obligatoire</div>
+                    <div *ngIf="f.employeeID.errors.maxlength" class="text-red-500">UID doit avoir au maximum 10 caractéres </div>
+                </div>
             </td>
         </tr>
         <br>
@@ -16,27 +25,54 @@
                 <label>Nom : </label>
             </td>
             <td>
-                <input class="inputborder" type="text" required [(ngModel)]="user.last_name" name="last_name">
+                <input class="inputborder" type="text" formControlName="last_name" [(ngModel)]="user.last_name" name="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
             </td>
         </tr>
-        <br>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.last_name.errors.required" class="text-red-500">Champ Nom est obligatoire</div>
+                    <div *ngIf="f.last_name.errors.minlength" class="text-red-500">Nom doit avoir au minimum 4 caractéres </div>
+                    <div *ngIf="f.last_name.errors.maxlength" class="text-red-500">Nom doit avoir au maximum 8 caractéres </div>
+                </div>
+            </td>
+        </tr>
         <br>
         <tr>
             <td>
                 <label>Deuxième nom : </label>
             </td>
             <td>
-                <input class="inputborder" type="text" [(ngModel)]="user.middle_name" name="middle_name">
+                <input class="inputborder" type="text" formControlName="middle_name" [(ngModel)]="user.middle_name" name="middle_name">
             </td>
         </tr>
-        <br>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.middle_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.middle_name.errors.minlength" class="text-red-500">Deuxième nom doit avoir au minimum 3 caractéres </div>
+                    <div *ngIf="f.middle_name.errors.maxlength" class="text-red-500">Deuxième nom doit avoir au maximum 6 caractéres </div>
+                </div>
+            </td>
+        </tr>
         <br>
         <tr>
             <td>
                 <label>Prénom : </label>
             </td>
             <td>
-                <input class="inputborder" type="text" required [(ngModel)]="user.first_name" name="first_name">
+                <input class="inputborder" type="text" formControlName="first_name" [(ngModel)]="user.first_name" name="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.first_name.errors.required" class="text-red-500">Champ Prénom est obligatoire</div>
+                    <div *ngIf="f.first_name.errors.minlength" class="text-red-500">Prénom doit avoir au minimum 4 caractéres </div>
+                    <div *ngIf="f.first_name.errors.maxlength" class="text-red-500">Prénom doit avoir au maximum 10 caractéres </div>
+                </div>
             </td>
         </tr>
         <br>
@@ -45,7 +81,17 @@
                 <label>Nom d'utilisateur : </label>
             </td>
             <td>
-                <input class="inputborder" type="text" required [(ngModel)]="user.loginName" name="loginName">
+                <input class="inputborder" type="text" formControlName="loginName" [(ngModel)]="user.loginName" name="loginName" [ngClass]="{ 'is-invalid': submitted && f.loginName.errors }">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.loginName.errors" class="invalid-feedback">
+                    <div *ngIf="f.loginName.errors.required" class="text-red-500">Champ Nom d'utilisateur est obligatoire</div>
+                    <div *ngIf="f.loginName.errors.minlength" class="text-red-500">Nom d'utilisateur doit avoir au minimum 4 caractéres </div>
+                    <div *ngIf="f.loginName.errors.maxlength" class="text-red-500">Nom d'utilisateur doit avoir au maximum 10 caractéres </div>
+                </div>
             </td>
         </tr>
         <br>
@@ -54,7 +100,17 @@
                 <label>Mot de passe : </label>
             </td>
             <td>
-                <input class="inputborder" type="password" required [(ngModel)]="user.userpassword" name="userpassword">
+                <input class="inputborder" type="password" formControlName="userpassword" [(ngModel)]="user.userpassword" name="userpassword" [ngClass]="{ 'is-invalid': submitted && f.userpassword.errors }">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.userpassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.userpassword.errors.required" class="text-red-500">Champ Mot de passe est obligatoire</div>
+                    <div *ngIf="f.userpassword.errors.minlength" class="text-red-500">Mot de passe doit avoir au minimum 4 caractéres </div>
+                    <div *ngIf="f.userpassword.errors.maxlength" class="text-red-500">Mot de passe doit avoir au maximum 20 caractéres </div>
+                </div>
             </td>
         </tr>
         <br>
@@ -63,7 +119,15 @@
                 <label>Profession : </label>
             </td>
             <td>
-                <input class="inputborder" [(ngModel)]="user.jobTitle" name="jobTitle">
+                <input class="inputborder" type="text" formControlName="jobTitle" [(ngModel)]="user.jobTitle" name="jobTitle" [ngClass]="{ 'is-invalid': submitted && f.jobTitle.errors }">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.jobTitle.errors" class="invalid-feedback">
+                    <div *ngIf="f.jobTitle.errors.required" class="text-red-500">Champ Profession est obligatoire</div>
+                </div>
             </td>
         </tr>
         <br>
@@ -72,25 +136,16 @@
                 <label>Mail : </label>
             </td>
             <td>
-                <input class="inputborder" required [(ngModel)]="user.emailid" name="emailid">
+                <input class="inputborder" type="email" formControlName="emailid" [(ngModel)]="user.emailid" name="emailid" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }">
             </td>
         </tr>
-        <br>
         <tr>
+            <td></td>
             <td>
-                <label>Domaine : </label>
-            </td>
-            <td>
-                <input class="inputborder" [(ngModel)]="user.domain_Name" name="domain_Name">
-            </td>
-        </tr>
-        <br>
-        <tr>
-            <td>
-                <label>Fix : </label>
-            </td>
-            <td>
-                <input class="inputborder" [(ngModel)]="user.phone" name="phone">
+                <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+                    <div *ngIf="f.emailid.errors.required" class="text-red-500">Champ Mail est obligatoire</div>
+                    <div *ngIf="f.emailid.errors.email" class="text-red-500">Mail doit être une adresse mail valide</div>
+                </div>
             </td>
         </tr>
         <br>
@@ -99,7 +154,15 @@
                 <label>Téléphone : </label>
             </td>
             <td>
-                <input class="inputborder" [(ngModel)]="user.mobile" name="mobile">
+                <input class="inputborder" type="number" formControlName="mobile" [(ngModel)]="user.mobile" name="mobile" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobile.errors.required" class="text-red-500">Champ Téléphone est obligatoire</div>
+                </div>
             </td>
         </tr>
         <br>
@@ -108,16 +171,15 @@
                 <label>Entreprise : </label>
             </td>
             <td>
-                <input class="inputborder" [(ngModel)]="user.account" name="account">
+                <input class="inputborder" type="text" formControlName="account" [(ngModel)]="user.account" name="account" [ngClass]="{ 'is-invalid': submitted && f.account.errors }">
             </td>
         </tr>
-        <br>
         <tr>
+            <td></td>
             <td>
-                <label>Site : </label>
-            </td>
-            <td>
-                <input class="inputborder" [(ngModel)]="user.site" name="site">
+                <div *ngIf="submitted && f.account.errors" class="invalid-feedback">
+                    <div *ngIf="f.account.errors.required" class="text-red-500">Champ Entreprise est obligatoire</div>
+                </div>
             </td>
         </tr>
         <br>
@@ -126,11 +188,18 @@
                 <label>Rôle : </label>
             </td>
             <td>
-                <mat-select class="inputborder" [(value)]="selected" [(ngModel)]="user.roles" name="roles">
-                    <mat-option value="Veuillez choisir un rôle">Veuillez choisir un type</mat-option>
+                <mat-select class="inputborder" placeholder="Veuillez choisir un rôle" formControlName="roles" [(ngModel)]="user.roles" name="roles" [ngClass]="{ 'is-invalid': submitted && f.roles.errors }">
                     <mat-option value="admin">Admin</mat-option>
                     <mat-option value="user">User</mat-option>
                 </mat-select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div *ngIf="submitted && f.roles.errors" class="invalid-feedback">
+                    <div *ngIf="f.roles.errors.required" class="text-red-500">Champ Rôle est obligatoire</div>
+                </div>
             </td>
         </tr>
         <br>

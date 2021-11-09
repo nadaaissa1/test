@@ -51,7 +51,6 @@ import { AdduserComponent } from './adduser/adduser.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatDialogModule,
     MatDividerModule,
     MatFormFieldModule,
     MatIconModule,

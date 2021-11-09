@@ -12,12 +12,10 @@ export interface Contrats {
   type: string;
   dureeDuContrat: string;
   commercial: string;
-  note: string;
-  description: string;
 }
 
 const ELEMENT_DATA: Contrats[] = [
-  {title: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel', note: 'Une note', description: 'Une description'},
+  {title: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel'},
 ];
 
 @Component({
@@ -33,7 +31,7 @@ export class ContratComponent implements OnInit {
     
   }
 
-  displayedColumns: string[] = ['title', 'type', 'dureeDuContrat', 'commercial', 'note', 'description', 'actions'];
+  displayedColumns: string[] = ['title', 'type', 'dureeDuContrat', 'commercial', 'actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatTable) table: MatTable<Contrats>;
