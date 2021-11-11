@@ -15,7 +15,6 @@ export class AdduserComponent implements OnInit {
   form: FormGroup;
   user: UserModel = new UserModel();
   role: RoleModel;
-  submitted = false;
 
   constructor(private dialogRef: MatDialogRef<AdduserComponent>, private fb: FormBuilder, private userService: UserService) { }
 
@@ -30,30 +29,24 @@ export class AdduserComponent implements OnInit {
       userpassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       jobTitle: ['', Validators.required],
       emailid: ['', [Validators.required, Validators.email]],
-      mobile: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+      mobile: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       account: ['', Validators.required],
-      roles: ['', Validators.required],
+      role: ['', Validators.required],
     });
   }
 
   get f() { return this.form.controls; }
 
   save() {
-    this.submitted = true;
-
-    if (this.form.invalid) {
-      return;
-    }
-
-    console.log(this.user);
-    this.userService.createUser(this.user).subscribe(data => {
+    //Object.assign(this.form.get("role").value, [this.form.get("role").value]);
+    this.form.patchValue({"role": [this.form.get("role").value]})
+    console.log(this.form.get("role").value);
+    this.userService.createUser(this.form.getRawValue()).subscribe(data => {
       console.log(data)
-      // this.user = new UserModel();
-      // this.userService.filter('Register Click');
     }, 
     error => console.log(error));
     this.dialogRef.close();
-    this.submitted = false;
     this.form.reset();
     
   }
@@ -61,7 +54,7 @@ export class AdduserComponent implements OnInit {
  
 
   close() {
-    this.dialogRef.close(); 
+    this.dialogRef.close();  
   }
 
 }

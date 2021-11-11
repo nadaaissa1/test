@@ -16,7 +16,7 @@ import { UserService } from '../services/user.service';
 })
 export class UserlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'mobile', 'account', 'actions'];
+  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'phone', 'mobile', 'account', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   users: Content[];
@@ -47,7 +47,9 @@ export class UserlistComponent implements OnInit {
   }
 
   addUser() {
-    const dialogRef = this.dialog.open(AdduserComponent);
+    const dialogRef = this.dialog.open(AdduserComponent, {
+      width: "60%",
+      height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.initDataSource();
@@ -62,11 +64,4 @@ export class UserlistComponent implements OnInit {
       });
     }
   }
-  
-  
-  // removeUser() {
-  //   this.dataSource.pop();
-  //   this.table.renderRows();
-  // }
-
 }

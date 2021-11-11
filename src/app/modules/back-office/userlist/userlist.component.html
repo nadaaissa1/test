@@ -23,7 +23,7 @@
             <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
                 <ng-container matColumnDef="employeeID">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
                     <td mat-cell *matCellDef="let user">{{user.employeeID}}</td>
                 </ng-container>
 
@@ -40,6 +40,11 @@
                 <ng-container matColumnDef="emailid">
                     <th class="w-3/12" mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
                     <td mat-cell *matCellDef="let user">{{user.emailid}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Fix</th>
+                    <td mat-cell *matCellDef="let user">{{user.phone}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="mobile">
