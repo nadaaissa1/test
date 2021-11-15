@@ -24,7 +24,7 @@
                         Nom est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['last_name'].hasError('minlength')">
-                        Nom doit avoir au maximum 4 caractéres
+                        Nom doit avoir au minimum 4 caractéres
                     </mat-error>    
                     <mat-error *ngIf="form.controls['last_name'].hasError('maxlength')">
                         Nom doit avoir au maximum 8 caractéres
@@ -36,7 +36,7 @@
                     <mat-label>Deuxième nom :</mat-label>
                     <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="middle_name" formControlName="middle_name">
                     <mat-error *ngIf="form.controls['middle_name'].hasError('minlength')">
-                        Deuxième nom doit avoir au maximum 3 caractéres
+                        Deuxième nom doit avoir au minimum 3 caractéres
                     </mat-error>    
                     <mat-error *ngIf="form.controls['middle_name'].hasError('maxlength')">
                         Deuxième nom doit avoir au maximum 6 caractéres
@@ -51,7 +51,7 @@
                         Prénom est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['first_name'].hasError('minlength')">
-                        Prénom doit avoir au maximum 4 caractéres
+                        Prénom doit avoir au minimum 4 caractéres
                     </mat-error>    
                     <mat-error *ngIf="form.controls['first_name'].hasError('maxlength')">
                         Prénom doit avoir au maximum 10 caractéres
@@ -68,7 +68,7 @@
             Nom d'utilisateur est <strong>obligatoire</strong>
         </mat-error>
         <mat-error *ngIf="form.controls['loginName'].hasError('minlength')">
-            Nom d'utilisateur doit avoir au maximum 4 caractéres
+            Nom d'utilisateur doit avoir au minimum 4 caractéres
         </mat-error>    
         <mat-error *ngIf="form.controls['loginName'].hasError('maxlength')">
             Nom d'utilisateur doit avoir au maximum 10 caractéres
@@ -83,7 +83,7 @@
             Mot de passe est <strong>obligatoire</strong>
         </mat-error>
         <mat-error *ngIf="form.controls['userpassword'].hasError('minlength')">
-            Mot de passe doit avoir au maximum 4 caractéres
+            Mot de passe doit avoir au minimum 4 caractéres
         </mat-error>    
         <mat-error *ngIf="form.controls['userpassword'].hasError('maxlength')">
             Mot de passe doit avoir au maximum 20 caractéres
@@ -122,7 +122,7 @@
                         phone est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['phone'].hasError('minlength')">
-                        phone doit avoir au maximum 8 chiffres
+                        phone doit avoir au minimum 8 chiffres
                     </mat-error>    
                     <mat-error *ngIf="form.controls['phone'].hasError('maxlength')">
                         phone doit avoir au maximum 8 chiffres
@@ -137,7 +137,7 @@
                         mobile est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['mobile'].hasError('minlength')">
-                        mobile doit avoir au maximum 8 chiffres
+                        mobile doit avoir au minimum 8 chiffres
                     </mat-error>    
                     <mat-error *ngIf="form.controls['mobile'].hasError('maxlength')">
                         mobile doit avoir au maximum 8 chiffres

@@ -26,7 +26,7 @@ export class UserlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.initDataSource()
+    this.initDataSource();
   }
 
   initDataSource() {

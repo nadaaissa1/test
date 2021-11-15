@@ -16,7 +16,7 @@ export class UserService {
   constructor(private httpclient: HttpClient) { }
 
   // CRUD
-    getUsers(): Observable<UserResponse> {
+  getUsers(): Observable<UserResponse> {
     return this.httpclient.get<UserResponse>(this.apiEndpoint + 'user/all?size=999999&page=0');
   }
 
