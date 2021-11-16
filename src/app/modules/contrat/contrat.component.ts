@@ -5,7 +5,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { tap } from 'rxjs/operators';
-import { AddEditcontratComponent } from './add-editcontrat/add-editcontrat.component';
 
 export interface Contrats {
   title: string;
@@ -49,10 +48,10 @@ export class ContratComponent implements OnInit {
   }
 
   addContrat() {
-    const dialogRef = this.dialog.open(AddEditcontratComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // const dialogRef = this.dialog.open(AddEditcontratComponent);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
   
   

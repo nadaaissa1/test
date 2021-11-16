@@ -56,7 +56,7 @@
                 <ng-container matColumnDef="actions">
                     <th class="w-1/6 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell class="text-center" *matCellDef="let client">
-                        <button title="Modifier" [disabled]="!client.active">
+                        <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
                         <button title="Détails" [disabled]="!client.active">

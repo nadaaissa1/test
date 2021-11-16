@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddclientComponent } from '../addclient/addclient.component';
+import { EditclientComponent } from '../editclient/editclient.component';
 import { ClientModel } from '../models/client.model';
 import { Client, ClientResponse } from '../models/IClientResponse.model';
 import { ClientService } from '../services/client.service';
@@ -20,6 +21,7 @@ export class ClientlistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   clients: Client[];
+  clientToUpdate:ClientModel;
 
   constructor(public dialog: MatDialog, private clientService: ClientService) { }
 
@@ -48,6 +50,30 @@ export class ClientlistComponent implements OnInit {
     const dialogRef = this.dialog.open(AddclientComponent, {
       width: "60%",
       height: "96%"});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.initDataSource();
+    });
+  }
+
+  editClient(client: ClientModel) {
+    this.clientService.getClientById(client.id).subscribe(data => {
+      this.clientToUpdate = data;
+      this.EditModal(this.clientToUpdate);
+    });
+
+   
+
+   
+  }
+
+  EditModal(clientToUpdate: ClientModel) {
+    const dialogRef = this.dialog.open(EditclientComponent, {
+      width: "60%",
+      height: "96%", 
+      data: clientToUpdate
+    });
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       this.initDataSource();
