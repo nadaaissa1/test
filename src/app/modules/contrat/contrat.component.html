@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-auto min-w-0" >
+<div class="flex flex-col flex-auto min-w-0  w-screen" >
     <div class="flex-auto p-6 sm:p-10">
         <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
@@ -20,31 +20,28 @@
             </div>
         </div>
         <div class="mat-elevation-z8 overflow-x-scroll bg-white">
-            <table mat-table matSort [dataSource]="dataSource" class="tableconfig">
+            <table mat-table matSort [dataSource]="dataSource" class="w-full">
+                
                 <ng-container matColumnDef="title">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
                     <td mat-cell *matCellDef="let element">{{element.title}}</td>
                 </ng-container>
+
                 <ng-container matColumnDef="type">
                     <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Type de Contrat</th>
                     <td mat-cell *matCellDef="let element">{{element.type}}</td>
                 </ng-container>
+
                 <ng-container matColumnDef="dureeDuContrat">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Durée du Contrat</th>
                     <td mat-cell *matCellDef="let element">{{element.dureeDuContrat}}</td>
                 </ng-container>
+
                 <ng-container matColumnDef="commercial">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header>Commercial</th>
                     <td mat-cell *matCellDef="let element">{{element.commercial}}</td>
                 </ng-container>
-                <ng-container matColumnDef="note">
-                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
-                    <td mat-cell *matCellDef="let element">{{element.note}}</td>
-                </ng-container>
-                <ng-container matColumnDef="description">
-                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
-                    <td mat-cell *matCellDef="let element">{{element.description}}</td>
-                </ng-container>
+
                 <ng-container matColumnDef="actions">
                     <th class="w-1/6 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell class="text-center" *matCellDef="let element">

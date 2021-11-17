@@ -16,17 +16,13 @@ import { UserService } from './services/user.service';
 })
 export class ContactlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'domain_Name', 'phone', 'mobile', 'account', 'site', 'actions'];
-  // @ViewChild(MatTable) table: MatTable<Users>;
+  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'phone', 'mobile', 'account', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   users: Content[];
   dataSource: any;
+
   constructor(public dialog: MatDialog, private userService: UserService) {
-    this.userService.listen().subscribe((m:any)=>{
-      console.log(m);
-      this.initDataSource();
-    })
   }
 
   ngOnInit(): void {
@@ -51,23 +47,22 @@ export class ContactlistComponent implements OnInit {
   }
 
   addUser() {
-    const dialogRef = this.dialog.open(AdduserComponent);
+    const dialogRef = this.dialog.open(AdduserComponent, {
+      width: "60%",
+      height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.initDataSource();
     });
   }
-  
-  desactivateUser(user: UserModel):void {
+
+  desactivateUser(user: UserModel): void {
     if (user.active == true) {
       this.userService.desactivateUser(user).subscribe(data => {
         console.log('User desactivation' + user);
+        this.initDataSource();
       });
     }
   }
-  
-  // removeUser() {
-  //   this.dataSource.pop();
-  //   this.table.renderRows();
-  // }
 
 }

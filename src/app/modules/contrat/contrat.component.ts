@@ -5,19 +5,16 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { tap } from 'rxjs/operators';
-import { AddEditcontratComponent } from './add-editcontrat/add-editcontrat.component';
 
 export interface Contrats {
   title: string;
   type: string;
   dureeDuContrat: string;
   commercial: string;
-  note: string;
-  description: string;
 }
 
 const ELEMENT_DATA: Contrats[] = [
-  {title: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel', note: 'Une note', description: 'Une description'},
+  {title: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel'},
 ];
 
 @Component({
@@ -33,7 +30,7 @@ export class ContratComponent implements OnInit {
     
   }
 
-  displayedColumns: string[] = ['title', 'type', 'dureeDuContrat', 'commercial', 'note', 'description', 'actions'];
+  displayedColumns: string[] = ['title', 'type', 'dureeDuContrat', 'commercial', 'actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatTable) table: MatTable<Contrats>;
@@ -51,10 +48,10 @@ export class ContratComponent implements OnInit {
   }
 
   addContrat() {
-    const dialogRef = this.dialog.open(AddEditcontratComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // const dialogRef = this.dialog.open(AddEditcontratComponent);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
   
   

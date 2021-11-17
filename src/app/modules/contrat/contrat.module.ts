@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContratComponent } from './contrat.component';
-import { AddEditcontratComponent } from './add-editcontrat/add-editcontrat.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +32,7 @@ import { SharedModule } from 'app/shared/shared.module';
 @NgModule({
   declarations: [
     ContratComponent,
-    AddEditcontratComponent
+
   ],
   imports: [
     CommonModule,
