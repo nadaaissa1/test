@@ -101,4 +101,8 @@ export class UserComponent implements OnInit, OnDestroy
     {
         this._router.navigate(['/profile'])
     }
+    resetPassword(): void
+    {
+        this._router.navigate(['/reset-password'])
+    }
 }
