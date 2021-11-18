@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ProfileComponent } from './profile.component';
 import { Route, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ContactlistModule } from '../contactlist/contactlist.module';
+import { BackOfficeModule } from '../back-office/back-office.module';
 
 const profileRoutes: Route[] = [
   {
@@ -28,6 +29,8 @@ const profileRoutes: Route[] = [
     MatInputModule,
     FormsModule,
     RouterModule.forChild(profileRoutes),
-  ]
+    BackOfficeModule
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProfileModule { }

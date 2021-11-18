@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BackOfficeComponent } from './back-office.component';
 import { RouterModule } from '@angular/router';
 import { ClientlistComponent } from './clientlist/clientlist.component';
@@ -39,10 +39,10 @@ import { EditclientComponent } from './editclient/editclient.component';
     SidebarComponent,
     ListComponent,
     ClientlistComponent,
-    UserlistComponent,
+        UserlistComponent,
     AdduserComponent,
     AddclientComponent,
-    EditclientComponent 
+    EditclientComponent
 
   ],
   imports: [
@@ -71,7 +71,11 @@ import { EditclientComponent } from './editclient/editclient.component';
     MatPaginatorModule,
     MatSortModule,
     FlexLayoutModule,
-    
-  ]
+  ], 
+  exports: [
+    BackOfficeComponent,
+    UserlistComponent
+   ]
+
 })
 export class BackOfficeModule { }
