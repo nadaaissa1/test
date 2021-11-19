@@ -63,9 +63,9 @@
                         <button title="Modifier" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
-                        <button title="Détails" [disabled]="!user.active">
+                        <!-- <button title="Détails" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
-                        </button>
+                        </button> -->
                         <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>

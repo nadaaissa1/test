@@ -59,9 +59,9 @@
                         <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
-                        <button title="Détails" [disabled]="!client.active">
+                        <!-- <button title="Détails" [disabled]="!client.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
-                        </button>
+                        </button> -->
                         <button title="Supprimer" (click)="desactivateClient(client)" [disabled]="!client.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>

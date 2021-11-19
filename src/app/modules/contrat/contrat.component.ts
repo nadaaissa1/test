@@ -5,17 +5,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { tap } from 'rxjs/operators';
-
-export interface Contrats {
-  title: string;
-  type: string;
-  dureeDuContrat: string;
-  commercial: string;
-}
-
-const ELEMENT_DATA: Contrats[] = [
-  {title: 'Contrat IaaS', type: 'POC', dureeDuContrat: '01/02/2020', commercial: 'Amel'},
-];
+import { AddcontratComponent } from './addcontrat/addcontrat.component';
+import { EditcontratComponent } from './editcontrat/editcontrat.component';
+import { ContratModel } from './models/contrat.model';
+import { Contract, ContratResponse } from './models/IContratResponse.model';
+import { ContratService } from './services/contrat.service';
 
 @Component({
   selector: 'app-contrat',
@@ -24,22 +18,29 @@ const ELEMENT_DATA: Contrats[] = [
 })
 export class ContratComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    
-  }
-
-  displayedColumns: string[] = ['title', 'type', 'dureeDuContrat', 'commercial', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-
-  @ViewChild(MatTable) table: MatTable<Contrats>;
+  displayedColumns: string[] = ['title', 'organisation', 'commercial', 'description', 'type', 'startDate', 'endDate', 'actions'];
+  dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  contracts: Contract[];
+  contractToUpdate: ContratModel;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  constructor(public dialog: MatDialog, private contratService: ContratService) { }
+
+  ngOnInit(): void {
+    this.initDataSource();
+  }
+
+  initDataSource() {
+    this.contratService.getContracts().subscribe(
+      (response: ContratResponse) => {
+        this.contracts = response.Contracts;
+        console.log(this.contracts);
+        console.log(this.paginator);
+        this.dataSource = new MatTableDataSource(this.contracts);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;      
+    }); 
   }
 
   applyFilter(event: Event) {
@@ -48,16 +49,47 @@ export class ContratComponent implements OnInit {
   }
 
   addContrat() {
-    // const dialogRef = this.dialog.open(AddEditcontratComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    const dialogRef = this.dialog.open(AddcontratComponent, {
+      width: "60%",
+      height: "96%"});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.initDataSource();
+    });
   }
-  
-  
-  // removeContrat() {
-  //   this.dataSource.pop();
-  //   this.table.renderRows();
-  // }
+
+  editContrat(contract: ContratModel) {
+    console.log(contract);
+    if (!contract)
+    {
+      return;
+    }
+    this.contratService.getContractById(contract.id).subscribe(data => {
+      this.contractToUpdate = data;
+      this.EditModal(this.contractToUpdate);
+    });   
+  }
+
+  EditModal(contractToUpdate: ContratModel) {
+    const dialogRef = this.dialog.open(EditcontratComponent, {
+      width: "60%",
+      height: "96%", 
+      data: contractToUpdate
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.initDataSource();
+    });
+  }
+
+  desactivateContrat(contrat: ContratModel): void {
+    if (contrat.active == true) {
+      this.contratService.desactivateContract(contrat).subscribe(data => {
+        console.log('contrat desactivation' + contrat);
+        this.initDataSource();
+      });
+    }
+  }
 
 }

@@ -3,8 +3,8 @@
 
 <form [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>UID* :</mat-label>
-        <input matInput type="text" name="employeeID" formControlName="employeeID">
+        <mat-label>UID :</mat-label>
+        <input matInput type="text" name="employeeID" formControlName="employeeID" required>
         <mat-error *ngIf="form.controls['employeeID'].hasError('required')">
             UID est <strong>obligatoire</strong>
         </mat-error>
@@ -18,8 +18,8 @@
         <tr>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Nom* :</mat-label>
-                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="last_name" formControlName="last_name">
+                    <mat-label>Nom :</mat-label>
+                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="last_name" formControlName="last_name" required>
                     <mat-error *ngIf="form.controls['last_name'].hasError('required')">
                         Nom est <strong>obligatoire</strong>
                     </mat-error>
@@ -45,8 +45,8 @@
             </td>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Prénom* :</mat-label>
-                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="first_name" formControlName="first_name">
+                    <mat-label>Prénom :</mat-label>
+                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="first_name" formControlName="first_name" required>
                     <mat-error *ngIf="form.controls['first_name'].hasError('required')">
                         Prénom est <strong>obligatoire</strong>
                     </mat-error>
@@ -62,8 +62,8 @@
     </table>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Nom d'utilisateur* :</mat-label>
-        <input matInput type="text" name="loginName" formControlName="loginName">
+        <mat-label>Nom d'utilisateur :</mat-label>
+        <input matInput type="text" name="loginName" formControlName="loginName" required>
         <mat-error *ngIf="form.controls['loginName'].hasError('required')">
             Nom d'utilisateur est <strong>obligatoire</strong>
         </mat-error>
@@ -77,8 +77,8 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Mot de passe* :</mat-label>
-        <input matInput type="password" name="userpassword" formControlName="userpassword">
+        <mat-label>Mot de passe :</mat-label>
+        <input matInput type="password" name="userpassword" formControlName="userpassword" required>
         <mat-error *ngIf="form.controls['userpassword'].hasError('required')">
             Mot de passe est <strong>obligatoire</strong>
         </mat-error>
@@ -92,8 +92,8 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Profession* :</mat-label>
-        <input matInput type="text" name="jobTitle" formControlName="jobTitle">
+        <mat-label>Profession :</mat-label>
+        <input matInput type="text" name="jobTitle" formControlName="jobTitle" required>
         <mat-error *ngIf="form.controls['jobTitle'].hasError('required')">
             Profession est <strong>obligatoire</strong>
         </mat-error>
@@ -101,8 +101,8 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Mail* :</mat-label>
-        <input matInput type="email" name="emailid" formControlName="emailid">
+        <mat-label>Mail :</mat-label>
+        <input matInput type="email" name="emailid" formControlName="emailid" required>
         <mat-error *ngIf="form.controls['emailid'].hasError('required')">
             Mail est <strong>obligatoire</strong>
         </mat-error>
@@ -116,8 +116,8 @@
         <tr>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Fix* :</mat-label>
-                    <input type="number" matInput name="phone" formControlName="phone">
+                    <mat-label>Fix :</mat-label>
+                    <input type="number" matInput name="phone" formControlName="phone" required>
                     <mat-error *ngIf="form.controls['phone'].hasError('required')">
                         phone est <strong>obligatoire</strong>
                     </mat-error>
@@ -131,8 +131,8 @@
             </td>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Téléphone* :</mat-label>
-                    <input type="number" matInput name="mobile" formControlName="mobile">
+                    <mat-label>Téléphone :</mat-label>
+                    <input type="number" matInput name="mobile" formControlName="mobile" required>
                     <mat-error *ngIf="form.controls['mobile'].hasError('required')">
                         mobile est <strong>obligatoire</strong>
                     </mat-error>
@@ -148,8 +148,8 @@
     </table>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Entreprise* :</mat-label>
-        <input matInput type="text" name="account" formControlName="account">
+        <mat-label>Entreprise :</mat-label>
+        <input matInput type="text" name="account" formControlName="account" required>
         <mat-error *ngIf="form.controls['account'].hasError('required')">
             Entreprise est <strong>obligatoire</strong>
         </mat-error>
@@ -157,8 +157,8 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Rôle* :</mat-label>
-        <mat-select name="role" formControlName="role">
+        <mat-label>Rôle :</mat-label>
+        <mat-select name="role" formControlName="role" required>
             <mat-option value="sadmin">SuperAdmin</mat-option>
             <mat-option value="admin">Admin</mat-option>
             <mat-option value="user">User</mat-option>
