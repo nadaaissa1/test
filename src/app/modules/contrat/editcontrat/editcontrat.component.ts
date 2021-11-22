@@ -48,5 +48,4 @@ export class EditcontratComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }

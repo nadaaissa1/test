@@ -52,5 +52,4 @@ export class EditclientComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }
