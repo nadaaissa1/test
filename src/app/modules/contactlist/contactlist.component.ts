@@ -1,9 +1,8 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { AdduserComponent } from './adduser/adduser.component';
 import { Content, UserResponse } from './models/IUserResponse.model';
 import { UserModel } from './models/user.model';
@@ -22,8 +21,7 @@ export class ContactlistComponent implements OnInit {
   users: Content[];
   dataSource: any;
 
-  constructor(public dialog: MatDialog, private userService: UserService) {
-  }
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
     this.initDataSource()
@@ -64,5 +62,4 @@ export class ContactlistComponent implements OnInit {
       });
     }
   }
-
 }

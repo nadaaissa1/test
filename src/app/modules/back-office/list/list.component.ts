@@ -8,19 +8,9 @@ import { BackOfficeComponent } from '../back-office.component';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
-    constructor(
-        public backOfficeomponent: BackOfficeComponent,
-    )
-    {
-    }
+    constructor(public backOfficeomponent: BackOfficeComponent) {}
 
-    ngOnInit(): void
-    {
-        
-    }
+    ngOnInit(): void {}
 
-    ngOnDestroy(): void
-    {
-    }
-
+    ngOnDestroy(): void {}
 }

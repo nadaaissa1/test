@@ -42,16 +42,16 @@
                     <td mat-cell *matCellDef="let client">{{client.user}}</td>
                 </ng-container>
                 <ng-container matColumnDef="firstContactUser">
-                    <th class="w-2/6" mat-header-cell *matHeaderCellDef mat-sort-header >Personne à Contacter</th>
-                    <td mat-cell *matCellDef="let client" >{{client.firstContactUser}}</td>
+                    <th class="w-2/6" mat-header-cell *matHeaderCellDef mat-sort-header>Personne à Contacter</th>
+                    <td mat-cell *matCellDef="let client">{{client.firstContactUser}}</td>
                 </ng-container>
                 <ng-container matColumnDef="firstContactEmail">
-                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header >Mail</th>
-                    <td mat-cell *matCellDef="let client" >{{client.firstContactEmail}}</td>
+                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+                    <td mat-cell *matCellDef="let client">{{client.firstContactEmail}}</td>
                 </ng-container>
                 <ng-container matColumnDef="firstContactPhone">
-                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header >Téléphone</th>
-                    <td mat-cell *matCellDef="let client" >{{client.firstContactPhone}}</td>
+                    <th class="w-1/6" mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
+                    <td mat-cell *matCellDef="let client">{{client.firstContactPhone}}</td>
                 </ng-container>
                 <ng-container matColumnDef="actions">
                     <th class="w-1/6 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
@@ -59,16 +59,14 @@
                         <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
-                        <!-- <button title="Détails" [disabled]="!client.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
-                        </button> -->
                         <button title="Supprimer" (click)="desactivateClient(client)" [disabled]="!client.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>
                     </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
                 aria-label="Select page of periodic elements">

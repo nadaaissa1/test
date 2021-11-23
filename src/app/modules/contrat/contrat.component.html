@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-auto min-w-0  w-screen" >
+<div class="flex flex-col flex-auto min-w-0  w-screen">
     <div class="flex-auto p-6 sm:p-10">
         <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
@@ -21,7 +21,7 @@
         </div>
         <div class="mat-elevation-z8 overflow-x-scroll bg-white">
             <table mat-table matSort [dataSource]="dataSource" class="w-full">
-                
+
                 <ng-container matColumnDef="title">
                     <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
                     <td mat-cell *matCellDef="let contract">{{contract.title}}</td>
@@ -41,7 +41,7 @@
                     <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
                     <td mat-cell *matCellDef="let contract">{{contract.description}}</td>
                 </ng-container>
-           
+
                 <ng-container matColumnDef="type">
                     <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Type de Contrat</th>
                     <td mat-cell *matCellDef="let contract">{{contract.type}}</td>
@@ -63,16 +63,14 @@
                         <button title="Modifier" (click)="editContrat(contract)" [disabled]="!contract.active">
                             <mat-icon [svgIcon]="'heroicons_solid:document-add'"></mat-icon>
                         </button>
-                        <!-- <button title="Détails">
-                            <mat-icon [svgIcon]="'heroicons_solid:document'"></mat-icon>
-                        </button> -->
                         <button title="Supprimer" (click)="desactivateContrat(contract)" [disabled]="!contract.active">
                             <mat-icon [svgIcon]="'heroicons_solid:document-remove'"></mat-icon>
                         </button>
                     </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
                 aria-label="Select page of periodic elements">

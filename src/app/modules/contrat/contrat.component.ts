@@ -1,10 +1,8 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { tap } from 'rxjs/operators';
+import { MatTableDataSource } from '@angular/material/table';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
 import { EditcontratComponent } from './editcontrat/editcontrat.component';
 import { ContratModel } from './models/contrat.model';
@@ -25,7 +23,7 @@ export class ContratComponent implements OnInit {
   contracts: Contract[];
   contractToUpdate: ContratModel;
 
-  constructor(public dialog: MatDialog, private contratService: ContratService) { }
+  constructor(public dialog: MatDialog, private contratService: ContratService) {}
 
   ngOnInit(): void {
     this.initDataSource();
@@ -91,5 +89,4 @@ export class ContratComponent implements OnInit {
       });
     }
   }
-
 }

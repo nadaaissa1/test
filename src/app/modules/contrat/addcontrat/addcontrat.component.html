@@ -22,13 +22,14 @@
 
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Manager Commercial :</mat-label>
-        <input matInput type="text" name="commercialName" formControlName="commercialName" onkeypress="return /[a-z]/i.test(event.key)" required>
+        <input matInput type="text" name="commercialName" formControlName="commercialName"
+            onkeypress="return /[a-z]/i.test(event.key)" required>
         <mat-error *ngIf="form.controls['commercialName'].hasError('required')">
             Manager Commercial est <strong>obligatoire</strong>
         </mat-error>
     </mat-form-field>
     <br>
-    
+
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Description :</mat-label>
         <input matInput type="text" name="description" formControlName="description" required>

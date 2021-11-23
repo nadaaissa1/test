@@ -15,12 +15,11 @@ export class EditcontratComponent implements OnInit {
   contrat: ContratModel = new ContratModel();
 
   constructor(private dialogRef: MatDialogRef<EditcontratComponent>, private fb: FormBuilder, private contratService: ContratService,
-    @Inject(MAT_DIALOG_DATA) public data: ContratModel,) {
+    @Inject(MAT_DIALOG_DATA) public data: ContratModel) {
       console.log('Contract data', data);
      }
 
   ngOnInit(): void {
-
     this.form = this.fb.group({
       id:[this.data.id],
       title: [this.data.title, Validators.required],

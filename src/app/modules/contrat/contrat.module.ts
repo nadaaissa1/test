@@ -28,20 +28,15 @@ import { SharedModule } from 'app/shared/shared.module';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
 import { EditcontratComponent } from './editcontrat/editcontrat.component';
 
-
-
-
 @NgModule({
   declarations: [
     ContratComponent,
     AddcontratComponent,
-    EditcontratComponent,
-
+    EditcontratComponent
   ],
   imports: [
     CommonModule,
     MatTableModule,
-    MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -50,7 +45,6 @@ import { EditcontratComponent } from './editcontrat/editcontrat.component';
     MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
-    MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
     MatProgressBarModule,
@@ -64,14 +58,8 @@ import { EditcontratComponent } from './editcontrat/editcontrat.component';
     MatPaginatorModule,
     MatSortModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatDialogModule,
     MatDatepickerModule,
-    MatMomentDateModule,  
-    MatSelectModule
+    MatMomentDateModule
   ],
   exports: [
     ContratComponent

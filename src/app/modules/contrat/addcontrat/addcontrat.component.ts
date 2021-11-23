@@ -14,10 +14,9 @@ export class AddcontratComponent implements OnInit {
   form: FormGroup;
   contrat: ContratModel = new ContratModel();
 
-  constructor(private dialogRef: MatDialogRef<AddcontratComponent>, private fb: FormBuilder, private contratService: ContratService) { }
+  constructor(private dialogRef: MatDialogRef<AddcontratComponent>, private fb: FormBuilder, private contratService: ContratService) {}
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
     this.form = this.fb.group({
       title: ['', Validators.required],
       clientOrganisation: ['', Validators.required],
@@ -43,5 +42,4 @@ export class AddcontratComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }

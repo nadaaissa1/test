@@ -1,10 +1,5 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PortalServicesComponent } from '../portalservices.component';
-import { PortalServicesService } from '../portalservices.service';
-import { MailCategory, PortalServices } from '../portalservices.types';
-
 
 @Component({
     selector     : 'portalservices-list',
@@ -13,18 +8,9 @@ import { MailCategory, PortalServices } from '../portalservices.types';
 export class PortalServicesListComponent implements OnInit, OnDestroy
 {
 
-    constructor(
-        public portalservicesComponent: PortalServicesComponent,
-    )
-    {
-    }
+    constructor(public portalservicesComponent: PortalServicesComponent) {}
 
-    ngOnInit(): void
-    {
-        
-    }
+    ngOnInit(): void {}
 
-    ngOnDestroy(): void
-    {
-    }
+    ngOnDestroy(): void {}
 }

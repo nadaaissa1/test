@@ -63,9 +63,6 @@
                         <button title="Modifier" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
-                        <!-- <button title="Détails" [disabled]="!user.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
-                        </button> -->
                         <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>
@@ -73,9 +70,10 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
             </table>
-            <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky 
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky
                 aria-label="Select page of periodic elements">
             </mat-paginator>
         </div>

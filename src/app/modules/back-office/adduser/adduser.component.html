@@ -19,25 +19,27 @@
             <td>
                 <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Nom :</mat-label>
-                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="last_name" formControlName="last_name" required>
+                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="last_name"
+                        formControlName="last_name" required>
                     <mat-error *ngIf="form.controls['last_name'].hasError('required')">
                         Nom est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['last_name'].hasError('minlength')">
                         Nom doit avoir au minimum 4 caractéres
-                    </mat-error>    
+                    </mat-error>
                     <mat-error *ngIf="form.controls['last_name'].hasError('maxlength')">
                         Nom doit avoir au maximum 8 caractéres
-                    </mat-error>    
+                    </mat-error>
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Deuxième nom :</mat-label>
-                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="middle_name" formControlName="middle_name">
+                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="middle_name"
+                        formControlName="middle_name">
                     <mat-error *ngIf="form.controls['middle_name'].hasError('minlength')">
                         Deuxième nom doit avoir au minimum 3 caractéres
-                    </mat-error>    
+                    </mat-error>
                     <mat-error *ngIf="form.controls['middle_name'].hasError('maxlength')">
                         Deuxième nom doit avoir au maximum 6 caractéres
                     </mat-error>
@@ -46,16 +48,17 @@
             <td>
                 <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Prénom :</mat-label>
-                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="first_name" formControlName="first_name" required>
+                    <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="first_name"
+                        formControlName="first_name" required>
                     <mat-error *ngIf="form.controls['first_name'].hasError('required')">
                         Prénom est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['first_name'].hasError('minlength')">
                         Prénom doit avoir au minimum 4 caractéres
-                    </mat-error>    
+                    </mat-error>
                     <mat-error *ngIf="form.controls['first_name'].hasError('maxlength')">
                         Prénom doit avoir au maximum 10 caractéres
-                    </mat-error> 
+                    </mat-error>
                 </mat-form-field>
             </td>
         </tr>
@@ -69,10 +72,10 @@
         </mat-error>
         <mat-error *ngIf="form.controls['loginName'].hasError('minlength')">
             Nom d'utilisateur doit avoir au minimum 4 caractéres
-        </mat-error>    
+        </mat-error>
         <mat-error *ngIf="form.controls['loginName'].hasError('maxlength')">
             Nom d'utilisateur doit avoir au maximum 10 caractéres
-        </mat-error> 
+        </mat-error>
     </mat-form-field>
     <br>
 
@@ -84,7 +87,7 @@
         </mat-error>
         <mat-error *ngIf="form.controls['userpassword'].hasError('minlength')">
             Mot de passe doit avoir au minimum 4 caractéres
-        </mat-error>    
+        </mat-error>
         <mat-error *ngIf="form.controls['userpassword'].hasError('maxlength')">
             Mot de passe doit avoir au maximum 20 caractéres
         </mat-error>
@@ -123,7 +126,7 @@
                     </mat-error>
                     <mat-error *ngIf="form.controls['phone'].hasError('minlength')">
                         phone doit avoir au minimum 8 chiffres
-                    </mat-error>    
+                    </mat-error>
                     <mat-error *ngIf="form.controls['phone'].hasError('maxlength')">
                         phone doit avoir au maximum 8 chiffres
                     </mat-error>
@@ -138,7 +141,7 @@
                     </mat-error>
                     <mat-error *ngIf="form.controls['mobile'].hasError('minlength')">
                         mobile doit avoir au minimum 8 chiffres
-                    </mat-error>    
+                    </mat-error>
                     <mat-error *ngIf="form.controls['mobile'].hasError('maxlength')">
                         mobile doit avoir au maximum 8 chiffres
                     </mat-error>
@@ -172,4 +175,5 @@
 <br><br>
 
 <button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white" (click)="close()">Fermer</button>
-<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()" [disabled]="form.invalid">Enregistrer</button>
+<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()"
+    [disabled]="form.invalid">Enregistrer</button>
