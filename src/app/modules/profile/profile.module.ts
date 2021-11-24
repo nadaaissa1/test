@@ -33,4 +33,5 @@ const profileRoutes: Route[] = [
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ProfileModule { }
+
+export class ProfileModule {}

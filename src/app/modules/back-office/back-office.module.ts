@@ -39,7 +39,7 @@ import { EditclientComponent } from './editclient/editclient.component';
     SidebarComponent,
     ListComponent,
     ClientlistComponent,
-        UserlistComponent,
+    UserlistComponent,
     AdduserComponent,
     AddclientComponent,
     EditclientComponent
@@ -53,7 +53,6 @@ import { EditclientComponent } from './editclient/editclient.component';
     MatButtonModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -70,7 +69,7 @@ import { EditclientComponent } from './editclient/editclient.component';
     SharedModule,
     MatPaginatorModule,
     MatSortModule,
-    FlexLayoutModule,
+    FlexLayoutModule
   ], 
   exports: [
     BackOfficeComponent,

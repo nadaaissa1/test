@@ -54,15 +54,18 @@ export class AuthResetPasswordComponent implements OnInit
                 
                 this.resetToken = params['token']
                 console.log(this.resetToken)
-                this.resetPasswordForm = this._formBuilder.group({
-                password       : ['', Validators.required],
-                passwordConfirm: ['', Validators.required]
-            },
-            {
-                validators: FuseValidators.mustMatch('password', 'passwordConfirm')
-            }
-        );
-        this.forgotPasswordPage = true;}
+                if(this.resetToken.length>0){
+                    this.resetPasswordForm = this._formBuilder.group({
+                        password       : ['', Validators.required],
+                        passwordConfirm: ['', Validators.required]
+                    },
+                    {
+                        validators: FuseValidators.mustMatch('password', 'passwordConfirm')
+                    }
+                );
+                this.forgotPasswordPage = true;
+                }
+               }
         );
             if(! this.forgotPasswordPage){
                 this.resetPasswordForm = this._formBuilder.group({

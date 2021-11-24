@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactlistComponent } from './contactlist.component';
 import { MatTableModule } from '@angular/material/table';
-import { PubComponent } from '../pub/pub.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,7 +23,6 @@ import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
 import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { AdduserComponent } from './adduser/adduser.component';
 
 @NgModule({
@@ -62,4 +60,5 @@ import { AdduserComponent } from './adduser/adduser.component';
     ContactlistComponent
   ]
 })
+
 export class ContactlistModule { }

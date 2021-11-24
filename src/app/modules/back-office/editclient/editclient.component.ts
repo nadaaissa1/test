@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { ClientModel } from '../models/client.model';
 import { ClientService } from '../services/client.service';
 
@@ -25,14 +24,13 @@ export class EditclientComponent implements OnInit {
      }
 
   ngOnInit(): void {
-
     this.form = this.fb.group({
       id:[this.data.id],
       organisation: [this.data.organisation , Validators.required],
       tradeName: [this.data.tradeName, Validators.required],
       address: [this.data.address, Validators.required],
       sector: [this.data.sector, Validators.required],
-      accountManager: [this.data.accountManager, Validators.required],
+      accountManager: [this.data.user, Validators.required],
       firstContactUser: [this.data.firstContactUser, Validators.required],
       firstContactEmail: [this.data.firstContactEmail, [Validators.required, Validators.email]],
       firstContactPhone: [this.data.firstContactPhone, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]]      
@@ -53,5 +51,4 @@ export class EditclientComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }

@@ -4,26 +4,32 @@
             <mat-tab-group animationDuration="0ms">
                 <mat-tab label="VMWare">
                     <div>
-                        <quill-editor [modules]="editorModules" (onEditorChanged)="changedEditorVMWare($event)"></quill-editor>
+                        <quill-editor [modules]="editorModules" (onEditorChanged)="changedEditorVMWare($event)">
+                        </quill-editor>
                     </div>
                     <p [innerHTML]="iaasVMWareText"></p>
                     <div class="grid custom-xlg:grid-cols-4 place-items-end h-15">
                         <div></div>
                         <div></div>
-                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="nouveaubutton" type="button" value="Commander un nouveau service">
-                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="modifierbutton" type="button" value="Modifier une commande">
-                    </div> 
+                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+                            id="nouveaubutton" type="button" value="Commander un nouveau service">
+                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+                            id="modifierbutton" type="button" value="Modifier une commande">
+                    </div>
                 </mat-tab>
                 <mat-tab label="HyperV">
                     <div>
-                        <quill-editor [modules]="editorModules" (onEditorChanged)="changedEditorHyperV($event)"></quill-editor>
+                        <quill-editor [modules]="editorModules" (onEditorChanged)="changedEditorHyperV($event)">
+                        </quill-editor>
                     </div>
                     <p [innerHTML]="iaasHyperVText"></p>
                     <div class="grid grid-cols-4 place-items-end h-15">
                         <input type="button">
                         <input type="button">
-                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="nouveaubutton" type="button" value="Commander un nouveau service">
-                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" id="modifierbutton" type="button" value="Modifier une commande">
+                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+                            id="nouveaubutton" type="button" value="Commander un nouveau service">
+                        <input class="bg-amber-700 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+                            id="modifierbutton" type="button" value="Modifier une commande">
                     </div>
                 </mat-tab>
             </mat-tab-group>

@@ -11,11 +11,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    SharedModule,
+    SharedModule
   ],
   exports: [
-    PubComponent,
-    
+    PubComponent
   ]
 })
-export class PubModule { }
+
+export class PubModule {}

@@ -10,10 +10,9 @@ export class DraasComponent implements OnInit {
   draasVMWareText ='';
   draasHyperVText ='';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changedEditorVMWare(event: EditorChangeContent | EditorChangeSelection) {
     this.draasVMWareText = event['editor']['root']['innerHTML'];
@@ -25,23 +24,23 @@ export class DraasComponent implements OnInit {
 
   editorModules = {
     toolbar: [
-      ['bold', 'italic', 'underline', 'strike'],      
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       ['blockquote', 'code-block'],
     
-      [{ 'header': 1 }, { 'header': 2 }],              
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],     
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          
-      [{ 'direction': 'rtl' }],                        
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
     
-      [{ 'size': ['small', false, 'large', 'huge'] }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
     
-      [{ 'color': [] }, { 'background': [] }],     
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
     
-      ['clean']                                         
+      ['clean']                                         // remove formatting button
     ]
   };
 

@@ -18,9 +18,7 @@ export class BackOfficeComponent implements OnInit, OnDestroy {
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     lists: any[];
 
-    constructor(private _fuseMediaWatcherService: FuseMediaWatcherService)
-    {
-    }
+    constructor(private _fuseMediaWatcherService: FuseMediaWatcherService) {}
 
     ngOnInit(): void
     {
@@ -39,10 +37,6 @@ export class BackOfficeComponent implements OnInit, OnDestroy {
                 }
             });
     }
-    ngOnDestroy(): void
-    {
-        // this._unsubscribeAll.next();
-        // this._unsubscribeAll.complete();
-    }
 
+    ngOnDestroy(): void {}
 }

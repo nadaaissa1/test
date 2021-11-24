@@ -16,8 +16,7 @@ export class AddclientComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<AddclientComponent>, private fb: FormBuilder, private clientService: ClientService) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
     this.form = this.fb.group({
       organisation: ['', Validators.required],
       tradeName: ['', Validators.required],
@@ -44,5 +43,4 @@ export class AddclientComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }

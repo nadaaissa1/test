@@ -60,11 +60,7 @@ export class ClientlistComponent implements OnInit {
     this.clientService.getClientById(client.id).subscribe(data => {
       this.clientToUpdate = data;
       this.EditModal(this.clientToUpdate);
-    });
-
-   
-
-   
+    });   
   }
 
   EditModal(clientToUpdate: ClientModel) {
