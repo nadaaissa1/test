@@ -21,6 +21,6 @@ export class UserModel {
     userpassword: string;
     isVIPUser: Boolean;
     landline: string;
-    roles: RoleModel[];
+    role: RoleModel[];
     active: Boolean; 
   }

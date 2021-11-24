@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-auto min-w-0">
+<div class="flex flex-col flex-auto min-w-0 w-screen">
     <div class="flex-auto p-6 sm:p-10" fxLayout="column">
         <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
@@ -20,72 +20,60 @@
             </div>
         </div>
         <div class="mat-elevation-z8 overflow-x-scroll bg-white" fxLayout="column">
-            <table mat-table matSort [dataSource]="dataSource" class="tableconfig">
+            <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
                 <ng-container matColumnDef="employeeID">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
                     <td mat-cell *matCellDef="let user">{{user.employeeID}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                     <td mat-cell *matCellDef="let user">{{user.name}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="jobTitle">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Profession</th>
+                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Profession</th>
                     <td mat-cell *matCellDef="let user">{{user.jobTitle}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="emailid">
-                    <th class="w-4/12" mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+                    <th class="w-3/12" mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
                     <td mat-cell *matCellDef="let user">{{user.emailid}}</td>
                 </ng-container>
 
-                <ng-container matColumnDef="domain_Name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Domaine</th>
-                    <td mat-cell *matCellDef="let user">{{user.domain_Name}}</td>
-                </ng-container>
-
                 <ng-container matColumnDef="phone">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fix</th>
+                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Fix</th>
                     <td mat-cell *matCellDef="let user">{{user.phone}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="mobile">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
+                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
                     <td mat-cell *matCellDef="let user">{{user.mobile}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="account">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Entreprise</th>
+                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Entreprise</th>
                     <td mat-cell *matCellDef="let user">{{user.account}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="site">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Site</th>
-                    <td mat-cell *matCellDef="let user">{{user.site}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="actions">
                     <th class="w-2/12 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
                     <td mat-cell class="text-center" *matCellDef="let user">
-                        <button title="Modifier">
+                        <button title="Modifier" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
                         </button>
-                        <button title="Détails">
-                            <mat-icon [svgIcon]="'heroicons_solid:user'"></mat-icon>
-                        </button>
-                        <button title="Supprimer" (click)="desactivateUser(user)">
+                        <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
                             <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
                         </button>
                     </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
             </table>
-            <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky 
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky
                 aria-label="Select page of periodic elements">
             </mat-paginator>
         </div>

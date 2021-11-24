@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContactComponent } from './contact.component';
 import { Route, RouterModule } from '@angular/router';
 
@@ -18,4 +17,5 @@ const contactRoutes: Route[] = [
     RouterModule.forChild(contactRoutes)
   ]
 })
+
 export class ContactModule { }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContratComponent } from './contrat.component';
-import { AddEditcontratComponent } from './add-editcontrat/add-editcontrat.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,19 +25,18 @@ import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
 import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
-
-
-
+import { AddcontratComponent } from './addcontrat/addcontrat.component';
+import { EditcontratComponent } from './editcontrat/editcontrat.component';
 
 @NgModule({
   declarations: [
     ContratComponent,
-    AddEditcontratComponent
+    AddcontratComponent,
+    EditcontratComponent
   ],
   imports: [
     CommonModule,
     MatTableModule,
-    MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -47,7 +45,6 @@ import { SharedModule } from 'app/shared/shared.module';
     MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
-    MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
     MatProgressBarModule,
@@ -61,14 +58,8 @@ import { SharedModule } from 'app/shared/shared.module';
     MatPaginatorModule,
     MatSortModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatDialogModule,
     MatDatepickerModule,
-    MatMomentDateModule,  
-    MatSelectModule
+    MatMomentDateModule
   ],
   exports: [
     ContratComponent

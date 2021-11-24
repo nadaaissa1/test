@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UserResponse } from '../models/IUserResponse.model';
 import { UserModel } from '../models/user.model';
 
@@ -11,11 +11,9 @@ import { UserModel } from '../models/user.model';
 export class UserService {
 
   private readonly apiEndpoint = environment.ManageEngineEndPoint;
-  private listners = new Subject<any>();
 
   constructor(private httpclient: HttpClient) { }
 
-  // CRUD
   // CRUD
   getUsers(): Observable<UserResponse> {
     return this.httpclient.get<UserResponse>(this.apiEndpoint + 'user/all?size=999999&page=0');
@@ -33,10 +31,4 @@ export class UserService {
     return this.httpclient.put<UserModel>(this.apiEndpoint + 'user/' + user.id + '/deactivate', user);
   }
 
-  listen(): Observable<any> {
-    return this.listners.asObservable();
-  }
-  filter(filterBy: string) {
-    this.listners.next(filterBy);
-  }
 }

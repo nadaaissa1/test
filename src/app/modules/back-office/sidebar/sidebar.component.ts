@@ -9,20 +9,18 @@ import { backofficemenudata } from './back-officemenudata';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit, OnDestroy {
+    
     menuData: FuseNavigationItem[] = [];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     constructor() {}
 
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         this.menuData = backofficemenudata;
     }
 
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
-
 }

@@ -1,9 +1,8 @@
-import { DataSource } from '@angular/cdk/collections';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource, MatTable } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { AdduserComponent } from '../adduser/adduser.component';
 import { Content, UserResponse } from '../models/IUserResponse.model';
 import { UserModel } from '../models/user.model';
@@ -16,21 +15,16 @@ import { UserService } from '../services/user.service';
 })
 export class UserlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'domain_Name', 'phone', 'mobile', 'account', 'site', 'actions'];
-  // @ViewChild(MatTable) table: MatTable<Users>;
+  displayedColumns: string[] = ['employeeID', 'name', 'jobTitle', 'emailid', 'phone', 'mobile', 'account', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   users: Content[];
   dataSource: any;
-  constructor(public dialog: MatDialog, private userService: UserService) {
-    this.userService.listen().subscribe((m:any)=>{
-      console.log(m);
-      this.initDataSource();
-    })
-  }
+
+  constructor(public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.initDataSource()
+    this.initDataSource();
   }
 
   initDataSource() {
@@ -51,24 +45,21 @@ export class UserlistComponent implements OnInit {
   }
 
   addUser() {
-    const dialogRef = this.dialog.open(AdduserComponent);
+    const dialogRef = this.dialog.open(AdduserComponent, {
+      width: "60%",
+      height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.initDataSource();
     });
   }
 
-  desactivateUser(user: UserModel):void {
+  desactivateUser(user: UserModel): void {
     if (user.active == true) {
       this.userService.desactivateUser(user).subscribe(data => {
         console.log('User desactivation' + user);
+        this.initDataSource();
       });
     }
   }
-  
-  
-  // removeUser() {
-  //   this.dataSource.pop();
-  //   this.table.renderRows();
-  // }
-
 }

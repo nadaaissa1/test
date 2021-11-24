@@ -3,8 +3,6 @@ import { BackOfficeComponent } from './back-office.component';
 import { RouterModule } from '@angular/router';
 import { ClientlistComponent } from './clientlist/clientlist.component';
 import { MatTableModule } from '@angular/material/table';
-import { ContactlistModule } from '../contactlist/contactlist.module';
-import { AddEditclientComponent } from './add-editclient/add-editclient.component';
 import { ContratModule } from '../contrat/contrat.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +30,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserlistComponent } from './userlist/userlist.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { AddclientComponent } from './addclient/addclient.component';
+import { EditclientComponent } from './editclient/editclient.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +39,10 @@ import { AdduserComponent } from './adduser/adduser.component';
     SidebarComponent,
     ListComponent,
     ClientlistComponent,
-    AddEditclientComponent,
     UserlistComponent,
-    AdduserComponent 
-
+    AdduserComponent,
+    AddclientComponent,
+    EditclientComponent
   ],
   imports: [
     MatTableModule,
@@ -51,9 +51,7 @@ import { AdduserComponent } from './adduser/adduser.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatDialogModule,
     MatDividerModule,
-    MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -70,8 +68,7 @@ import { AdduserComponent } from './adduser/adduser.component';
     SharedModule,
     MatPaginatorModule,
     MatSortModule,
-    FlexLayoutModule,
-    
+    FlexLayoutModule 
   ]
 })
 export class BackOfficeModule { }

@@ -58,10 +58,9 @@ import {MatTabsModule} from '@angular/material/tabs';
         FuseScrollResetModule,
         SharedModule,
         RouterModule.forChild(PortalServicesRoutes),
-        QuillModule.forRoot(),
+        QuillModule.forRoot()
     ],
     entryComponents:[PortalServicesComponent]
 })
-export class PortalServicesModule
-{
-}
+
+export class PortalServicesModule {}

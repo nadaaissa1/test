@@ -1,45 +1,44 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { AddEditclientComponent } from '../add-editclient/add-editclient.component';
-
-export interface Clients {
-  organization: string;
-  socialReason: string;
-  adress: string;
-  domain: string;
-}
-
-const ELEMENT_DATA: Clients[] = [
-  {organization : 'TT', socialReason: 'SARL', adress: 'Rue Lac Tchad - 1053 Berges du Lac - Tunis', domain: 'Telco'},
-  {organization: 'Orange', socialReason: 'SA', adress: 'Rue de la Feuille d’Érable Résidence La Merveille du Lac Cité les Pins Lac 2 1053 Tunis, Tunisie', domain: 'Telco'},
-];
+import { MatTableDataSource } from '@angular/material/table';
+import { AddclientComponent } from '../addclient/addclient.component';
+import { EditclientComponent } from '../editclient/editclient.component';
+import { ClientModel } from '../models/client.model';
+import { Client, ClientResponse } from '../models/IClientResponse.model';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-clientlist',
   templateUrl: './clientlist.component.html',
   styleUrls: ['./clientlist.component.scss']
 })
-export class ClientlistComponent implements OnInit, AfterViewInit {
+export class ClientlistComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    
-  }
-
-  displayedColumns: string[] = ['organization', 'socialReason', 'adress', 'domain', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-
-  @ViewChild(MatTable) table: MatTable<Clients>;
+  displayedColumns: string[] = ['organisation', 'tradeName', 'address', 'sector', 'user', 'firstContactUser', 'firstContactEmail', 'firstContactPhone', 'actions'];
+  dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  clients: Client[];
+  clientToUpdate:ClientModel;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  constructor(public dialog: MatDialog, private clientService: ClientService) { }
+
+  ngOnInit(): void {
+    this.initDataSource();
+  }
+
+  initDataSource() {
+    this.clientService.getClients().subscribe(
+      (response: ClientResponse) => {
+        this.clients = response.Clients;
+        console.log(this.clients);
+        console.log(this.paginator);
+        this.dataSource = new MatTableDataSource(this.clients);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;      
+    }); 
   }
 
   applyFilter(event: Event) {
@@ -48,15 +47,41 @@ export class ClientlistComponent implements OnInit, AfterViewInit {
   }
 
   addClient() {
-    const dialogRef = this.dialog.open(AddEditclientComponent);
+    const dialogRef = this.dialog.open(AddclientComponent, {
+      width: "60%",
+      height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.initDataSource();
     });
   }
-  
-  // removeclient() {
-  //   this.dataSource.pop();
-  //   this.table.renderRows();
-  // }
 
+  editClient(client: ClientModel) {
+    this.clientService.getClientById(client.id).subscribe(data => {
+      this.clientToUpdate = data;
+      this.EditModal(this.clientToUpdate);
+    });   
+  }
+
+  EditModal(clientToUpdate: ClientModel) {
+    const dialogRef = this.dialog.open(EditclientComponent, {
+      width: "60%",
+      height: "96%", 
+      data: clientToUpdate
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.initDataSource();
+    });
+  }
+
+  desactivateClient(client: ClientModel): void {
+    if (client.active == true) {
+      this.clientService.desactivateClient(client).subscribe(data => {
+        console.log('client desactivation' + client);
+        this.initDataSource();
+      });
+    }
+  }
 }

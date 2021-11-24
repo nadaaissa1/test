@@ -13,7 +13,6 @@ const dashboardRoutes: Route[] = [
   }
 ];
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
