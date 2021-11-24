@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PubComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   imageObject: Array<object> = [
     {
@@ -26,5 +25,4 @@ export class PubComponent implements OnInit {
       thumbImage: '../../../assets/ImageSlider3.png',
     }
   ];
-
 }

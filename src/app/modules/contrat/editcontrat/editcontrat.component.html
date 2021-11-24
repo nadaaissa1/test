@@ -1,0 +1,78 @@
+<h2>Modifier un Contrat</h2>
+<br>
+<br>
+
+<form [formGroup]="form">
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Titre :</mat-label>
+        <input matInput type="text" name="title" formControlName="title" required>
+        <mat-error *ngIf="form.controls['title'].hasError('required')">
+            Titre est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Organisation :</mat-label>
+        <input matInput type="text" name="clientOrganisation" formControlName="clientOrganisation" required>
+        <mat-error *ngIf="form.controls['clientOrganisation'].hasError('required')">
+            Organisation est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Manager Commercial :</mat-label>
+        <input matInput type="text" name="commercialName" formControlName="commercialName"
+            onkeypress="return /[a-z]/i.test(event.key)" required>
+        <mat-error *ngIf="form.controls['commercialName'].hasError('required')">
+            Manager Commercial est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Description :</mat-label>
+        <input matInput type="text" name="description" formControlName="description" required>
+        <mat-error *ngIf="form.controls['description'].hasError('required')">
+            Description est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Type de Contrat :</mat-label>
+        <input matInput type="text" name="type" formControlName="type" required>
+        <mat-error *ngIf="form.controls['type'].hasError('required')">
+            Type de Contrat est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Date Début :</mat-label>
+        <input matInput [matDatepicker]="pickerD" name="start_date" formControlName="start_date" required />
+        <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
+        <mat-datepicker #pickerD></mat-datepicker>
+        <mat-error *ngIf="form.controls['start_date'].hasError('required')">
+            Date Début est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Date Fin :</mat-label>
+        <input matInput [matDatepicker]="pickerF" name="end_date" formControlName="end_date" required />
+        <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
+        <mat-datepicker #pickerF></mat-datepicker>
+        <mat-error *ngIf="form.controls['end_date'].hasError('required')">
+            Date Fin est <strong>obligatoire</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+</form>
+<br><br>
+
+<button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white" (click)="close()">Fermer</button>
+<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()"
+    [disabled]="form.invalid">Enregistrer</button>

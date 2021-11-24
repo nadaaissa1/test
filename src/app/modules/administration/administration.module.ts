@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AdministrationComponent } from './administration.component';
 import { Route, RouterModule } from '@angular/router';
 

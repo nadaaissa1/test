@@ -9,21 +9,19 @@ import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
     templateUrl  : './portalservices.component.html',
     encapsulation: ViewEncapsulation.None
 })
+
 export class PortalServicesComponent implements OnInit, OnDestroy
 {
-    @ViewChild('drawer') drawer: MatDrawer;
 
+    @ViewChild('drawer') drawer: MatDrawer;
     drawerMode: 'over' | 'side' = 'side';
     drawerOpened: boolean = true;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     lists: any[];
 
-    constructor(private _fuseMediaWatcherService: FuseMediaWatcherService)
-    {
-    }
+    constructor(private _fuseMediaWatcherService: FuseMediaWatcherService) {}
 
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) => {
@@ -39,6 +37,7 @@ export class PortalServicesComponent implements OnInit, OnDestroy
                 }
             });
     }
+
     ngOnDestroy(): void
     {}
 }

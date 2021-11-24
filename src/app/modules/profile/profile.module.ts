@@ -30,4 +30,5 @@ const profileRoutes: Route[] = [
     RouterModule.forChild(profileRoutes),
   ]
 })
-export class ProfileModule { }
+
+export class ProfileModule {}

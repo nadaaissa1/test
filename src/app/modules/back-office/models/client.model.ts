@@ -5,7 +5,7 @@ export class ClientModel {
     tradeName: string;
     address: string;
     sector: string;
-    accountManager: string; //manager-commercial
+    user: string; //manager-commercial
     firstContactUser: string;
     firstContactEmail: string;
     firstContactPhone: string;

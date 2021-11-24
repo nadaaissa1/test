@@ -10,10 +10,9 @@ export class BaasoncloudComponent implements OnInit {
   baasOnCloudVMWareText ='';
   baasOnCloudHyperVText ='';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changedEditorVMWare(event: EditorChangeContent | EditorChangeSelection) {
     this.baasOnCloudVMWareText = event['editor']['root']['innerHTML'];
