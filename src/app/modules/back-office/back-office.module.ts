@@ -73,7 +73,8 @@ import { EditclientComponent } from './editclient/editclient.component';
   ], 
   exports: [
     BackOfficeComponent,
-    UserlistComponent
+    UserlistComponent,
+    ClientlistComponent
    ]
 
 })

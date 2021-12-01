@@ -12,18 +12,21 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Organisation :</mat-label>
-        <input matInput type="text" name="clientOrganisation" formControlName="clientOrganisation" required>
+        <mat-label>Client :</mat-label>
+        <mat-select name="clientOrganisation" formControlName="clientOrganisation" required>
+            <mat-option *ngFor="let client of clients" value="{{client.organisation}}">{{client.organisation}}</mat-option>
+        </mat-select>
         <mat-error *ngIf="form.controls['clientOrganisation'].hasError('required')">
-            Organisation est <strong>obligatoire</strong>
+            Client est <strong>obligatoire</strong>
         </mat-error>
     </mat-form-field>
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Manager Commercial :</mat-label>
-        <input matInput type="text" name="commercialName" formControlName="commercialName"
-            onkeypress="return /[a-z]/i.test(event.key)" required>
+        <mat-select name="commercialName" formControlName="commercialName" required>
+            <mat-option *ngFor="let user of users" value="{{user.name}}">{{user.name}}</mat-option>
+        </mat-select>
         <mat-error *ngIf="form.controls['commercialName'].hasError('required')">
             Manager Commercial est <strong>obligatoire</strong>
         </mat-error>
@@ -41,7 +44,12 @@
 
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Type de Contrat :</mat-label>
-        <input matInput type="text" name="type" formControlName="type" required>
+        <mat-select name="type" formControlName="type" required>
+            <mat-option value="Maintenance">Maintenance</mat-option>
+            <mat-option value="Cloud">Cloud</mat-option>
+            <mat-option value="Assistance Technique">Assistance Technique</mat-option>
+        </mat-select>
+        
         <mat-error *ngIf="form.controls['type'].hasError('required')">
             Type de Contrat est <strong>obligatoire</strong>
         </mat-error>
