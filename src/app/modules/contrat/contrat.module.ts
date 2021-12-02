@@ -33,7 +33,7 @@ import { ClientlistComponent } from '../back-office/clientlist/clientlist.compon
   declarations: [
     ContratComponent,
     AddcontratComponent,
-    EditcontratComponent
+    EditcontratComponent,
   ],
   imports: [
     CommonModule,

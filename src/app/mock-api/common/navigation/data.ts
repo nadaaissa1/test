@@ -4,7 +4,7 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 export const defaultNavigation: FuseNavigationItem[] = [
     {
         id   : 'dashboard',
-        title: 'Dashboard',
+        title: 'Tableau de bord',
         type : 'basic',
         //icon : 
         link : '/dashboard'
@@ -55,7 +55,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
         id   : 'dashboard',
-        title: 'Dashboard',
+        title: 'Tableau de bord',
         type : 'basic', 
         link : '/dashboard'
     },
