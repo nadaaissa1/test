@@ -24,7 +24,11 @@
 
                 <ng-container matColumnDef="title">
                     <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
-                    <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract" class="truncate">{{contract.title}}</td>
+                    <td fxFlex="10" mat-cell *matCellDef="let contract" >
+                        <div *ngIf="contract.title; else NoData" class="truncate" matTooltip={{contract.title}}>
+                            {{contract.title}}
+                        </div>
+                    </td>
                 </ng-container>
 
                 <ng-container matColumnDef="organisation">
@@ -43,7 +47,7 @@
 
                 <ng-container matColumnDef="description">
                     <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
-                    <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">{{contract.description}}</td>
+                    <td fxFlex="15" mat-cell *matCellDef="let contract">{{contract.description}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="type">
