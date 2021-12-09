@@ -7,6 +7,7 @@ import { Client, ClientResponse } from '../../back-office/models/IClientResponse
 import { ClientService } from 'app/modules/back-office/services/client.service';
 import { Content, UserResponse } from '../../back-office/models/IUserResponse.model';
 import { UserService } from 'app/modules/back-office/services/user.service';
+import { UserModel } from 'app/modules/back-office/models/user.model';
 
 @Component({
   selector: 'app-addcontrat',
@@ -18,7 +19,7 @@ export class AddcontratComponent implements OnInit {
   form: FormGroup;
   contrat: ContratModel = new ContratModel();
   clients: Client[];
-  users: Content[];
+  users: UserModel[];
 
   constructor(private dialogRef: MatDialogRef<AddcontratComponent>, private fb: FormBuilder, private contratService: ContratService,
     private clientService: ClientService, private userService: UserService) {}
@@ -30,10 +31,10 @@ export class AddcontratComponent implements OnInit {
         console.log(this.clients);     
     }); 
 
-    this.userService.getUsers().subscribe(
-      (response: UserResponse) => {
-        this.users = response.content;
-        console.log(this.users);     
+    this.userService.getUserByAccountAndActive().subscribe(
+      data => {   
+        this.users = data;    
+        console.log(data);     
     }); 
 
     this.form = this.fb.group({
