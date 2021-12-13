@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BackOfficeComponent } from './back-office.component';
 import { RouterModule } from '@angular/router';
 import { ClientlistComponent } from './clientlist/clientlist.component';
@@ -32,6 +32,8 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddclientComponent } from './addclient/addclient.component';
 import { EditclientComponent } from './editclient/editclient.component';
+import { ChoosePubModule } from '../choose-pub/choose-pub.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,10 +44,10 @@ import { EditclientComponent } from './editclient/editclient.component';
         UserlistComponent,
     AdduserComponent,
     AddclientComponent,
-    EditclientComponent
-
+    EditclientComponent,
   ],
   imports: [
+    CommonModule,
     MatTableModule,
     ContratModule,
     MatDialogModule,
@@ -71,10 +73,14 @@ import { EditclientComponent } from './editclient/editclient.component';
     MatPaginatorModule,
     MatSortModule,
     FlexLayoutModule,
+    ChoosePubModule
   ], 
   exports: [
     BackOfficeComponent,
     UserlistComponent
+   ],
+   schemas:[
+    NO_ERRORS_SCHEMA
    ]
 
 })

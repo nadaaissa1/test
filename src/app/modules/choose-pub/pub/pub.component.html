@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <!--h4 class="modal-title" id="modal-basic-title">{{item.name}}</h4-->
+
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+
+        <span aria-hidden="true">×</span>
+
+    </button>
+
+</div>
+<diV *ngIf="item != true">
+
+    <div class="modal-body">
+        <div class="ratio ratio-16x9">
+            <img [src]="item.base64Img" class="ecommerce-gallery-main-img active w-100" allowFullScreen />
+        </div>
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-outline-dark" (click)="Pick()">
+            {{item.picked? 'Déselectionner' : 'Selectionner'}}
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="delete()">
+            Delete
+        </button>
+
+    </div>
+</diV>
+<diV *ngIf="item === true">
+
+    <div class="modal-body">
+        <div class="file-upload">
+
+            <div class="ratio ratio-16x9">
+                <input type="file" class="file-input" (change)="onFileSelected($event)" accept="image/png" #fileUpload>
+            </div>
+        </div>
+        <div class="progress">
+
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="uploadProgress" *ngIf="uploadProgress">
+
+            </mat-progress-bar>
+
+            <mat-icon class="cancel-upload" (click)="cancelUpload()" *ngIf="uploadProgress">delete_forever</mat-icon>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-outline-dark" (click)="upload()">
+            <mat-icon>attach_file</mat-icon>
+            Upload
+            
+        </button>
+
+
+    </div>
+</diV>

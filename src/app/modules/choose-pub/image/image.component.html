@@ -1,0 +1,10 @@
+<div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+    <a *ngIf="item.name !='cloudPortal-icon.png'" class="mask" style="background-color: rgba(251, 251, 251, 0.2);"
+        (click)="open()">
+        <img [src]="item.base64Img" class="rounded float-left mx-auto d-block" />
+    </a>
+    <a *ngIf="item.name ==='cloudPortal-icon.png'" class="mask" style="background-color: rgba(251, 251, 251, 0.2);"
+     (click)="openUpload()">
+        <img [src]="item.base64Img" class="rounded float-left w-100" />
+    </a>
+</div>
