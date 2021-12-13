@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ClientModel } from '../models/client.model';
+import { UserModel } from '../models/user.model';
 import { ClientService } from '../services/client.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-addclient',
@@ -13,10 +15,18 @@ export class AddclientComponent implements OnInit {
 
   form: FormGroup;
   client: ClientModel = new ClientModel();
+  users: UserModel[];
 
-  constructor(private dialogRef: MatDialogRef<AddclientComponent>, private fb: FormBuilder, private clientService: ClientService) { }
+  constructor(private dialogRef: MatDialogRef<AddclientComponent>, private fb: FormBuilder, private clientService: ClientService, 
+    private userService: UserService) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void { 
+    this.userService.getUserByAccountAndActive().subscribe(
+      data => {   
+        this.users = data;    
+        console.log(data);     
+    });
+
     this.form = this.fb.group({
       organisation: ['', Validators.required],
       tradeName: ['', Validators.required],

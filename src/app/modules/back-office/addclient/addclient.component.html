@@ -1,12 +1,12 @@
 <h2>Ajouter un Client</h2>
 <br><br>
 
-<form [formGroup]="form">
+<form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Organisation :</mat-label>
+        <mat-label>Client :</mat-label>
         <input matInput type="text" name="organisation" formControlName="organisation" required>
         <mat-error *ngIf="form.controls['organisation'].hasError('required')">
-            Organisation est <strong>obligatoire</strong>
+            Client est <strong>obligatoire</strong>
         </mat-error>
     </mat-form-field>
     <br>
@@ -40,11 +40,13 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Manager Commercial :</mat-label>
-        <input matInput type="text" name="accountManager" formControlName="accountManager" required>
+        <mat-label>Gestionnaire du Compte :</mat-label>
+        <mat-select name="accountManager" formControlName="accountManager" required>
+            <mat-option *ngFor="let user of users" value="{{user.name}}">{{user.name}}</mat-option>
+        </mat-select>
         <mat-error *ngIf="form.controls['accountManager'].hasError('required')">
-            Manager Commercial est <strong>obligatoire</strong>
-        </mat-error>
+            Gestionnaire du Compte est <strong>obligatoire</strong>
+        </mat-error>  
     </mat-form-field>
     <br>
 
@@ -71,21 +73,22 @@
 
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Téléphone :</mat-label>
-        <input matInput type="number" name="firstContactPhone" formControlName="firstContactPhone" required>
+        <input matInput type="text" name="firstContactPhone" formControlName="firstContactPhone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
         <mat-error *ngIf="form.controls['firstContactPhone'].hasError('required')">
             Téléphone est <strong>obligatoire</strong>
         </mat-error>
         <mat-error *ngIf="form.controls['firstContactPhone'].hasError('minlength')">
-            phone doit avoir au minimum 8 chiffres
+            Téléphone doit avoir au minimum 8 chiffres
         </mat-error>
         <mat-error *ngIf="form.controls['firstContactPhone'].hasError('maxlength')">
-            phone doit avoir au maximum 8 chiffres
+            Téléphone doit avoir au maximum 8 chiffres
         </mat-error>
     </mat-form-field>
     <br>
-</form>
-<br><br>
 
-<button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white" (click)="close()">Fermer</button>
-<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()"
-    [disabled]="form.invalid">Enregistrer</button>
+    <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center" fxFlex="100">
+        <button mat-raised-button class="text-white font-bold px-4 rounded" color="accent" (click)="save()"
+            [disabled]="form.invalid">Enregistrer</button>
+        <button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white font-bold px-4 rounded" (click)="close()">Fermer</button>
+    </div>
+</form>

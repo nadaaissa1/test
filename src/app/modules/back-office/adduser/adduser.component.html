@@ -1,7 +1,7 @@
 <h2>Ajouter un Utilisateur</h2>
 <br><br>
 
-<form [formGroup]="form">
+<form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>UID* :</mat-label>
         <input matInput type="text" name="employeeID" formControlName="employeeID">
@@ -120,30 +120,30 @@
             <td>
                 <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Fix :</mat-label>
-                    <input type="number" matInput name="phone" formControlName="phone" required>
+                    <input type="number" matInput name="phone" formControlName="phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
                     <mat-error *ngIf="form.controls['phone'].hasError('required')">
-                        phone est <strong>obligatoire</strong>
+                        Fix est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['phone'].hasError('minlength')">
-                        phone doit avoir au minimum 8 chiffres
+                        Fix doit avoir au minimum 8 chiffres
                     </mat-error>
                     <mat-error *ngIf="form.controls['phone'].hasError('maxlength')">
-                        phone doit avoir au maximum 8 chiffres
+                        Fix doit avoir au maximum 8 chiffres
                     </mat-error>
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Téléphone :</mat-label>
-                    <input type="number" matInput name="mobile" formControlName="mobile" required>
+                    <input type="number" matInput name="mobile" formControlName="mobile" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
                     <mat-error *ngIf="form.controls['mobile'].hasError('required')">
-                        mobile est <strong>obligatoire</strong>
+                        Téléphone est <strong>obligatoire</strong>
                     </mat-error>
                     <mat-error *ngIf="form.controls['mobile'].hasError('minlength')">
-                        mobile doit avoir au minimum 8 chiffres
+                        Téléphone doit avoir au minimum 8 chiffres
                     </mat-error>
                     <mat-error *ngIf="form.controls['mobile'].hasError('maxlength')">
-                        mobile doit avoir au maximum 8 chiffres
+                        Téléphone doit avoir au maximum 8 chiffres
                     </mat-error>
                 </mat-form-field>
             </td>
@@ -171,9 +171,10 @@
         </mat-error>
     </mat-form-field>
     <br>
+    
+    <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center" fxFlex="100">
+        <button mat-raised-button class="text-white font-bold px-4 rounded" color="accent" (click)="save()"
+            [disabled]="form.invalid">Enregistrer</button>
+        <button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white font-bold px-4 rounded" (click)="close()">Fermer</button>
+    </div>
 </form>
-<br><br>
-
-<button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white" (click)="close()">Fermer</button>
-<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()"
-    [disabled]="form.invalid">Enregistrer</button>

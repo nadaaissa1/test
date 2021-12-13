@@ -16,7 +16,7 @@ import { ClientService } from '../services/client.service';
 })
 export class ClientlistComponent implements OnInit {
 
-  displayedColumns: string[] = ['organisation', 'tradeName', 'address', 'sector', 'user', 'firstContactUser', 'firstContactEmail', 'firstContactPhone', 'actions'];
+  displayedColumns: string[] = ['organisation', 'address', 'sector', 'user', 'firstContactUser', 'firstContactEmail', 'firstContactPhone', 'actions'];
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

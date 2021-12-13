@@ -99,7 +99,7 @@ export class UserComponent implements OnInit, OnDestroy
 
     Profile(): void
     {
-        this._router.navigate(['/profile'])
+        this._router.navigate(['/profile/details'])
     }
     resetPassword(): void
     {

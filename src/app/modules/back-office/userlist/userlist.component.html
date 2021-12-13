@@ -1,81 +1,114 @@
 <div class="flex flex-col flex-auto min-w-0 w-screen">
-    <div class="flex-auto p-6 sm:p-10" fxLayout="column">
-        <div class="gap-2" fxLayout="column" fxLayoutAlign="center
+
+    <div class="w-full">
+        <mat-form-field appearance="fill" floatLabel="always" class="w-full">
+            <input matInput placeholder="Recherche" (keyup)="applyFilter($event)" />
+        </mat-form-field>
+    </div>
+
+    <div class="gap-2" fxLayout="column" fxLayoutAlign="center
             center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
-            <div class="float-left font-bold text-2xl">
-                <div>
-                    Utilisateurs
-                </div>
-            </div>
-            <div class="w-full">
-                <mat-form-field appearance="fill" floatLabel="always" class="w-full">
-                    <input matInput placeholder="search" (keyup)="applyFilter($event)" />
-                </mat-form-field>
-            </div>
+        <div class="float-left font-bold text-2xl">
             <div>
-                <button mat-raised-button (click)="addUser()"
-                    class="bg-amber-700 hover:bg-amber-700 text-white font-bold px-4 rounded" id="adduserbutton">
-                    Ajouter Utilisateur
-                </button>
+                Utilisateurs
             </div>
         </div>
-        <div class="mat-elevation-z8 overflow-x-scroll bg-white" fxLayout="column">
-            <table mat-table matSort [dataSource]="dataSource" class="w-full">
-
-                <ng-container matColumnDef="employeeID">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
-                    <td mat-cell *matCellDef="let user">{{user.employeeID}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="name">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-                    <td mat-cell *matCellDef="let user">{{user.name}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="jobTitle">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Profession</th>
-                    <td mat-cell *matCellDef="let user">{{user.jobTitle}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="emailid">
-                    <th class="w-3/12" mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
-                    <td mat-cell *matCellDef="let user">{{user.emailid}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="phone">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Fix</th>
-                    <td mat-cell *matCellDef="let user">{{user.phone}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="mobile">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
-                    <td mat-cell *matCellDef="let user">{{user.mobile}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="account">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Entreprise</th>
-                    <td mat-cell *matCellDef="let user">{{user.account}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="actions">
-                    <th class="w-2/12 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
-                    <td mat-cell class="text-center" *matCellDef="let user">
-                        <button title="Modifier" [disabled]="!user.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
-                        </button>
-                        <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:user-remove'"></mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky
-                aria-label="Select page of periodic elements">
-            </mat-paginator>
+        <div>
+            <button mat-raised-button (click)="addUser()" class="text-white font-bold px-4 rounded" color="accent">
+                Ajouter Utilisateur
+            </button>
         </div>
+    </div>
+    <br>
+    
+    <div class="mat-elevation-z8 bg-white" fxLayout="column">
+        <table mat-table matSort [dataSource]="dataSource" class="w-full">
+
+            <ng-container matColumnDef="employeeID">
+                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>UID
+                </th>
+                <td fxFlex="10" fxLayoutAlign="left center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.employeeID; else NoData" class="truncate" matTooltip={{user.employeeID}}>
+                        {{user.employeeID}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Name
+                </th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.name; else NoData">
+                        {{user.name}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="jobTitle">
+                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Profession</th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.jobTitle; else NoData">
+                        {{user.jobTitle}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="emailid">
+                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
+                </th>
+                <td fxFlex="15" fxLayoutAlign="left center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.emailid; else NoData" class="truncate" matTooltip={{user.emailid}}>
+                        {{user.emailid}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Fix
+                </th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.phone; else NoData">
+                        {{user.phone}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="mobile">
+                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Téléphone</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.mobile; else NoData">
+                        {{user.mobile}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="account">
+                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Entreprise</th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <div *ngIf="user.account; else NoData" class="truncate" matTooltip={{user.account}}>
+                        {{user.account}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef>Actions</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
+                    <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
+                        <mat-icon aria-label="Delete" class="Delete">delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }">
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons sticky
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
     </div>
 </div>

@@ -54,6 +54,11 @@ export class UserlistComponent implements OnInit {
     });
   }
 
+  desactivateUserPopup(user: any) {
+    this.desactivateUser(user);
+  }
+
+
   desactivateUser(user: UserModel): void {
     if (user.active == true) {
       this.userService.desactivateUser(user).subscribe(data => {

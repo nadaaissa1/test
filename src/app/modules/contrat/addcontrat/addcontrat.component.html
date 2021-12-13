@@ -1,7 +1,7 @@
 <h2>Ajouter un Contrat</h2>
 <br><br>
 
-<form [formGroup]="form">
+<form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
         <mat-label>Titre :</mat-label>
         <input matInput type="text" name="title" formControlName="title" required>
@@ -48,8 +48,7 @@
             <mat-option value="Maintenance">Maintenance</mat-option>
             <mat-option value="Cloud">Cloud</mat-option>
             <mat-option value="Assistance Technique">Assistance Technique</mat-option>
-        </mat-select>
-        
+        </mat-select>       
         <mat-error *ngIf="form.controls['type'].hasError('required')">
             Type de Contrat est <strong>obligatoire</strong>
         </mat-error>
@@ -77,9 +76,10 @@
         </mat-error>
     </mat-form-field>
     <br>
+    
+<div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center" fxFlex="100">
+    <button mat-raised-button class="text-white font-bold px-4 rounded" color="accent" (click)="save()"
+        [disabled]="form.invalid">Enregistrer</button>
+    <button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white font-bold px-4 rounded" (click)="close()">Fermer</button>
+</div>
 </form>
-<br><br>
-
-<button class="mat-raised-button bg-red-600 hover:bg-red-600 text-white" (click)="close()">Fermer</button>
-<button class="mat-raised-button bg-amber-700 hover:bg-amber-700 text-white" (click)="save()"
-    [disabled]="form.invalid">Enregistrer</button>
