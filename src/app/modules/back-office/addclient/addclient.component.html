@@ -2,7 +2,7 @@
 <br><br>
 
 <form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
-    <mat-form-field class="w-full" appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label class="font-bold">Client :</mat-label>
         <input matInput type="text" name="organisation" formControlName="organisation" required>
         <mat-error *ngIf="form.controls['organisation'].hasError('required')">

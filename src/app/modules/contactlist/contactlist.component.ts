@@ -35,7 +35,7 @@ export class ContactlistComponent implements OnInit {
         console.log(this.paginator);
         this.dataSource = new MatTableDataSource(this.users);
         this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;      
+        this.dataSource.sort = this.sort;    
     }); 
   }
 

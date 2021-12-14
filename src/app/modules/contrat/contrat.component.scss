@@ -1,13 +1,14 @@
 #addcontratbutton {
-    border: 1px solid black;
-    background-color: #fc5000;
+    background-color: #0062a1;
 }
-
-#removecontratbutton {
-    border: 1px solid black;
-}
-
 .mat-paginator {
     display: flex;
     justify-content: flex-end;
+}
+.separator {
+    border: none;
+    height: 2px;
+    /* Set the hr color */
+    color: #fc5000; /* old IE */
+    background-color: #fc5000; /* Modern Browsers */
 }

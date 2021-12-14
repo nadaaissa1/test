@@ -6,26 +6,20 @@
         </mat-form-field>
     </div>
 
-    <div class="gap-2" fxLayout="column" fxLayoutAlign="center
-            center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
-        <div class="float-left font-bold text-2xl">
-            <div>
-                Contrats
-            </div>
-        </div>
-        <div>
-            <button mat-raised-button (click)="addContrat()" class="text-white font-bold px-4 rounded" color="accent">
-                Ajouter Contrat
-            </button>
-        </div>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
+        <button mat-fab id="addcontratbutton" (click)="addContrat()">
+            <mat-icon aria-label="Add" class="Add">add</mat-icon>
+        </button>
     </div>
     <br>
-
+  
     <div class="mat-elevation-z8 bg-white">
+        <div class="separator"></div>
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
             <ng-container matColumnDef="title">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Titre</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.title; else NoData" class="truncate" matTooltip={{contract.title}}>
                         {{contract.title}}
@@ -34,7 +28,8 @@
             </ng-container>
 
             <ng-container matColumnDef="organisation">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Client
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Client
                 </th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.client.organisation; else NoData">
@@ -44,7 +39,8 @@
             </ng-container>
 
             <ng-container matColumnDef="commercial">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Manager
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Manager
                     Commercial</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.commercial; else NoData">
@@ -54,7 +50,8 @@
             </ng-container>
 
             <ng-container matColumnDef="description">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>
                     Description</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}}>
@@ -64,7 +61,8 @@
             </ng-container>
 
             <ng-container matColumnDef="type">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Type de
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Type de
                     Contrat</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.type; else NoData">
@@ -74,7 +72,8 @@
             </ng-container>
 
             <ng-container matColumnDef="startDate">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Date
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Date
                     Début</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.startDate; else NoData">
@@ -84,7 +83,8 @@
             </ng-container>
 
             <ng-container matColumnDef="endDate">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Date Fin
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Date Fin
                 </th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.endDate; else NoData">
@@ -94,7 +94,8 @@
             </ng-container>
 
             <ng-container matColumnDef="actions">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef>Actions</th>
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef>Actions</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell class="text-center" *matCellDef="let contract">
                     <button title="Modifier" (click)="editContrat(contract)" [disabled]="!contract.active">
                         <mat-icon aria-label="Edit" class="Edit">edit</mat-icon>
