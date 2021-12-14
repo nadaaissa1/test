@@ -25,7 +25,7 @@
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
             <ng-container matColumnDef="organisation">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Client
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Client
                 </th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.organisation; else NoData" class="truncate" matTooltip={{client.organisation}}>
@@ -38,7 +38,7 @@
                     <td fxFlex="8" fxLayoutAlign="center center" mat-cell *matCellDef="let client">{{client.tradeName}}</td>
                 </ng-container> -->
             <ng-container matColumnDef="address">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>Adresse
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell mat-sort-header *matHeaderCellDef>Adresse
                 </th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.address; else NoData" class="truncate" matTooltip={{client.address}}>
@@ -47,7 +47,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="sector">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>Secteur
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell mat-sort-header *matHeaderCellDef>Secteur
                 </th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.sector; else NoData" class="truncate" matTooltip={{client.sector}}>
@@ -56,7 +56,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="user">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell mat-sort-header *matHeaderCellDef>
                     Gestionnaire du Compte</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.user; else NoData">
@@ -65,7 +65,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="firstContactUser">
-                <th fxFlex="14" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Personne
+                <th fxFlex="14" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Personne
                     à Contacter</th>
                 <td fxFlex="14" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.firstContactUser; else NoData">
@@ -74,7 +74,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="firstContactEmail">
-                <th fxFlex="13" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
+                <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
                 </th>
                 <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.firstContactEmail; else NoData" class="truncate"
@@ -84,7 +84,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="firstContactPhone">
-                <th fxFlex="13" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Téléphone</th>
                 <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.firstContactPhone; else NoData">
@@ -93,7 +93,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="actions">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef>Actions</th>
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef>Actions</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
                         <mat-icon aria-label="Edit" class="Edit">edit</mat-icon>

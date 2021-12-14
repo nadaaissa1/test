@@ -25,7 +25,7 @@
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
             <ng-container matColumnDef="employeeID">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>UID
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>UID
                 </th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.employeeID; else NoData" class="truncate" matTooltip={{user.employeeID}}>
@@ -35,7 +35,7 @@
             </ng-container>
 
             <ng-container matColumnDef="name">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Name
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Name
                 </th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.name; else NoData">
@@ -45,7 +45,7 @@
             </ng-container>
 
             <ng-container matColumnDef="jobTitle">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Profession</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.jobTitle; else NoData">
@@ -55,7 +55,7 @@
             </ng-container>
 
             <ng-container matColumnDef="emailid">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
                 </th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.emailid; else NoData" class="truncate" matTooltip={{user.emailid}}>
@@ -65,7 +65,7 @@
             </ng-container>
 
             <ng-container matColumnDef="phone">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Fix
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>Fix
                 </th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.phone; else NoData">
@@ -75,7 +75,7 @@
             </ng-container>
 
             <ng-container matColumnDef="mobile">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Téléphone</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.mobile; else NoData">
@@ -85,7 +85,7 @@
             </ng-container>
 
             <ng-container matColumnDef="account">
-                <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Entreprise</th>
                 <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.account; else NoData" class="truncate" matTooltip={{user.account}}>
@@ -95,7 +95,7 @@
             </ng-container>
 
             <ng-container matColumnDef="actions">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef>Actions</th>
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell *matHeaderCellDef>Action</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <button title="Supprimer" (click)="desactivateUser(user)" [disabled]="!user.active">
                         <mat-icon aria-label="Delete" class="Delete">delete</mat-icon>
