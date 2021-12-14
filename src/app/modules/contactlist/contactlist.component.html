@@ -28,7 +28,7 @@
 
             <ng-container matColumnDef="employeeID">
                 <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
-                <td fxFlex="10" fxLayoutAlign="left center" mat-cell *matCellDef="let user">
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.employeeID; else NoData" class="truncate" matTooltip={{user.employeeID}}>
                         {{user.employeeID}}
                     </div>
@@ -58,7 +58,7 @@
             <ng-container matColumnDef="emailid">
                 <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
                 </th>
-                <td fxFlex="15" fxLayoutAlign="left center" mat-cell *matCellDef="let user">
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.emailid; else NoData" class="truncate" matTooltip={{user.emailid}}>
                         {{user.emailid}}
                     </div>
@@ -87,7 +87,7 @@
             <ng-container matColumnDef="account">
                 <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Entreprise</th>
-                <td fxFlex="15" fxLayoutAlign="left center" mat-cell *matCellDef="let user">
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let user">
                     <div *ngIf="user.account; else NoData" class="truncate" matTooltip={{user.account}}>
                         {{user.account}}
                     </div>

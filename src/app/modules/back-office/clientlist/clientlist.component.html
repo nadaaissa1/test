@@ -27,7 +27,7 @@
             <ng-container matColumnDef="organisation">
                 <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Client
                 </th>
-                <td fxFlex="10" fxLayoutAlign="left center" mat-cell *matCellDef="let client">
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.organisation; else NoData" class="truncate" matTooltip={{client.organisation}}>
                         {{client.organisation}}
                     </div>
@@ -40,7 +40,7 @@
             <ng-container matColumnDef="address">
                 <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>Adresse
                 </th>
-                <td fxFlex="15" fxLayoutAlign="left center" mat-cell *matCellDef="let client">
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.address; else NoData" class="truncate" matTooltip={{client.address}}>
                         {{client.address}}
                     </div>
@@ -49,7 +49,7 @@
             <ng-container matColumnDef="sector">
                 <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>Secteur
                 </th>
-                <td fxFlex="10" fxLayoutAlign="left center" mat-cell *matCellDef="let client">
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.sector; else NoData" class="truncate" matTooltip={{client.sector}}>
                         {{client.sector}}
                     </div>
@@ -76,7 +76,7 @@
             <ng-container matColumnDef="firstContactEmail">
                 <th fxFlex="13" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Mail
                 </th>
-                <td fxFlex="13" fxLayoutAlign="left center" mat-cell *matCellDef="let client">
+                <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
                     <div *ngIf="client.firstContactEmail; else NoData" class="truncate"
                         matTooltip={{client.firstContactEmail}}>
                         {{client.firstContactEmail}}

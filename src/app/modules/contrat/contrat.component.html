@@ -25,9 +25,8 @@
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
             <ng-container matColumnDef="title">
-                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Titre
-                </th>
-                <td fxFlex="10" fxLayoutAlign="left center" mat-cell *matCellDef="let contract">
+                <th fxFlex="10" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.title; else NoData" class="truncate" matTooltip={{contract.title}}>
                         {{contract.title}}
                     </div>
@@ -57,7 +56,7 @@
             <ng-container matColumnDef="description">
                 <th fxFlex="15" fxLayoutAlign="center center" mat-header-cell *matHeaderCellDef mat-sort-header>
                     Description</th>
-                <td fxFlex="15" fxLayoutAlign="left center" mat-cell *matCellDef="let contract">
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
                     <div *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}}>
                         {{contract.description}}
                     </div>
