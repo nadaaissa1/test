@@ -4,7 +4,7 @@
 
 <form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Titre :</mat-label>
+        <mat-label class="font-bold">Titre :</mat-label>
         <input matInput type="text" name="title" formControlName="title" required>
         <mat-error *ngIf="form.controls['title'].hasError('required')">
             Titre est <strong>obligatoire</strong>
@@ -13,7 +13,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Client :</mat-label>
+        <mat-label class="font-bold">Client :</mat-label>
         <mat-select name="clientOrganisation" formControlName="clientOrganisation" required>
             <mat-option *ngFor="let client of clients" value="{{client.organisation}}">{{client.organisation}}</mat-option>
         </mat-select>
@@ -24,7 +24,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Manager Commercial :</mat-label>
+        <mat-label class="font-bold">Manager Commercial :</mat-label>
         <mat-select name="commercialName" formControlName="commercialName" required>
             <mat-option *ngFor="let user of users" value="{{user.name}}">{{user.name}}</mat-option>
         </mat-select>
@@ -35,7 +35,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Description :</mat-label>
+        <mat-label class="font-bold">Description :</mat-label>
         <input matInput type="text" name="description" formControlName="description" required>
         <mat-error *ngIf="form.controls['description'].hasError('required')">
             Description est <strong>obligatoire</strong>
@@ -44,7 +44,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Type de Contrat :</mat-label>
+        <mat-label class="font-bold">Type de Contrat :</mat-label>
         <mat-select name="type" formControlName="type" required>
             <mat-option value="Maintenance">Maintenance</mat-option>
             <mat-option value="Cloud">Cloud</mat-option>
@@ -57,7 +57,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Date Début :</mat-label>
+        <mat-label class="font-bold">Date Début :</mat-label>
         <input matInput [matDatepicker]="pickerD" name="start_date" formControlName="start_date" required />
         <mat-datepicker-toggle matSuffix [for]="pickerD"></mat-datepicker-toggle>
         <mat-datepicker #pickerD></mat-datepicker>
@@ -68,7 +68,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Date Fin :</mat-label>
+        <mat-label class="font-bold">Date Fin :</mat-label>
         <input matInput [matDatepicker]="pickerF" name="end_date" formControlName="end_date" required />
         <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
         <mat-datepicker #pickerF></mat-datepicker>

@@ -4,7 +4,7 @@
 
 <form fxLayout="column" fxLayoutAlign="start" [formGroup]="form">
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Client :</mat-label>
+        <mat-label class="font-bold">Client :</mat-label>
         <input matInput type="text" name="organisation" formControlName="organisation" required>
         <mat-error *ngIf="form.controls['organisation'].hasError('required')">
             Client est <strong>obligatoire</strong>
@@ -13,7 +13,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Nom Commercial :</mat-label>
+        <mat-label class="font-bold">Nom Commercial :</mat-label>
         <input matInput type="text" onkeypress="return /[a-z]/i.test(event.key)" name="tradeName"
             formControlName="tradeName" required>
         <mat-error *ngIf="form.controls['tradeName'].hasError('required')">
@@ -23,7 +23,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Adresse :</mat-label>
+        <mat-label class="font-bold">Adresse :</mat-label>
         <input matInput type="text" name="address" formControlName="address" required>
         <mat-error *ngIf="form.controls['address'].hasError('required')">
             Addresse est <strong>obligatoire</strong>
@@ -32,7 +32,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Secteur :</mat-label>
+        <mat-label class="font-bold">Secteur :</mat-label>
         <input matInput type="text" name="sector" formControlName="sector" required>
         <mat-error *ngIf="form.controls['sector'].hasError('required')">
             Secteur est <strong>obligatoire</strong>
@@ -41,7 +41,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Gestionnaire du Compte :</mat-label>
+        <mat-label class="font-bold">Gestionnaire du Compte :</mat-label>
         <mat-select name="accountManager" formControlName="accountManager" required>
             <mat-option *ngFor="let user of users" value="{{user.name}}">{{user.name}}</mat-option>
         </mat-select>
@@ -52,7 +52,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Personne à Contacter :</mat-label>
+        <mat-label class="font-bold">Personne à Contacter :</mat-label>
         <input matInput type="text" name="firstContactUser" formControlName="firstContactUser" required>
         <mat-error *ngIf="form.controls['firstContactUser'].hasError('required')">
             Personne à Contacter est <strong>obligatoire</strong>
@@ -61,7 +61,7 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Mail :</mat-label>
+        <mat-label class="font-bold">Mail :</mat-label>
         <input matInput type="email" name="firstContactEmail" formControlName="firstContactEmail" required>
         <mat-error *ngIf="form.controls['firstContactEmail'].hasError('required')">
             Mail est <strong>obligatoire</strong>
@@ -73,8 +73,8 @@
     <br>
 
     <mat-form-field class="w-full" appearance="outline">
-        <mat-label>Téléphone :</mat-label>
-        <input matInput type="number" name="firstContactPhone" formControlName="firstContactPhone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+        <mat-label class="font-bold">Téléphone :</mat-label>
+        <input matInput type="text" name="firstContactPhone" formControlName="firstContactPhone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
         <mat-error *ngIf="form.controls['firstContactPhone'].hasError('required')">
             Téléphone est <strong>obligatoire</strong>
         </mat-error>
