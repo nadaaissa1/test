@@ -15,7 +15,8 @@ export class ChoosePubComponent implements OnInit {
   NonChosenItems: any[]=[];
   uploadItem:any;
   constructor(private pubService: PubService,
-     private sanitizer: DomSanitizer) {
+     private sanitizer: DomSanitizer,
+     private modalService: NgbModal) {
    
   }
 
@@ -30,17 +31,23 @@ export class ChoosePubComponent implements OnInit {
 
      response.forEach(img => {
        this.sanitizer.bypassSecurityTrustResourceUrl(img.base64Img);
-       if(img.name==="cloudPortal-icon.png") this.uploadItem = img;
-       else {
-        if(img.picked){
+       // if(img.picked){
           this.items.push(img);
-        } else this.NonChosenItems.push(img);
-       }
+      //  } else this.NonChosenItems.push(img);
+       
        
       });
     }, error => {
     }
     )
   }
+  open(): void {
+    const modalRef = this.modalService.open(PubComponent, {ariaLabelledBy: 'modal-basic-title'});
+    modalRef.componentInstance.item = true;
+    modalRef.componentInstance.reload.subscribe(() => {
+      console.log("here")
+      this.getImages();
+    })
+ }
 
 }

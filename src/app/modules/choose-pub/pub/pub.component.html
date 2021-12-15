@@ -8,26 +8,26 @@
     </button>
 
 </div>
-<diV *ngIf="item != true">
+<div *ngIf="item != true">
 
     <div class="modal-body">
-        <div class="ratio ratio-16x9">
-            <img [src]="item.base64Img" class="ecommerce-gallery-main-img active w-100" allowFullScreen />
+        <div class="flex flex-col">
+            <img [src]="item.base64Img" class="object-cover" allowFullScreen />
         </div>
     </div>
 
-    <div class="modal-footer">
-
-        <button type="button" class="btn btn-outline-dark" (click)="Pick()">
-            {{item.picked? 'Déselectionner' : 'Selectionner'}}
+    <div class="flex items-center mt-3 -mx-3 mb-3">
+        <button class="w-full rounded-t-none" mat-flat-button [color]="'primary'" (click)="delete()">
+            <mat-icon svgIcon="heroicons_outline:trash"></mat-icon>
         </button>
-        <button type="button" class="btn btn-outline-dark" (click)="delete()">
-            Delete
+        <button mat-icon-button class="w-full rounded-t-none" mat-flat-button [color]="'primary'" (click)="Pick()">
+            <mat-icon *ngIf="!item.picked" svgIcon="heroicons_outline:check"></mat-icon>
+            <mat-icon *ngIf="item.picked" svgIcon="heroicons_outline:x"></mat-icon>
         </button>
 
     </div>
-</diV>
-<diV *ngIf="item === true">
+</div>
+<div *ngIf="item === true">
 
     <div class="modal-body">
         <div class="file-upload">
@@ -57,4 +57,4 @@
 
 
     </div>
-</diV>
+</div>

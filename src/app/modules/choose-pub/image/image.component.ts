@@ -28,5 +28,21 @@ export class ImageComponent implements OnInit {
     const modalRef = this.modalService.open(PubComponent, {ariaLabelledBy: 'modal-basic-title'});
     modalRef.componentInstance.item = true;
   }
+  pick(): void {
+    let data = {
+      "picked": !this.item.picked
+    }
+    this.pubService.PickImage(this.item.name, data).subscribe((response) => {
+      this.item = response
+      this.reload.emit();
+    }, error => {
+    })
+  }
+  delete(): void {
+    this.pubService.deleteImage(this.item.name).subscribe((response) => {
+      this.reload.emit();
+    }, error => {
+    })
+  }
 
 }
