@@ -72,13 +72,12 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver,
         },
         children   : [
+            {path: 'choose-pub', loadChildren: () => import('app/modules/choose-pub/choose-pub.module').then(m => m.ChoosePubModule)},
             {path: 'dashboard', loadChildren: () => import('app/modules/dashboard/dashboard.module').then(m => m.DashboardModule)},
             {path: 'services', loadChildren: () => import('app/modules/portalservices/portalservices.module').then(m => m.PortalServicesModule)},
             {path: 'administration', loadChildren: () => import('app/modules/administration/administration.module').then(m => m.AdministrationModule)},
             {path: 'contact', loadChildren: () => import('app/modules/contact/contact.module').then(m => m.ContactModule)},
             {path: 'back-office', loadChildren: () => import('app/modules/back-office/back-office.module').then(m => m.BackOfficeModule)},
-            {path: 'profile', loadChildren: () => import('app/modules/profile/profile.module').then(m => m.ProfileModule)},
-            {path: 'choose-pub', loadChildren: () => import('app/modules/choose-pub/choose-pub.module').then(m => m.ChoosePubModule)}
-        ]
+            {path: 'profile', loadChildren: () => import('app/modules/profile/profile.module').then(m => m.ProfileModule)}        ]
     }
 ];

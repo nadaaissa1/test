@@ -32,7 +32,6 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddclientComponent } from './addclient/addclient.component';
 import { EditclientComponent } from './editclient/editclient.component';
-import { ChoosePubModule } from '../choose-pub/choose-pub.module';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -72,9 +71,8 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     MatPaginatorModule,
     MatSortModule,
-    FlexLayoutModule,
-    ChoosePubModule
-  ], 
+    FlexLayoutModule
+    ], 
   exports: [
     BackOfficeComponent,
     UserlistComponent
