@@ -1,0 +1,50 @@
+  <!--div class="container align-items-center mt-5">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 offset-1">
+          <app-image [item]="uploadItem"></app-image>
+        </div>
+      </div>
+    </div-->
+
+    <div class="m-5 float-left"> <button class="btn btn-warning btn-circle btn-xl" (click)="open()">
+      <mat-icon class="icon-size-55 text-white" [svgIcon]="'heroicons_solid:plus'"></mat-icon>
+    </button></div>
+
+  <div class=" mt-5 ml-5 mb-5">
+    <div class="container align-items-center mt-5" *ngFor="let item of items;let i=index">
+      <div class="row align-items-center" *ngIf="i % 3 == 0">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 offset-1">
+          <app-image [item]="item" (reload)="getImages()"></app-image>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <app-image *ngIf="i + 1 < items.length" [item]="items[i+1]" (reload)="getImages()"></app-image>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <app-image *ngIf="i + 2 < items.length" [item]="items[i+2]" (reload)="getImages()"></app-image>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!--div class=" mt-5 ml-5 mr-5 mb-5" style="width: 1000px;">
+    <div class="container align-items-center mt-5" *ngFor="let item of NonChosenItems;let i=index">
+      <div class="row align-items-center" *ngIf="i % 3 == 0">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 offset-1">
+          <app-image [item]="item" (reload)="getImages()"></app-image>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <app-image *ngIf="i + 1 < NonChosenItems.length" [item]="NonChosenItems[i+1]" (reload)="getImages()"></app-image>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <app-image *ngIf="i + 2 < NonChosenItems.length" [item]="NonChosenItems[i+2]" (reload)="getImages()"></app-image>
+        </div>
+      </div>
+    </div>
+  </div-->
+
+  <!--footer class=" navbar fixed-bottom text-white " style="background-color: cornflowerblue;">
+  <div class="col-md-6 mb-md-0 mb-3">
+  <button type="button" class="btn btn-primary btn-lg btn-block">
+    Close
+  </button>
+</div>
+</footer-->
