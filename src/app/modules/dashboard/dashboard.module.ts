@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const dashboardRoutes: Route[] = [
   {
@@ -45,6 +46,7 @@ const dashboardRoutes: Route[] = [
     MatMenuModule,
     MatProgressBarModule,
     MatTooltipModule,
+    FlexLayoutModule,
   ]
 })
 export class DashboardModule { }
