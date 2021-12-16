@@ -1,8 +1,11 @@
 <div class="flex flex-col flex-auto min-w-0  w-screen">
 
-    <div>
-        <mat-form-field appearance="fill" floatLabel="always" class="w-full">
+    <div class="w-full bgSearch rounded d-flex justify-content-center">
+        <mat-form-field appearance="fill" floatLabel="always" class="w-50 mt-3 mb-2 ">       
             <input matInput placeholder="Recherche" (keyup)="applyFilter($event)" />
+            <mat-icon
+            class="float-left mr-2 sm:ml-8"
+            [svgIcon]="'heroicons_outline:search'"></mat-icon>
         </mat-form-field>
     </div>
 
