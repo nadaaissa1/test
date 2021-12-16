@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-auto min-w-0" *transloco="let t" fxLayout="column">
+<div class="flex flex-col flex-auto min-w-0" *transloco="let t">
     <app-pub class="w-full"></app-pub>
     <div class="flex-auto p-6 sm:p-10 overflow-x-hidden">
         <table style="width: 98%;">
@@ -20,14 +20,67 @@
                     Orange
                 </td>
             </tr>
-
-            <tr>
-                <td colspan="3">
-                    Voici les services d'administrations auquels vous avez accès :
-                </td>
-            </tr>
         </table>
         <br>
+
+        <div fxLayout="row" fxLayoutAlign="left center">
+            Voici la liste de vos contrats :
+        </div>
+        <br>
+
+        <div fxLayout="row wrap" fxLayoutGap="10px grid">
+            <div *ngFor="let contract of contracts" fxFlex fxLayout="column" class="mb-20 max-w-80"
+                fxFlex="25" fxFlex.lg="33" fxFlex.md="50" fxFlex.sm="50" fxFlex.xs="100">
+                <fuse-card class="flex flex-col max-w-80 px-8 pt-6 pb-4 filter-list" fxLayout="column">
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-semibold leading-tight">
+                            <div *ngIf="contract.title; else NoData">
+                                {{contract.title}}
+                            </div>
+                        </div>               
+                    </div>
+                    
+        
+                    <div class="flex flex-col mt-5">
+                        <div class="flex items-center">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Client :
+                                    </td>
+                                    <td *ngIf="contract.client.organisation; else NoData">
+                                        {{contract.client.organisation}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Manager Commercial :
+                                    </td>
+                                    <td *ngIf="contract.commercial; else NoData">
+                                        {{contract.commercial}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                       
+                    <div class="flex items-center mt-6 -mx-3">
+                        <button
+                            class="px-3"
+                            mat-button
+                            [color]="'primary'"
+                            [routerLink]="['./']">
+                            See all suggestions
+                        </button>
+                    </div>
+                </fuse-card>
+            </div>
+        </div>      
+        <br>
+
+        <div fxLayout="row" fxLayoutAlign="left center">
+            Voici les services d'administrations auquels vous avez accès :
+        </div>
         <table class="tableconfiguration1" style="width: 98%;">
             <tr>
                 <td class="w-2/6">
@@ -66,5 +119,11 @@
                 <td class="foottdconfiguration" colspan="2"></td>
             </tr>
         </table>
+
+        <ng-template #NoData>
+            <div>
+                N/A
+            </div>
+        </ng-template>
     </div>
 </div>
