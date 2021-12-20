@@ -26,7 +26,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id   : 'contact',
         title: 'Contact',
         type : 'basic',
-        icon : 'feather:file-text',
+        icon : 'heroicons_solid:phone',
         link : '/contact'
     },
     {
