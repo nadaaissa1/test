@@ -11,6 +11,7 @@ import { timer } from 'rxjs';
 @Component({
     selector     : 'auth-reset-password',
     templateUrl  : './reset-password.component.html',
+    styleUrls: ['./reset-password.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })

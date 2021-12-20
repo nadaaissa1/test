@@ -2,7 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ClientModel } from '../models/client.model';
+import { UserModel } from '../models/user.model';
 import { ClientService } from '../services/client.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-editclient',
@@ -13,17 +15,25 @@ export class EditclientComponent implements OnInit {
 
   form: FormGroup;
   client: ClientModel = new ClientModel();
+  users: UserModel[];
 
   constructor(
     private dialogRef: MatDialogRef<EditclientComponent>,
     private fb: FormBuilder,
     private clientService: ClientService,
+    private userService: UserService,
      @Inject(MAT_DIALOG_DATA) public data: ClientModel,
      ) {
        console.log('Client data', data);
      }
 
   ngOnInit(): void {
+    this.userService.getUserByAccountAndActive().subscribe(
+      data => {   
+        this.users = data;    
+        console.log(data);     
+    });
+
     this.form = this.fb.group({
       id:[this.data.id],
       organisation: [this.data.organisation , Validators.required],

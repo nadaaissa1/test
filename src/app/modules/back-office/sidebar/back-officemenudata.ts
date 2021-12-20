@@ -4,19 +4,19 @@ import { FuseNavigationItem } from "@fuse/components/navigation";
 export const backofficemenudata:FuseNavigationItem[] = [
     {
         id   : 'client',
-        title: 'Client',
+        title: 'Clients',
         type: 'basic',
         link : '/back-office/client'
     },
     {
         id   : 'contrat',
-        title: 'Contrat',
+        title: 'Contrats',
         type: 'basic',
         link : '/back-office/contrat'
     }, 
     {
         id   : 'user',
-        title: 'Utilisateur',
+        title: 'Utilisateurs',
         type: 'basic',
         link : '/back-office/user'
     }
