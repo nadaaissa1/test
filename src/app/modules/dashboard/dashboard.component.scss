@@ -1,0 +1,37 @@
+.tableconfiguration1 {
+    text-align: center;
+    margin: auto;
+}
+.headtdconfiguration {
+    text-align: left;
+    font-weight: bold;
+}
+.foottdconfiguration {
+    padding-top: 20px;
+}
+img {
+    text-align: center;
+    margin: auto;
+}
+img:hover {
+    background: #9ca3af;
+}
+figcaption {
+    color: #e57d03;
+}
+.namecolor {
+    color: #e57d03;
+}
+.tdbold {
+    font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+}

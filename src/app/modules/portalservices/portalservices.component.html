@@ -1,0 +1,12 @@
+<div class="flex flex-col min-w-0">
+    <mat-drawer-container class="flex-auto h-full">
+        <mat-drawer class="w-72 dark:bg-gray-900" [mode]="drawerMode" [opened]="drawerOpened" #drawer>
+            <portalservices-sidebar></portalservices-sidebar>
+        </mat-drawer>
+        <mat-drawer-content class="flex flex-col">
+            <div class="flex flex-auto">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

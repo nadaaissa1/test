@@ -1,0 +1,41 @@
+.tableconfiguration1 {
+    text-align: center;
+    margin: auto;
+}
+.headtdconfiguration {
+    text-align: left;
+    font-weight: bold;
+}
+.informationtd {
+    text-align: left;
+}
+.tdbold {
+    font-weight: bold;
+}
+.tdpadding {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+#tdfullborder {
+    margin-right: 1%;
+    margin-left: 1%;
+}
+#divconfiguration {
+    padding-bottom: 5%;
+}
+.namecolor {
+    color: #e57d03;
+}
+@media only screen and (max-width: 600px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    td {
+        width: 100%;
+    }
+}

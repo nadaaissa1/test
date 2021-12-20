@@ -3,37 +3,130 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        icon : 'heroicons_outline:home', 
+        link : '/dashboard'
+    },
+    // {
+    //     id   : 'services',
+    //     title: 'Services',
+    //     type : 'basic',
+    //     link : '/services'
+    // },
+    {
+        id   : 'administration',
+        title: 'Administration',
+        type : 'basic',
+        icon : 'heroicons_outline:globe-alt',
+        link : '/administration'
+    },
+    {
+        id   : 'contact',
+        title: 'Contact',
+        type : 'basic',
+        icon : 'heroicons_solid:phone',
+        link : '/contact'
+    },
+    {
+        id   : 'back-office',
+        title: 'Back-Office',
+        type : 'collapsable',
+        icon : 'feather:user',
+        link : '/back-office',
+        children: [
+            {
+                id        : 'back-office.client',
+                title     : 'Client',
+                type      : 'basic',
+                link      : '/back-office/client',
+                exactMatch: true
+            },
+            {
+                id   : 'back-office.contrat',
+                title: 'Contrat',
+                type : 'basic',
+                link : '/back-office/contrat'
+            },
+            {
+                id   : 'back-office.guides',
+                title: 'Utilisateur',
+                type : 'basic',
+                link : '/back-office/user'
+            }
+        ]
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic', 
+        icon : 'heroicons_outline:clipboard-check',
+        link : '/dashboard'
+    },
+    // {
+    //     id   : 'services',
+    //     title: 'Services',
+    //     type : 'basic',
+    //     link : '/services'
+    // },
+    {
+        id   : 'administration',
+        title: 'Administration',
         type : 'basic',
-        icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/administration'
+    },
+    {
+        id   : 'contact',
+        title: 'Contact',
+        type : 'basic',
+        link : '/contact'
+    },
+    {
+        id   : 'back-office',
+        title: 'Back-Office',
+        type : 'collapsable',
+        link : '/back-office',
+        children: [
+            {
+                id        : 'back-office.client',
+                title     : 'Client',
+                type      : 'basic',
+                link      : '/back-office/client',
+                exactMatch: true
+            },
+            {
+                id   : 'back-office.contrat',
+                title: 'Contrat',
+                type : 'basic',
+                link : '/back-office/contrat'
+            },
+            {
+                id   : 'back-office.guides',
+                title: 'Utilisateur',
+                type : 'basic',
+                link : '/back-office/user'
+            }
+        ]
     }
 ];

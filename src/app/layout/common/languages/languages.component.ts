@@ -51,8 +51,8 @@ export class LanguagesComponent implements OnInit, OnDestroy
 
         // Set the country iso codes for languages for flags
         this.flagCodes = {
-            'en': 'us',
-            'tr': 'tr'
+            'fr': 'fr',
+            'en': 'us'       
         };
     }
 
@@ -136,18 +136,27 @@ export class LanguagesComponent implements OnInit, OnDestroy
         }
 
         // Get the Analytics dashboard item and update its title
-        const analyticsDashboardItem = this._fuseNavigationService.getItem('dashboards.analytics', navigation);
-        if ( analyticsDashboardItem )
-        {
-            this._translocoService.selectTranslate('Analytics').pipe(take(1))
+        // const analyticsDashboardItem = this._fuseNavigationService.getItem('dashboards.analytics', navigation);
+        // if ( analyticsDashboardItem )
+        // {
+        //     this._translocoService.selectTranslate('Analytics').pipe(take(1))
+        //         .subscribe((translation) => {
+
+        //             // Set the title
+        //             analyticsDashboardItem.title = translation;
+
+        //             // Refresh the navigation component
+        //             navComponent.refresh();
+        //         });
+        // }
+
+        this._translocoService.selectTranslateObject('availableLangs').pipe(take(1))
                 .subscribe((translation) => {
-
+                    console.log(translation);
+                    console.log(this.availableLangs);
                     // Set the title
-                    analyticsDashboardItem.title = translation;
-
-                    // Refresh the navigation component
-                    navComponent.refresh();
+                    this.availableLangs = translation;
                 });
-        }
+
     }
 }

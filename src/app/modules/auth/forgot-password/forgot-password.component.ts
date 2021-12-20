@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
-import { AuthService } from 'app/core/auth/auth.service';
+import { AuthService } from 'app/modules/auth/services/auth.service';
 
 @Component({
     selector     : 'auth-forgot-password',
@@ -91,8 +91,10 @@ export class AuthForgotPasswordComponent implements OnInit
                         type   : 'success',
                         message: 'Password reset sent! You\'ll receive an email if you are registered on our system.'
                     };
+                    localStorage.removeItem('credentials');
+
                 },
-                (response) => {
+                (error) => {
 
                     // Set the alert
                     this.alert = {

@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { finalize } from 'rxjs/operators';
+import { finalize, ignoreElements, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseValidators } from '@fuse/validators';
 import { FuseAlertType } from '@fuse/components/alert';
-import { AuthService } from 'app/core/auth/auth.service';
+import { AuthService } from 'app/modules/auth/services/auth.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { timer } from 'rxjs';
 
 @Component({
     selector     : 'auth-reset-password',
@@ -22,13 +24,18 @@ export class AuthResetPasswordComponent implements OnInit
     };
     resetPasswordForm: FormGroup;
     showAlert: boolean = false;
+    resetToken: string = '';
+    forgotPasswordPage: boolean = false;
 
     /**
      * Constructor
      */
     constructor(
         private _authService: AuthService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private route:ActivatedRoute,
+        private _router: Router
+
     )
     {
     }
@@ -42,15 +49,40 @@ export class AuthResetPasswordComponent implements OnInit
      */
     ngOnInit(): void
     {
-        // Create the form
-        this.resetPasswordForm = this._formBuilder.group({
-                password       : ['', Validators.required],
-                passwordConfirm: ['', Validators.required]
-            },
+        this.route.queryParams.subscribe( (params) =>
             {
-                validators: FuseValidators.mustMatch('password', 'passwordConfirm')
-            }
+                
+                this.resetToken = params['token']
+                console.log(this.resetToken)
+                if(this.resetToken.length>0){
+                    this.resetPasswordForm = this._formBuilder.group({
+                        password       : ['', Validators.required],
+                        passwordConfirm: ['', Validators.required]
+                    },
+                    {
+                        validators: FuseValidators.mustMatch('password', 'passwordConfirm')
+                    }
+                );
+                this.forgotPasswordPage = true;
+                }
+               }
         );
+            if(! this.forgotPasswordPage){
+                this.resetPasswordForm = this._formBuilder.group({
+                    oldPassword : ['', Validators.required],
+                    password       : ['', Validators.required],
+                    passwordConfirm: ['', Validators.required]
+                },
+                {
+                    validators: FuseValidators.mustMatch('password', 'passwordConfirm')
+                }
+            );
+            }
+
+           
+        
+        // Create the form
+   
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -63,7 +95,7 @@ export class AuthResetPasswordComponent implements OnInit
     resetPassword(): void
     {
         // Return if the form is invalid
-        if ( this.resetPasswordForm.invalid )
+        if (this.resetPasswordForm.invalid )
         {
             return;
         }
@@ -73,39 +105,93 @@ export class AuthResetPasswordComponent implements OnInit
 
         // Hide the alert
         this.showAlert = false;
+        if(this.forgotPasswordPage){
+            const passwordChangeJson = {
+                'token': this.resetToken,
+                'password': this.resetPasswordForm.get('password').value
+                
+            };
+            // Send the request to the server
+            this._authService.resetForgottenPassword(passwordChangeJson)
+                .pipe(
+                    finalize(() => {
+    
+                        // Re-enable the form
+                        this.resetPasswordForm.enable();
+    
+                        // Reset the form
+                        this.resetPasswordNgForm.resetForm();
+    
+                        // Show the alert
+                        this.showAlert = true;
+                    })
+                )
+                .subscribe(
+                    (response) => {
+    
+                        // Set the alert
+                        this.alert = {
+                            type   : 'success',
+                            message: 'Your password has been reset.'
+                        };
+                        timer(1000, 1000)
+                        .pipe(
+                            finalize(() => {
+                                this._router.navigate(['sign-in']);
+                            }))
+                        .subscribe();
+                    },
+                    (error) => {
+    
+                        // Set the alert
+                        this.alert = {
+                            type   : 'error',
+                            message: 'Something went wrong, please try again.'
+                        };
+                    }
+                );
+        } else {
+            const login = JSON.parse(localStorage.getItem('credentials')).login;
+            const passwordChangeJson = {
+                'oldPassword': this.resetPasswordForm.get('oldPassword').value,
+                'password': this.resetPasswordForm.get('password').value
+                
+            };
+            // Send the request to the server
+            this._authService.changePassword(login, passwordChangeJson)
+                .pipe(
+                    finalize(() => {
+    
+                        // Re-enable the form
+                        this.resetPasswordForm.enable();
+    
+                        // Reset the form
+                        this.resetPasswordNgForm.resetForm();
+    
+                        // Show the alert
+                        this.showAlert = true;
+                    })
+                )
+                .subscribe(
+                    (response) => {
+    
+                        // Set the alert
+                        this.alert = {
+                            type   : 'success',
+                            message: 'Your password has been reset.'
+                        };
+                    },
+                    (error) => {
+    
+                        // Set the alert
+                        this.alert = {
+                            type   : 'error',
+                            message: 'Something went wrong, please try again.'
+                        };
+                    }
+                );
 
-        // Send the request to the server
-        this._authService.resetPassword(this.resetPasswordForm.get('password').value)
-            .pipe(
-                finalize(() => {
-
-                    // Re-enable the form
-                    this.resetPasswordForm.enable();
-
-                    // Reset the form
-                    this.resetPasswordNgForm.resetForm();
-
-                    // Show the alert
-                    this.showAlert = true;
-                })
-            )
-            .subscribe(
-                (response) => {
-
-                    // Set the alert
-                    this.alert = {
-                        type   : 'success',
-                        message: 'Your password has been reset.'
-                    };
-                },
-                (response) => {
-
-                    // Set the alert
-                    this.alert = {
-                        type   : 'error',
-                        message: 'Something went wrong, please try again.'
-                    };
-                }
-            );
+        }
+    
     }
 }

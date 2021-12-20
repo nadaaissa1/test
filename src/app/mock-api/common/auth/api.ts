@@ -23,7 +23,7 @@ export class AuthMockApi
         this._secret = 'YOUR_VERY_CONFIDENTIAL_SECRET_FOR_SIGNING_JWT_TOKENS!!!';
 
         // Register Mock API handlers
-        this.registerHandlers();
+        
     }
 
     // -----------------------------------------------------------------------------------------------------
