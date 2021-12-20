@@ -10,14 +10,14 @@
         </mat-form-field>
     </div>
 
-    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
         <button mat-fab id="adduserbutton" (click)="addUser()">
             <mat-icon aria-label="Add" class="Add">add</mat-icon>
         </button>
     </div>
     <br>
 
-    <div class="mat-elevation-z8 bg-white" fxLayout="column">
+    <div class="mat-elevation-z8 bg-white overflow-x-auto" fxLayout="column">
         <div class="separator"></div>
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 

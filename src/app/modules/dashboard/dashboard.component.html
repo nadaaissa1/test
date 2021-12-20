@@ -1,6 +1,6 @@
-<div class="flex flex-col flex-auto min-w-0" *transloco="let t" fxLayout="column">
+<div class="flex flex-col flex-auto min-w-0 overflow-x-auto" *transloco="let t">
     <app-pub class="w-full"></app-pub>
-    <div class="flex-auto p-6 sm:p-10 overflow-x-hidden">
+    <div class="flex-auto p-6 sm:p-10">
         <table style="width: 98%;">
             <tr>
                 <td class="headtdconfiguration" colspan="3">
@@ -20,14 +20,95 @@
                     Orange
                 </td>
             </tr>
-
-            <tr>
-                <td colspan="3">
-                    Voici les services d'administrations auquels vous avez accès :
-                </td>
-            </tr>
         </table>
         <br>
+
+        <div fxLayout="row" fxLayoutAlign="left center">
+            Voici la liste de vos contrats :
+        </div>
+        <br>
+
+        <div fxLayout="row wrap" fxLayoutGap="10px grid">
+            <div *ngFor="let contract of contracts" fxLayout="column" class="mb-6" fxFlex="25" fxFlex.lg="33" fxFlex.md="50"
+            fxFlex.sm="50" fxFlex.xs="100">
+            
+                <fuse-card class="flex flex-col md:max-w-96 sm:max-w-52 px-6 pt-6 pb-4 filter-list" fxLayout="column">
+                    <div class="flex items-center justify-between">
+                        <div class="text-2xl font-semibold leading-tight">
+                            <div *ngIf="contract.title; else NoData">
+                                {{contract.title}}
+                            </div>
+                        </div>               
+                    </div>
+                    <div class="separator"></div>
+        
+                    <div class="flex flex-col mt-5">
+                        <div class="flex items-center">
+                            <table>
+                                <tr>
+                                    <td class="pr-6 font-bold" >
+                                        Client :
+                                    </td>
+                                    <td *ngIf="contract.client.organisation; else NoData" class="truncate" matTooltip={{contract.client.organisation}}>
+                                        {{contract.client.organisation}}
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="pr-6 font-bold">
+                                        Manager Commercial :
+                                    </td>
+                                    <td *ngIf="contract.commercial; else NoData" class="truncate" matTooltip={{contract.commercial}}>
+                                        {{contract.commercial}}
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="pr-6 font-bold">
+                                        Description :
+                                    </td>
+                                    <td *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}}>
+                                        {{contract.description}}
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="pr-6 font-bold">
+                                        Type de Contrat :
+                                    </td>
+                                    <td *ngIf="contract.type; else NoData">
+                                        {{contract.type}}
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="pr-6 font-bold">
+                                        Date Début :
+                                    </td>
+                                    <td *ngIf="contract.startDate; else NoData">
+                                        {{contract.startDate | date}}
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td class="pr-6 font-bold">
+                                        Date Fin :
+                                    </td>
+                                    <td *ngIf="contract.endDate; else NoData">
+                                        {{contract.endDate | date}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </fuse-card>
+            </div>
+        </div>      
+        <br>
+
+        <div fxLayout="row" fxLayoutAlign="left center">
+            Voici les services d'administrations auquels vous avez accès :
+        </div>
         <table class="tableconfiguration1" style="width: 98%;">
             <tr>
                 <td class="w-2/6">
@@ -66,5 +147,11 @@
                 <td class="foottdconfiguration" colspan="2"></td>
             </tr>
         </table>
+
+        <ng-template #NoData>
+            <div>
+                N/A
+            </div>
+        </ng-template>
     </div>
 </div>

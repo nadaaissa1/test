@@ -9,14 +9,14 @@
         </mat-form-field>
     </div>
 
-    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
         <button mat-fab id="addcontratbutton" (click)="addContrat()">
             <mat-icon aria-label="Add" class="Add">add</mat-icon>
         </button>
     </div>
     <br>
   
-    <div class="mat-elevation-z8 bg-white">
+    <div class="mat-elevation-z8 bg-white overflow-x-auto">
         <div class="separator"></div>
         <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
