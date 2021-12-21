@@ -9,15 +9,22 @@
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
         <!-- Logo -->
-        <div class="flex items-center justify-center h-20">
-            <img
-                class="w-16"
-                src="assets/logo_Focus.png"
-                alt="Logo image">
-                <div class="font-bold text-2xl"
-                *ngIf="navigationAppearance === 'default'"
-                > Portail Client FTS  </div>    
+        <div class="h-20 items-center justify-center" fxLayout="row">
+            <div fxLayout="row">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <img class="w-16" src="assets/logo_Focus.png" alt="Logo image">
+                </div>        
+                <div class="font-bold text-2xl" *ngIf="navigationAppearance === 'default'" fxLayoutAlign="center center"> 
+                    Portail Client FTS  
+                </div>   
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button mat-icon-button (click)="toggleNavigationAppearance()">
+                        <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                    </button>
+                </div>
+            </div>
         </div>
+        
     </ng-container>
 </fuse-vertical-navigation>
 
@@ -27,12 +34,6 @@
     <!-- Header -->
     <div class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
         <div class="flex items-center pr-2 space-x-2">
-            
-            <button
-                mat-icon-button
-                (click)="toggleNavigationAppearance()">
-                <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
-            </button>
            
             <!-- Navigation appearance toggle button -->
             <!--
@@ -64,8 +65,8 @@
     </div>
 
     <!-- Footer -->
-    <div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+    <!-- <div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
         <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
-    </div>
+    </div> -->
 
 </div>

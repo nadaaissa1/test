@@ -105,7 +105,6 @@ export const horizontalNavigation: FuseNavigationItem[] = [
     {
         id   : 'back-office',
         title: 'Back-Office',
-<<<<<<< HEAD
         type : 'collapsable',
         link : '/back-office',
         children: [
@@ -128,10 +127,6 @@ export const horizontalNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 link : '/back-office/user'
             }
-        ]
-=======
-        type : 'basic',
-       
->>>>>>> 2f0c67b0daafcdb887369f425779cd350eb48e19
+        ]       
     }
 ];

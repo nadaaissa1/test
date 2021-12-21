@@ -20,3 +20,6 @@ img {
     padding-top: 50px;
     padding-bottom: 70px;
 }
+a:-webkit-any-link {
+    text-decoration: none !important;
+}
