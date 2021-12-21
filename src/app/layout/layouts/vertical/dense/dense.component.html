@@ -6,8 +6,8 @@
     <ng-container fuseVerticalNavigationContentHeader>
         <!-- Logo -->
         <div class="h-20 items-center justify-center" fxLayout="row">
-            <div fxLayout="row">
-                <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="row" class="w-screen" fxLayoutAlign="center center">
+                <div fxLayout="row" fxLayoutAlign="center center">
                     <img class="w-16" src="assets/logo_Focus.png" alt="Logo image">
                 </div>
 
@@ -19,25 +19,23 @@
                 <div class="font-bold text-2xl" fxShow.lt-md="true" fxHide="true"
                     fxLayoutAlign="center center">
                     Portail Client FTS
+                </div>    
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end center" >
+                <div fxHide.lt-md="true" fxShow="true" aria-hidden="true" >
+                    <button mat-icon-button (click)="toggleNavigationAppearance()">
+                        <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                    </button>
                 </div>
+          
+                <div fxShow.lt-md="true" fxHide="true" fxLayout="row" fxLayoutAlign="end center">
 
-                <div fxLayout="row" fxLayoutAlign="end center">
-                  
-                    <div fxHide.lt-md="true" fxShow="true" >
-                        <button mat-icon-button (click)="toggleNavigationAppearance()">
-                            <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
-                        </button>
-                    </div>
-              
-                    <div fxShow.lt-md="true" fxHide="true" fxLayout="row" fxLayoutAlign="end center">
+                    <button (click)="toggleNavigationOpened()" fxHide></button>
 
-                        <button (click)="toggleNavigationOpened()" fxHide></button>
-
-                        <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
-                            <mat-icon class="secondary-text">arrow_back</mat-icon>
-                        </button>
-                    </div>
-                
+                    <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                        <mat-icon class="secondary-text">arrow_back</mat-icon>
+                    </button>
                 </div>
             </div>
         </div>

@@ -68,7 +68,7 @@
                     *matHeaderCellDef mat-sort-header>Type de
                     Contrat</th>
                 <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
-                    <div *ngIf="contract.type; else NoData">
+                    <div *ngIf="contract.type; else NoData" class="truncate" matTooltip={{contract.type}}>
                         {{contract.type}}
                     </div>
                 </td>
