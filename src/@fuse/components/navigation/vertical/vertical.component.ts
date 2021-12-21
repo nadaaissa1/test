@@ -198,6 +198,8 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
      */
     ngOnChanges(changes: SimpleChanges): void
     {
+        console.log('changes', changes)
+        console.log("'appearance' in changes", 'appearance' in changes)
         // Appearance
         if ( 'appearance' in changes )
         {
