@@ -33,8 +33,6 @@ export class ContratComponent implements OnInit {
     this.contratService.getContracts().subscribe(
       (response: ContratResponse) => {
         this.contracts = response.Contracts;
-        console.log(this.contracts);
-        console.log(this.paginator);
         this.dataSource = new MatTableDataSource(this.contracts);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;      
@@ -51,13 +49,13 @@ export class ContratComponent implements OnInit {
       width: "60%",
       height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      (`Dialog result: ${result}`);
       this.initDataSource();
     });
   }
 
   editContrat(contract: ContratModel) {
-    console.log(contract);
+    (contract);
     if (!contract)
     {
       return;
@@ -76,7 +74,7 @@ export class ContratComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      (`Dialog result: ${result}`);
       this.initDataSource();
     });
   }
@@ -84,7 +82,7 @@ export class ContratComponent implements OnInit {
   desactivateContrat(contrat: ContratModel): void {
     if (contrat.active == true) {
       this.contratService.desactivateContract(contrat).subscribe(data => {
-        console.log('contrat desactivation' + contrat);
+        ('contrat desactivation' + contrat);
         this.initDataSource();
       });
     }

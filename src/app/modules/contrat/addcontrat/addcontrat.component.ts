@@ -28,13 +28,11 @@ export class AddcontratComponent implements OnInit {
     this.clientService.getClients().subscribe(
       (response: ClientResponse) => {
         this.clients = response.Clients;
-        console.log(this.clients);     
     }); 
 
     this.userService.getUserByAccountAndActive().subscribe(
       data => {   
         this.users = data;    
-        console.log(data);     
     }); 
 
     this.form = this.fb.group({
@@ -52,9 +50,8 @@ export class AddcontratComponent implements OnInit {
 
   save() {
     this.contratService.createContract(this.form.getRawValue()).subscribe(data => {
-      console.log(data);
     }, 
-    error => console.log(error));
+    error => {});
     this.dialogRef.close();
     this.form.reset();
   }

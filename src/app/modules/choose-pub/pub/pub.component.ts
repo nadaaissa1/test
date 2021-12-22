@@ -27,7 +27,6 @@ export class PubComponent implements OnInit {
 
   ngOnInit(): void {
     this.sanitizer.bypassSecurityTrustResourceUrl(this.item.base64Img);
-    console.log(this.item);
 
   }
   closeModal(): void {

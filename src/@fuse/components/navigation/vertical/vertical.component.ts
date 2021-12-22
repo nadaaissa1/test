@@ -37,6 +37,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
     @Input() opened: boolean = true;
     @Input() position: FuseVerticalNavigationPosition = 'left';
     @Input() transparentOverlay: boolean = false;
+    @Output() navigationSideBarOpened: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() readonly appearanceChanged: EventEmitter<FuseVerticalNavigationAppearance> = new EventEmitter<FuseVerticalNavigationAppearance>();
     @Output() readonly modeChanged: EventEmitter<FuseVerticalNavigationMode> = new EventEmitter<FuseVerticalNavigationMode>();
     @Output() readonly openedChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -162,7 +163,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
      *
      * @private
      */
-    @HostListener('mouseenter')
+    //@HostListener('mouseenter')
     private _onMouseenter(): void
     {
         // Enable the animations
@@ -170,6 +171,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
 
         // Set the hovered
         this._hovered = true;
+        this.navigationSideBarOpened.emit(true);
     }
 
     /**
@@ -177,7 +179,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
      *
      * @private
      */
-    @HostListener('mouseleave')
+   // @HostListener('mouseleave')
     private _onMouseleave(): void
     {
         // Enable the animations
@@ -185,6 +187,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
 
         // Set the hovered
         this._hovered = false;
+        this.navigationSideBarOpened.emit(false);
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -198,8 +201,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
      */
     ngOnChanges(changes: SimpleChanges): void
     {
-        console.log('changes', changes)
-        console.log("'appearance' in changes", 'appearance' in changes)
         // Appearance
         if ( 'appearance' in changes )
         {

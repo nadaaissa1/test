@@ -45,7 +45,6 @@ export class ChoosePubComponent implements OnInit {
     const modalRef = this.modalService.open(PubComponent, {ariaLabelledBy: 'modal-basic-title'});
     modalRef.componentInstance.item = true;
     modalRef.componentInstance.reload.subscribe(() => {
-      console.log("here")
       this.getImages();
     })
  }

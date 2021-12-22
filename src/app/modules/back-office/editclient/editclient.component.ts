@@ -24,14 +24,12 @@ export class EditclientComponent implements OnInit {
     private userService: UserService,
      @Inject(MAT_DIALOG_DATA) public data: ClientModel,
      ) {
-       console.log('Client data', data);
      }
 
   ngOnInit(): void {
     this.userService.getUserByAccountAndActive().subscribe(
       data => {   
         this.users = data;    
-        console.log(data);     
     });
 
     this.form = this.fb.group({
@@ -51,9 +49,9 @@ export class EditclientComponent implements OnInit {
 
   save() {
     this.clientService.updateClient(this.form.getRawValue()).subscribe(data => {
-      console.log(data);
+      (data);
     }, 
-    error => console.log(error));
+    error => (error));
     this.dialogRef.close();
     this.form.reset();
   }

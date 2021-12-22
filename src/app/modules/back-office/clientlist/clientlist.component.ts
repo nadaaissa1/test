@@ -33,8 +33,6 @@ export class ClientlistComponent implements OnInit {
     this.clientService.getClients().subscribe(
       (response: ClientResponse) => {
         this.clients = response.Clients;
-        console.log(this.clients);
-        console.log(this.paginator);
         this.dataSource = new MatTableDataSource(this.clients);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;      
@@ -51,7 +49,7 @@ export class ClientlistComponent implements OnInit {
       width: "60%",
       height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      (`Dialog result: ${result}`);
       this.initDataSource();
     });
   }
@@ -71,7 +69,7 @@ export class ClientlistComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      (`Dialog result: ${result}`);
       this.initDataSource();
     });
   }
@@ -79,7 +77,7 @@ export class ClientlistComponent implements OnInit {
   desactivateClient(client: ClientModel): void {
     if (client.active == true) {
       this.clientService.desactivateClient(client).subscribe(data => {
-        console.log('client desactivation' + client);
+        ('client desactivation' + client);
         this.initDataSource();
       });
     }

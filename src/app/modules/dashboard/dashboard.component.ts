@@ -29,8 +29,7 @@ export class DashboardComponent implements OnInit {
     this.contratService.getContracts().subscribe(
       (response: ContratResponse) => {
         this.contracts = response.Contracts;
-        console.log(this.contracts);  
-        this.dataSource = new MatTableDataSource(this.contracts);  
+                this.dataSource = new MatTableDataSource(this.contracts);  
     }); 
   }
 }

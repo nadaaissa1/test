@@ -14,13 +14,11 @@ export class ImageComponent implements OnInit {
   constructor(private modalService: NgbModal, private pubService: PubService) { }
 
   ngOnInit(): void {
-    console.log(this.item)
   }
   open(): void {
     const modalRef = this.modalService.open(PubComponent, {ariaLabelledBy: 'modal-basic-title'});
     modalRef.componentInstance.item = this.item;
     modalRef.componentInstance.reload.subscribe(() => {
-      console.log("here")
       this.reload.emit();
     })
  }

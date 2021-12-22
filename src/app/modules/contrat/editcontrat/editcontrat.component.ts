@@ -22,20 +22,18 @@ export class EditcontratComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<EditcontratComponent>, private fb: FormBuilder, private contratService: ContratService,
     @Inject(MAT_DIALOG_DATA) public data: ContratModel, private clientService: ClientService, private userService: UserService) {
-      console.log('Contract data', data);
      }
 
   ngOnInit(): void {
     this.clientService.getClients().subscribe(
       (response: ClientResponse) => {
         this.clients = response.Clients;
-        console.log(this.clients);     
     }); 
 
     this.userService.getUsers().subscribe(
       (response: UserResponse) => {
         this.users = response.content;
-        console.log(this.users);     
+        (this.users);     
     }); 
     
     this.form = this.fb.group({
@@ -53,11 +51,9 @@ export class EditcontratComponent implements OnInit {
   get f() { return this.form.controls; }
 
   save() {
-    console.log(this.form.getRawValue());
     this.contratService.updateContrat(this.form.getRawValue()).subscribe(data => {
-      console.log(data);
     }, 
-    error => console.log(error));
+    error => {});
     this.dialogRef.close();
     this.form.reset();
   }

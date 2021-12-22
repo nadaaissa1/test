@@ -1,28 +1,28 @@
 <!-- Navigation -->
 <fuse-vertical-navigation class="dark bg-gray-900 print:hidden" [appearance]="navigationAppearance"
     [mode]="isScreenSmall ? 'over' : 'side'" [name]="'mainNavigation'" [navigation]="navigation.default"
-    [opened]="!isScreenSmall">
+    [opened]="!isScreenSmall" (navigationSideBarOpened)="onNavigationSideBarOpened($event)">
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
         <!-- Logo -->
-        <div class="h-20 items-center justify-center" fxLayout="row">
+        <div class="h-30 items-center justify-center" [fxLayout]="!(navigationAppearance === 'default' || navigationSideBarOpened)?'column' :'row'"  
+        >
             <div fxLayout="row" class="w-screen" fxLayoutAlign="center center">
-                <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxLayout="column" fxLayoutAlign="center center">
                     <img class="w-16" src="assets/logo_Focus.png" alt="Logo image">
                 </div>
 
-                <div class="font-bold text-2xl" *ngIf="navigationAppearance === 'default'"
+                <div class="font-bold text-2xl" *ngIf="navigationAppearance === 'default' || navigationSideBarOpened"
                     fxLayoutAlign="center center">
                     Portail Client FTS
                 </div>
 
-                <div class="font-bold text-2xl" fxShow.lt-md="true" fxHide="true"
+                <!--div class="font-bold text-2xl" fxShow.lt-md="true" fxHide="true"
                     fxLayoutAlign="center center">
                     Portail Client FTS
-                </div>    
+                </div-->    
             </div>
-
-            <div fxLayout="row" fxLayoutAlign="end center" >
+            <div fxLayout="column" fxLayoutAlign="start center" >
                 
                 <div fxHide.lt-md="true" fxShow="true" aria-hidden="true" >
                     <button mat-icon-button (click)="toggleNavigationAppearance()">
@@ -30,14 +30,14 @@
                     </button>
                 </div>
           
-                <div fxShow.lt-md="true" fxHide="true" fxLayout="row" fxLayoutAlign="end center">
+                <!--div fxShow.lt-md="true" fxHide="true" fxLayout="column" fxLayoutAlign="start center">
 
                     <button (click)="toggleNavigationOpened()" fxHide></button>
 
                     <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
                         <mat-icon class="secondary-text">arrow_back</mat-icon>
                     </button>
-                </div>
+                </div-->
             </div>
         </div>
 

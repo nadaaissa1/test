@@ -31,8 +31,6 @@ export class ContactlistComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (response: UserResponse) => {
         this.users = response.content;
-        console.log(this.users);
-        console.log(this.paginator);
         this.dataSource = new MatTableDataSource(this.users);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;    
@@ -49,7 +47,7 @@ export class ContactlistComponent implements OnInit {
       width: "60%",
       height: "96%"});
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      (`Dialog result: ${result}`);
       this.initDataSource();
     });
   }
@@ -57,7 +55,7 @@ export class ContactlistComponent implements OnInit {
   desactivateUser(user: UserModel): void {
     if (user.active == true) {
       this.userService.desactivateUser(user).subscribe(data => {
-        console.log('User desactivation' + user);
+        ('User desactivation' + user);
         this.initDataSource();
       });
     }

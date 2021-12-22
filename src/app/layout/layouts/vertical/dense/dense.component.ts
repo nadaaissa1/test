@@ -13,7 +13,8 @@ import { NavigationService } from 'app/core/navigation/navigation.service';
     encapsulation: ViewEncapsulation.None
 })
 export class DenseLayoutComponent implements OnInit, OnDestroy
-{
+{   
+    navigationSideBarOpened: boolean;
     isScreenSmall: boolean;
     navigation: Navigation;
     navigationAppearance: 'default' | 'dense' = 'dense';
@@ -109,12 +110,13 @@ export class DenseLayoutComponent implements OnInit, OnDestroy
     toggleNavigationAppearance(): void
     {
         this.navigationAppearance = (this.navigationAppearance === 'default' ? 'dense' : 'default');
-        console.log('tst', this.navigationAppearance)
     }
 
     toggleNavigationOpened(): void
     {
         this.navigationOpened = (this.navigationOpened === 'dense' ? 'default' : 'dense');
-        console.log('tst', this.navigationOpened)
+    }
+    onNavigationSideBarOpened(event):void{
+                this.navigationSideBarOpened=event;
     }
 }

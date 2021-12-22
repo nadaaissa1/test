@@ -24,7 +24,6 @@ export class AddclientComponent implements OnInit {
     this.userService.getUserByAccountAndActive().subscribe(
       data => {   
         this.users = data;    
-        console.log(data);     
     });
 
     this.form = this.fb.group({
@@ -43,9 +42,9 @@ export class AddclientComponent implements OnInit {
 
   save() {
     this.clientService.createClient(this.form.getRawValue()).subscribe(data => {
-      console.log(data);
+      (data);
     }, 
-    error => console.log(error));
+    error => (error));
     this.dialogRef.close();
     this.form.reset();
   }
