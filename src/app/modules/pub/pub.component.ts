@@ -19,15 +19,14 @@ export class PubComponent implements OnInit {
   getImages(): void {
     this.pubService.getImages()
       .subscribe((response) => {
-
+        this.imageObject = [];
         response.forEach((img: any) => {
-          if (img.name != "cloudPortal-icon.png") {
             let url = img.base64Img;
             this.imageObject.push({
               image: url,
               thumbImage: url,
             })
-          }
+            console.log(this.imageObject)
         });
       }, error => {
       }
