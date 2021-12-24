@@ -152,8 +152,6 @@ export class LanguagesComponent implements OnInit, OnDestroy
 
         this._translocoService.selectTranslateObject('availableLangs').pipe(take(1))
                 .subscribe((translation) => {
-                    console.log(translation);
-                    console.log(this.availableLangs);
                     // Set the title
                     this.availableLangs = translation;
                 });

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
-import { UserResponse } from '../models/IUserResponse.model';
+import { Content, UserResponse } from '../models/IUserResponse.model';
 import { UserModel } from '../models/user.model';
 
 @Injectable({
@@ -20,7 +20,11 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    return this.httpclient.get<UserModel>(this.apiEndpoint + '/' + id);
+    return this.httpclient.get<UserModel>(this.apiEndpoint + id);
+  }
+
+  getUserByAccountAndActive (): Observable<UserModel[]> {
+    return this.httpclient.get<UserModel[]>(this.apiEndpoint + 'user?account=Focus Corporation&active=false');
   }
 
   createUser(user: UserModel): Observable<UserModel> {

@@ -11,7 +11,7 @@ import { BackOfficeModule } from '../back-office/back-office.module';
 
 const profileRoutes: Route[] = [
   {
-      path     : '',
+      path     : 'details',
       component: ProfileComponent
   }
 ];

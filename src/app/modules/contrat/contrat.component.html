@@ -1,80 +1,125 @@
 <div class="flex flex-col flex-auto min-w-0  w-screen">
-    <div class="flex-auto p-6 sm:p-10">
-        <div class="gap-2" fxLayout="column" fxLayoutAlign="center
-            center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
-            <div class="float-left font-bold text-2xl">
-                <div>
-                    Contracts
-                </div>
-            </div>
-            <div class="w-full">
-                <mat-form-field appearance="fill" floatLabel="always" class="w-full">
-                    <input matInput placeholder="search" (keyup)="applyFilter($event)" />
-                </mat-form-field>
-            </div>
+
+    <div class="w-full bgSearch rounded d-flex justify-content-center mb-2">
+        <mat-form-field appearance="fill" floatLabel="always" class="w-50 mt-3 mb-2 ">       
+            <input matInput placeholder="Recherche" (keyup)="applyFilter($event)" />
+            <mat-icon
+            class="float-left mr-2 sm:ml-8"
+            [svgIcon]="'heroicons_outline:search'"></mat-icon>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
+        <button mat-fab id="addcontratbutton" (click)="addContrat()">
+            <mat-icon aria-label="Add" class="Add">add</mat-icon>
+        </button>
+    </div>
+    <br>
+  
+    <div class="mat-elevation-z8 bg-white overflow-x-auto">
+        <div class="separator"></div>
+        <table mat-table matSort [dataSource]="dataSource" class="w-full">
+
+            <ng-container matColumnDef="title">
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Titre</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.title; else NoData" class="truncate" matTooltip={{contract.title}}>
+                        {{contract.title}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="organisation">
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Client
+                </th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.client.organisation; else NoData">
+                        {{contract.client.organisation}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="commercial">
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Manager
+                    Commercial</th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.commercial; else NoData">
+                        {{contract.commercial}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>
+                    Description</th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}}>
+                        {{contract.description}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Type de
+                    Contrat</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.type; else NoData" class="truncate" matTooltip={{contract.type}}>
+                        {{contract.type}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Date
+                    Début</th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.startDate; else NoData">
+                        {{contract.startDate | date}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef mat-sort-header>Date Fin
+                </th>
+                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let contract">
+                    <div *ngIf="contract.endDate; else NoData">
+                        {{contract.endDate | date}}
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                    *matHeaderCellDef>Actions</th>
+                <td fxFlex="10" fxLayoutAlign="center center" mat-cell class="text-center" *matCellDef="let contract">
+                    <button title="Modifier" (click)="editContrat(contract)" [disabled]="!contract.active">
+                        <mat-icon aria-label="Edit" class="Edit">edit</mat-icon>
+                    </button>
+                    <button title="Supprimer" (click)="desactivateContrat(contract)" [disabled]="!contract.active">
+                        <mat-icon aria-label="Delete" class="Delete">delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }">
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+
+        <ng-template #NoData>
             <div>
-                <button mat-raised-button (click)="addContrat()"
-                    class="bg-amber-700 hover:bg-amber-700 text-white font-bold px-4 rounded" id="addcontratbutton">
-                    Ajouter Contrat
-                </button>
+                N/A
             </div>
-        </div>
-        <div class="mat-elevation-z8 overflow-x-scroll bg-white">
-            <table mat-table matSort [dataSource]="dataSource" class="w-full">
-
-                <ng-container matColumnDef="title">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.title}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="organisation">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Organisation</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.client.organisation}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="commercial">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Manager Commercial</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.commercial}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="description">
-                    <th class="w-1/12" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.description}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="type">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Type de Contrat</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.type}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="startDate">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Date Début</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.startDate | date}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="endDate">
-                    <th class="w-2/12" mat-header-cell *matHeaderCellDef mat-sort-header>Date Fin</th>
-                    <td mat-cell *matCellDef="let contract">{{contract.endDate | date}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="actions">
-                    <th class="w-1/12 text-center" mat-header-cell *matHeaderCellDef>Actions</th>
-                    <td mat-cell class="text-center" *matCellDef="let contract">
-                        <button title="Modifier" (click)="editContrat(contract)" [disabled]="!contract.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:document-add'"></mat-icon>
-                        </button>
-                        <button title="Supprimer" (click)="desactivateContrat(contract)" [disabled]="!contract.active">
-                            <mat-icon [svgIcon]="'heroicons_solid:document-remove'"></mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-                    [ngClass]="{ 'bg-accent-300': !row.active }"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-                aria-label="Select page of periodic elements">
-            </mat-paginator>
-        </div>
+        </ng-template>
     </div>
 </div>

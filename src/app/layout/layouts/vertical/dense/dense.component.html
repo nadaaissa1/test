@@ -1,23 +1,46 @@
 <!-- Navigation -->
-<fuse-vertical-navigation
-    class="dark bg-gray-900 print:hidden"
-    [appearance]="navigationAppearance"
-    [mode]="isScreenSmall ? 'over' : 'side'"
-    [name]="'mainNavigation'"
-    [navigation]="navigation.default"
-    [opened]="!isScreenSmall">
+<fuse-vertical-navigation class="dark bg-gray-900 print:hidden" [appearance]="navigationAppearance"
+    [mode]="isScreenSmall ? 'over' : 'side'" [name]="'mainNavigation'" [navigation]="navigation.default"
+    [opened]="!isScreenSmall" (navigationSideBarOpened)="onNavigationSideBarOpened($event)">
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
         <!-- Logo -->
-        <div class="flex items-center justify-center h-20">
-            <img
-                class="w-16"
-                src="assets/logo_Focus.png"
-                alt="Logo image">
-                <div class="font-bold text-2xl"
-                *ngIf="navigationAppearance === 'default'"
-                > Portail Client FTS  </div>    
+        <div class="h-30 items-center justify-center" [fxLayout]="!(navigationAppearance === 'default' || navigationSideBarOpened)?'column' :'row'"  
+        >
+            <div fxLayout="row" class="w-screen" fxLayoutAlign="center center">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <img class="w-16" src="assets/logo_Focus.png" alt="Logo image">
+                </div>
+
+                <div class="font-bold text-2xl" *ngIf="navigationAppearance === 'default' || navigationSideBarOpened"
+                    fxLayoutAlign="center center">
+                    Portail Client FTS
+                </div>
+
+                <!--div class="font-bold text-2xl" fxShow.lt-md="true" fxHide="true"
+                    fxLayoutAlign="center center">
+                    Portail Client FTS
+                </div-->    
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start center" >
+                
+                <div fxHide.lt-md="true" fxShow="true" aria-hidden="true" >
+                    <button mat-icon-button (click)="toggleNavigationAppearance()">
+                        <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                    </button>
+                </div>
+          
+                <!--div fxShow.lt-md="true" fxHide="true" fxLayout="column" fxLayoutAlign="start center">
+
+                    <button (click)="toggleNavigationOpened()" fxHide></button>
+
+                    <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                        <mat-icon class="secondary-text">arrow_back</mat-icon>
+                    </button>
+                </div-->
+            </div>
         </div>
+
     </ng-container>
 </fuse-vertical-navigation>
 
@@ -25,24 +48,20 @@
 <div class="flex flex-col flex-auto w-full min-w-0">
 
     <!-- Header -->
-    <div class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+    <div
+        class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
         <div class="flex items-center pr-2 space-x-2">
-            
-            <button
-                mat-icon-button
-                (click)="toggleNavigationAppearance()">
-                <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
-            </button>
-           
+            <!-- Navigation toggle button -->
+            <div fxShow.lt-md="true" fxHide="true">
+                <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                    <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                </button>
+            </div>
+
             <!-- Navigation appearance toggle button -->
-            <!--
-            <button
-                class="hidden md:inline-flex"
-                mat-icon-button
-                (click)="toggleNavigationAppearance()">
-                <mat-icon [svgIcon]="'heroicons_outline:switch-horizontal'"></mat-icon>
+            <button class="hidden md:inline-flex" mat-icon-button (click)="toggleNavigationAppearance()">
             </button>
-        -->
+
         </div>
         <!-- Components -->
         <div class="flex items-center pl-2 ml-auto space-x-1 sm:space-x-2">
@@ -64,8 +83,8 @@
     </div>
 
     <!-- Footer -->
-    <div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
+    <!-- <div class="relative flex flex-0 items-center justify-start w-full h-14 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
         <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
-    </div>
+    </div> -->
 
 </div>

@@ -25,6 +25,17 @@ figcaption {
 .tdbold {
     font-weight: bold;
 }
+.separator {
+    border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: #fc5000; /* old IE */
+    background-color: #fc5000; /* Modern Browsers */
+}
+a:-webkit-any-link {
+    text-decoration: none !important;
+}
+
 @media only screen and (max-width: 600px) {
     table,
     thead,

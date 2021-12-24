@@ -27,12 +27,13 @@ import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { AddcontratComponent } from './addcontrat/addcontrat.component';
 import { EditcontratComponent } from './editcontrat/editcontrat.component';
+import { ClientlistComponent } from '../back-office/clientlist/clientlist.component';
 
 @NgModule({
   declarations: [
     ContratComponent,
     AddcontratComponent,
-    EditcontratComponent
+    EditcontratComponent,
   ],
   imports: [
     CommonModule,

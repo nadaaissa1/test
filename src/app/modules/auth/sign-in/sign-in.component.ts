@@ -10,6 +10,7 @@ import { AuthService } from 'app/modules/auth/services/auth.service';
 @Component({
     selector: 'auth-sign-in',
     templateUrl: './sign-in.component.html',
+    styleUrls: ['./sign-in.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
 })

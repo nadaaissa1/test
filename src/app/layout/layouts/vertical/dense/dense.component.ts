@@ -13,10 +13,12 @@ import { NavigationService } from 'app/core/navigation/navigation.service';
     encapsulation: ViewEncapsulation.None
 })
 export class DenseLayoutComponent implements OnInit, OnDestroy
-{
+{   
+    navigationSideBarOpened: boolean;
     isScreenSmall: boolean;
     navigation: Navigation;
     navigationAppearance: 'default' | 'dense' = 'dense';
+    navigationOpened: 'dense' | 'default' = 'dense';
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -66,6 +68,7 @@ export class DenseLayoutComponent implements OnInit, OnDestroy
             .subscribe(({matchingAliases}) => {
 
                 // Check if the screen is small
+                //this.isScreenSmall = !matchingAliases.includes('md');
                 this.isScreenSmall = !matchingAliases.includes('md');
             });
     }
@@ -107,5 +110,13 @@ export class DenseLayoutComponent implements OnInit, OnDestroy
     toggleNavigationAppearance(): void
     {
         this.navigationAppearance = (this.navigationAppearance === 'default' ? 'dense' : 'default');
+    }
+
+    toggleNavigationOpened(): void
+    {
+        this.navigationOpened = (this.navigationOpened === 'dense' ? 'default' : 'dense');
+    }
+    onNavigationSideBarOpened(event):void{
+                this.navigationSideBarOpened=event;
     }
 }

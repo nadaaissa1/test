@@ -40,11 +40,9 @@ export class AdduserComponent implements OnInit {
 
   save() {
     this.form.patchValue({"role": [this.form.get("role").value]})
-    console.log(this.form.get("role").value);
     this.userService.createUser(this.form.getRawValue()).subscribe(data => {
-      console.log(data)
     }, 
-    error => console.log(error));
+    error => {});
     this.dialogRef.close();
     this.form.reset(); 
   }

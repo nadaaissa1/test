@@ -11,6 +11,7 @@ import { timer } from 'rxjs';
 @Component({
     selector     : 'auth-reset-password',
     templateUrl  : './reset-password.component.html',
+    styleUrls: ['./reset-password.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
@@ -53,7 +54,6 @@ export class AuthResetPasswordComponent implements OnInit
             {
                 
                 this.resetToken = params['token']
-                console.log(this.resetToken)
                 if(this.resetToken.length>0){
                     this.resetPasswordForm = this._formBuilder.group({
                         password       : ['', Validators.required],

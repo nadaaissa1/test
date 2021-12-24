@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { PubService } from '../choose-pub/pub.service';
 
 @Component({
   selector: 'app-pub',
@@ -7,22 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PubComponent implements OnInit {
 
-  constructor() {}
+  constructor(private pubService: PubService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getImages();
+  }
 
-  imageObject: Array<object> = [
-    {
-      image: '../../../assets/ImageSlider1.PNG',
-      thumbImage: '../../../assets/ImageSlider1.PNG',
-    }, 
-    {
-      image: '../../../assets/ImageSlider2.png',
-      thumbImage: '../../../assets/ImageSlider2.png',
-    },
-    {
-      image: '../../../assets/ImageSlider3.png',
-      thumbImage: '../../../assets/ImageSlider3.png',
-    }
-  ];
+  imageObject: Array<object> = [];
+  getImages(): void {
+    this.pubService.getImages()
+      .subscribe((response) => {
+        this.imageObject = [];
+        response.forEach((img: any) => {
+            let url = img.base64Img;
+            this.imageObject.push({
+              image: url,
+              thumbImage: url,
+            })
+            console.log(this.imageObject)
+        });
+      }, error => {
+      }
+      )
+  }
+
 }

@@ -13,6 +13,12 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 import { BackOfficeModule } from './modules/back-office/back-office.module';
+import { ChoosePubComponent } from './modules/choose-pub/choose-pub.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PubComponent } from './modules/choose-pub/pub/pub.component';
+import { ImageComponent } from './modules/choose-pub/image/image.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ChoosePubModule } from './modules/choose-pub/choose-pub.module';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -22,13 +28,14 @@ const routerConfig: ExtraOptions = {
 @NgModule({
     declarations: [
         AppComponent,
-
+        //ChoosePubComponent,
+        //PubComponent,
+        //ImageComponent
     ],
     imports     : [
         BrowserModule,
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes, routerConfig),
-
         // Fuse, FuseConfig & FuseMockAPI
         FuseModule,
         FuseConfigModule.forRoot(appConfig),
@@ -39,12 +46,15 @@ const routerConfig: ExtraOptions = {
         // Layout module of your application
         LayoutModule,
         // 3rd party modules that require global configuration via forRoot
-        MarkdownModule.forRoot({})
-    ],
+        MarkdownModule.forRoot({}),
+        NgbModule,
+        MatIconModule
+        ],
     schemas : [ CUSTOM_ELEMENTS_SCHEMA ],
     bootstrap   : [
         AppComponent
-    ]
+    ],
+    entryComponents:[PubComponent]
 })
 export class AppModule
 {
