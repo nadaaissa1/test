@@ -12,13 +12,9 @@ import { mockApiServices } from 'app/mock-api';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
-import { BackOfficeModule } from './modules/back-office/back-office.module';
-import { ChoosePubComponent } from './modules/choose-pub/choose-pub.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PubComponent } from './modules/choose-pub/pub/pub.component';
-import { ImageComponent } from './modules/choose-pub/image/image.component';
 import { MatIconModule } from '@angular/material/icon';
-import { ChoosePubModule } from './modules/choose-pub/choose-pub.module';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -27,10 +23,7 @@ const routerConfig: ExtraOptions = {
 
 @NgModule({
     declarations: [
-        AppComponent,
-        //ChoosePubComponent,
-        //PubComponent,
-        //ImageComponent
+        AppComponent
     ],
     imports     : [
         BrowserModule,
