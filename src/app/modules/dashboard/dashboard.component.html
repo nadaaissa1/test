@@ -32,69 +32,71 @@
             <div *ngFor="let contract of contracts" fxLayout="column" class="mb-6" fxFlex="25" fxFlex.lg="33" fxFlex.md="50"
             fxFlex.sm="50" fxFlex.xs="100">
             
-                <fuse-card class="flex flex-col md:max-w-96 sm:max-w-52 px-6 pt-6 pb-4 filter-list" fxLayout="column">
+                <fuse-card class="flex flex-col md:max-w-96 sm:max-w-70 px-1 pt-4 pb-4 filter-list overflow-y-auto" fxLayout="column" [ngClass]="{ 'bg-accent-300': !contract.active }">
+                    <!-- min-h-100 max-h-100 -->
                     <div class="flex items-center justify-between">
                         <div class="text-2xl font-semibold leading-tight">
-                            <div *ngIf="contract.title; else NoData">
+                            <div *ngIf="contract.title; else NoData" fxFlex="100">
                                 {{contract.title}}
                             </div>
-                        </div>               
-                    </div>
-                    <div class="separator"></div>
-        
+                        </div>  
+                                  
+                    </div>         
+                    <div class="separator"></div>  
+
                     <div class="flex flex-col mt-5">
                         <div class="flex items-center">
                             <table>
                                 <tr>
-                                    <td class="pr-6 font-bold" >
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Client :
                                     </td>
-                                    <td *ngIf="contract.client.organisation; else NoData" class="truncate" matTooltip={{contract.client.organisation}}>
+                                    <td *ngIf="contract.client.organisation; else NoData" class="truncate" matTooltip={{contract.client.organisation}} fxFlex="30">
                                         {{contract.client.organisation}}
                                     </td>
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td class="pr-6 font-bold">
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Manager Commercial :
                                     </td>
-                                    <td *ngIf="contract.commercial; else NoData" class="truncate" matTooltip={{contract.commercial}}>
+                                    <td *ngIf="contract.commercial; else NoData" class="truncate" matTooltip={{contract.commercial}} fxFlex="30">
                                         {{contract.commercial}}
                                     </td>
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td class="pr-6 font-bold">
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Description :
                                     </td>
-                                    <td *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}}>
+                                    <td *ngIf="contract.description; else NoData" class="truncate" matTooltip={{contract.description}} fxFlex="30">
                                         {{contract.description}}
                                     </td>
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td class="pr-6 font-bold">
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Type de Contrat :
                                     </td>
-                                    <td *ngIf="contract.type; else NoData">
+                                    <td *ngIf="contract.type; else NoData" class="truncate" matTooltip={{contract.type}} fxFlex="30">
                                         {{contract.type}}
                                     </td>
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td class="pr-6 font-bold">
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Date Début :
                                     </td>
-                                    <td *ngIf="contract.startDate; else NoData">
+                                    <td *ngIf="contract.startDate; else NoData" fxFlex="30">
                                         {{contract.startDate | date}}
                                     </td>
                                 </tr>
                                 <br>
                                 <tr>
-                                    <td class="pr-6 font-bold">
+                                    <td class="pr-6 font-bold" fxFlex="70">
                                         Date Fin :
                                     </td>
-                                    <td *ngIf="contract.endDate; else NoData">
+                                    <td *ngIf="contract.endDate; else NoData" fxFlex="30">
                                         {{contract.endDate | date}}
                                     </td>
                                 </tr>
@@ -114,7 +116,7 @@
                 <td class="w-2/6">
                     <a [href]='vCloudDirectorUrlLogin' target="_blank">
                         <figure>
-                            <img class="w-100" src="assets/Multicloud Portal_icons-10.png"
+                            <img class="w-96" src="assets/Multicloud Portal_icons-10.png"
                                 alt="Portail d'administration">
                             <figcaption class="font-bold ">{{t("Portail d'administration cloud")}}</figcaption>
                         </figure>
@@ -133,7 +135,7 @@
                 <td class="w-2/6">
                     <a [href]='ManageEngineUrlLogin' target="_blank">
                         <figure>
-                            <img class="w-100" src="assets/Multicloud Portal_icons-11.png"
+                            <img class="w-96" src="assets/Multicloud Portal_icons-11.png"
                                 alt="Support - Système Ticketing">
                             <figcaption class="font-bold text-center">{{t('Support - Système Ticketing')}}</figcaption>
                         </figure>

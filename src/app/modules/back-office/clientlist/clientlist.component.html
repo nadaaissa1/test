@@ -1,123 +1,125 @@
 <div class="flex flex-col flex-auto min-w-0 w-screen" id="color">
+    <div class="flex-auto p-6 sm:p-10" id="color">
+        <div class="gap-2" fxLayout="column" fxLayoutAlign="center
+            center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
+            <div class="w-full mt-2 mb-2 bgSearch rounded d-flex justify-content-center">
+                <mat-form-field appearance="fill" floatLabel="always" class="w-50 mt-3 mb-2">
+                    <input matInput placeholder="Recherche" (keyup)="applyFilter($event)" />
+                    <mat-icon class="float-left mr-2 sm:ml-8" [svgIcon]="'heroicons_outline:search'"></mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
 
-    <div class="w-full">
-        <mat-form-field appearance="fill" floatLabel="always" class="w-full">
-            <input matInput placeholder="Recherche" (keyup)="applyFilter($event)" />
-        </mat-form-field>
-    </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
+            <button mat-fab id="addclientbutton" (click)="addClient()">
+                <mat-icon aria-label="Add" class="Add">add</mat-icon>
+            </button>
+        </div>
+        <br>
 
-    <div fxLayout="row" fxLayoutAlign="end center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end end">
-        <button mat-fab id="addclientbutton" (click)="addClient()">
-            <mat-icon aria-label="Add" class="Add">add</mat-icon>
-        </button>
-    </div>
-    <br>
+        <div class="mat-elevation-z8 bg-white overflow-x-auto" fxLayout="column">
+            <div class="separator"></div>
+            <table mat-table matSort [dataSource]="dataSource" class="w-full">
 
-    <div class="mat-elevation-z8 bg-white overflow-x-auto" fxLayout="column">
-        <div class="separator"></div>
-        <table mat-table matSort [dataSource]="dataSource" class="w-full">
-
-            <ng-container matColumnDef="organisation">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    *matHeaderCellDef mat-sort-header>Client
-                </th>
-                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.organisation; else NoData" class="truncate" matTooltip={{client.organisation}}>
-                        {{client.organisation}}
-                    </div>
-                </td>
-            </ng-container>
-            <!-- <ng-container matColumnDef="tradeName">
+                <ng-container matColumnDef="organisation">
+                    <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        *matHeaderCellDef mat-sort-header>Client
+                    </th>
+                    <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.organisation; else NoData" class="truncate"
+                            matTooltip={{client.organisation}}>
+                            {{client.organisation}}
+                        </div>
+                    </td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="tradeName">
                     <th fxFlex="8" fxLayoutAlign="center center" mat-header-cell mat-sort-header *matHeaderCellDef>Nom Commercial</th>
                     <td fxFlex="8" fxLayoutAlign="center center" mat-cell *matCellDef="let client">{{client.tradeName}}</td>
                 </ng-container> -->
-            <ng-container matColumnDef="address">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    mat-sort-header *matHeaderCellDef>Adresse
-                </th>
-                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.address; else NoData" class="truncate" matTooltip={{client.address}}>
-                        {{client.address}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="sector">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    mat-sort-header *matHeaderCellDef>Secteur
-                </th>
-                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.sector; else NoData" class="truncate" matTooltip={{client.sector}}>
-                        {{client.sector}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="user">
-                <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    mat-sort-header *matHeaderCellDef>
-                    Gestionnaire du Compte</th>
-                <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.user; else NoData">
-                        {{client.user}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="firstContactUser">
-                <th fxFlex="14" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    *matHeaderCellDef mat-sort-header>Personne
-                    à Contacter</th>
-                <td fxFlex="14" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.firstContactUser; else NoData">
-                        {{client.firstContactUser}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="firstContactEmail">
-                <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    *matHeaderCellDef mat-sort-header>Mail
-                </th>
-                <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.firstContactEmail; else NoData" class="truncate"
-                        matTooltip={{client.firstContactEmail}}>
-                        {{client.firstContactEmail}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="firstContactPhone">
-                <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    *matHeaderCellDef mat-sort-header>
-                    Téléphone</th>
-                <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <div *ngIf="client.firstContactPhone; else NoData">
-                        {{client.firstContactPhone}}
-                    </div>
-                </td>
-            </ng-container>
-            <ng-container matColumnDef="actions">
-                <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
-                    *matHeaderCellDef>Actions</th>
-                <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
-                    <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
-                        <mat-icon aria-label="Edit" class="Edit">edit</mat-icon>
-                    </button>
-                    <button title="Supprimer" (click)="desactivateClient(client)" [disabled]="!client.active">
-                        <mat-icon aria-label="Delete" class="Delete">delete</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
+                <ng-container matColumnDef="address">
+                    <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        mat-sort-header *matHeaderCellDef>Adresse
+                    </th>
+                    <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.address; else NoData" class="truncate" matTooltip={{client.address}}>
+                            {{client.address}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="sector">
+                    <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        mat-sort-header *matHeaderCellDef>Secteur
+                    </th>
+                    <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.sector; else NoData" class="truncate" matTooltip={{client.sector}}>
+                            {{client.sector}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="user">
+                    <th fxFlex="15" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        mat-sort-header *matHeaderCellDef>
+                        Gestionnaire du Compte</th>
+                    <td fxFlex="15" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.user; else NoData">
+                            {{client.user}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="firstContactUser">
+                    <th fxFlex="14" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        *matHeaderCellDef mat-sort-header>Personne
+                        à Contacter</th>
+                    <td fxFlex="14" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.firstContactUser; else NoData">
+                            {{client.firstContactUser}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="firstContactEmail">
+                    <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        *matHeaderCellDef mat-sort-header>Mail
+                    </th>
+                    <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.firstContactEmail; else NoData" class="truncate"
+                            matTooltip={{client.firstContactEmail}}>
+                            {{client.firstContactEmail}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="firstContactPhone">
+                    <th fxFlex="13" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        *matHeaderCellDef mat-sort-header>
+                        Téléphone</th>
+                    <td fxFlex="13" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <div *ngIf="client.firstContactPhone; else NoData">
+                            {{client.firstContactPhone}}
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th fxFlex="10" fxLayoutAlign="center center" class="font-bold text-black" mat-header-cell
+                        *matHeaderCellDef>Actions</th>
+                    <td fxFlex="10" fxLayoutAlign="center center" mat-cell *matCellDef="let client">
+                        <button title="Modifier" [disabled]="!client.active" (click)="editClient(client)">
+                            <mat-icon aria-label="Edit" class="Edit">edit</mat-icon>
+                        </button>
+                        <button title="Supprimer" (click)="desactivateClient(client)" [disabled]="!client.active">
+                            <mat-icon aria-label="Delete" class="Delete">delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'bg-accent-300': !row.active }">
-            </tr>
-        </table>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [ngClass]="{ 'bg-accent-300': !row.active }">
+                </tr>
+            </table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-            aria-label="Select page of periodic elements">
-        </mat-paginator>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
+            </mat-paginator>
 
-        <ng-template #NoData>
-            <div>
-                N/A
-            </div>
-        </ng-template>
-    </div>
-</div>
+            <ng-template #NoData>
+                <div>
+                </div>

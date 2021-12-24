@@ -1,0 +1,35 @@
+<fuse-card class="flex flex-col max-w-80 w-full filter-shopping" *ngIf="item.name !='cloudPortal-icon.png'">
+
+    <div class="relative">
+        <div class="absolute flex flex-col top-0 right-0 p-3">
+            <!--button mat-icon-button>
+                <mat-icon class="icon-size-5 text-success text-opacity-0" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+            </button-->
+            
+        </div>
+        <a *ngIf="item.name !='cloudPortal-icon.png'" class="mask" style="background-color: rgba(251, 251, 251, 0.2);"
+            (click)="open()">
+            <img style="height: 250px;" class="object-cover" [src]="item.base64Img" alt="Card cover image">
+        </a>
+        
+    </div>
+
+    <div class="m-8 mb-2 mt-0">
+      
+        <hr class="border-b my-6">
+
+        <div class="flex items-center mt-3 -mx-3">
+            <button class="w-full rounded-t-none" mat-flat-button [color]="'primary'" (click)="delete()">
+                <mat-icon svgIcon="heroicons_outline:trash"></mat-icon>
+            </button>
+            <button mat-icon-button class="w-full rounded-t-none" mat-flat-button [color]="'primary'" (click)="pick()">
+                <mat-icon *ngIf="!item.picked" svgIcon="heroicons_outline:check"></mat-icon>
+                <mat-icon *ngIf="item.picked" svgIcon="heroicons_outline:x"></mat-icon>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="!item.picked" class="flex flex-col items-center text-md font-medium bg-danger text-on-primary px-8 py-6 mt-0">
+    </div>
+    <div *ngIf="item.picked" class="flex flex-col items-center text-md font-medium bg-success text-on-primary px-8 py-6 mt-0">
+    </div>
+</fuse-card>
