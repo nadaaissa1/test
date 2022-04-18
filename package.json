@@ -68,8 +68,9 @@
         "@angular-eslint/eslint-plugin-template": "12.3.1",
         "@angular-eslint/schematics": "12.3.1",
         "@angular-eslint/template-parser": "12.3.1",
-        "@angular/cli": "12.2.1",
+        "@angular/cli": "^12.2.1",
         "@angular/compiler-cli": "12.2.1",
+        "@cucumber/cucumber": "7.0.0",
         "@tailwindcss/aspect-ratio": "0.2.1",
         "@tailwindcss/line-clamp": "0.2.1",
         "@tailwindcss/typography": "0.4.1",
@@ -96,6 +97,8 @@
         "karma-jasmine-html-reporter": "1.7.0",
         "lodash": "4.17.21",
         "postcss": "8.3.6",
+        "protractor": "^7.0.0",
+        "protractor-cucumber-framework": "^7.0.2",
         "tailwindcss": "2.2.7",
         "typescript": "4.3.5"
     }

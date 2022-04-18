@@ -4,21 +4,61 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "baseUrl": "./src",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
+        "outDir": "./",
+        "inlineSourceMap": true, 
+        
+        "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+       
+        "esModuleInterop": false, 
+       
+        "skipLibCheck": true,
+        "noImplicitAny":false,
+        "strict": false,
+        "removeComments": false,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+     
+        "declaration": false,
+        "declarationMap": false,  
+        "downlevelIteration": true,
+       
         "moduleResolution": "node",
         "importHelpers": true,
         "target": "es2017",
-        "module": "es2020",
+        "module": "commonjs",
+        "typeRoots": [
+            "node_modules/@types"],
         "lib": [
             "es2018",
             "dom"
         ]
     },
+
+    
+    "exclude": [
+        "node_modules",
+        "src"
+    ],
+
+  
+    
+   
+
+
+    "include": [
+        "StepDef.ts",
+        "Features",
+        "Configuration.ts"
+
+    ],
+
+  
+
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false
     }
+   
+    
+ 
 }
