@@ -73,7 +73,7 @@ When('User enters UID field {string}', {timeout: 60 * 1000} , async function (st
 
 
     
-      When('the customor give details {string}, {string},{string} ,{string} ,{string} ,{string} ,{string} ,{string} ,{string} ,{string} ,{string} ,{string}', async function (employeeID, lastName, middleName, firstName, loginName, userpassword, jobTitle, emailid, phone, mobile, client, role ) {
+      When('the customor give details {string}, {string},{string} ,{string} ,{string} ,{string} ,{string} ,{string} ,{string},{string}', async function (employeeID, lastName, middleName, firstName, loginName, userpassword, jobTitle, emailid, phone , mobile ) {
         await element(By.name("employeeID")).sendKeys(employeeID);
         
         await element(By.name("lastName")).sendKeys(lastName);
@@ -91,32 +91,82 @@ When('User enters UID field {string}', {timeout: 60 * 1000} , async function (st
         await element(By.name("emailid")).sendKeys(emailid);
         
         await element(By.name("phone")).sendKeys(phone);
+
+        console.log(mobile);
         
-        await element(By.name("mobile")).sendKeys(mobile);
-
-        await element(By.xpath("//div[@id='mat-select-value-7']")).click();
-
-        await element(By.xpath("//div[@id='mat-select-value-9']")).click();
-
-      
-
-      
+        await element(By.xpath("//input[@name='mobile']")).sendKeys(mobile);
 
         
 
-
-
-
-
-
-
-       
+       //fffgyk
         
-       });
+      //aa
+
+        
+    });
 
 
+    When('the Customor clicks on client', {timeout: 60 * 1000} , async function () {
+      await element(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/mat-dialog-container[1]/app-adduser[1]/form[1]/mat-form-field[6]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[2]/div[1]")).click();
+      let options =  element(By.xpath("//span[@class='mat-option-text'][normalize-space()='Focus']")).click();
+        
+      console.log("yesssss");
+      await browser.sleep(4000);
       
+    });
+
+
+    When('the Customor choose the role', {timeout: 60 * 1000} , async function () {
+      await element(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/mat-dialog-container[1]/app-adduser[1]/form[1]/mat-form-field[7]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[2]/div[1]")).click();
+      
+      let options =  element(By.xpath("//span[@class='mat-option-text'][normalize-space()='Admin']")).click();
+        
+      console.log("yesssss");
+      await browser.sleep(4000);
+      
+    });
+
+
+    When('the Customor clicks on Enregistrer button', {timeout: 60 * 1000} , async function () {
+      await element(By.xpath("//button[@class='mat-focus-indicator text-white font-bold px-4 rounded mat-raised-button mat-button-base mat-accent']")).click();
+      
+      console.log("yesssss");
+      await browser.sleep(4000);
+      
+    });
+   
   
+    //Modif userrr
+
+
+    
+
+
+    When('User clicks on NextButton', {timeout: 60 * 1000} , async function () {
+      await element(By.xpath("/html[1]/body[1]/app-root[1]/layout[1]/dense-layout[1]/div[1]/div[2]/app-profile[1]/div[1]/div[1]/div[1]/table[1]/tr[1]/td[1]/app-userlist[1]/div[1]/div[3]/mat-paginator[1]/div[1]/div[1]/div[2]/button[3]")).click();
+        
+      console.log("yes");
+      await browser.sleep(4000);
+      //d
+    });
+
+    When('User clicks on Modifier Icone', {timeout: 60 * 1000} , async function () {
+      await element(By.xpath("(//button[@title='Modifier'])[2]")).click();
+        
+      console.log("yesssss");
+      await browser.sleep(40000);
+    });
+
+
+
+    When('user do the Modification', {timeout: 60 * 1000} , async function  (string) {
+      await element(By.xpath("//input[@id='mat-input-15']")).sendKeys(string);
+    console.log("/////");
+    await browser.sleep(10000)
+    });
+
+
+   
 
     
     
