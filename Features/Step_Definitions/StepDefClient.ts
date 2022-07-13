@@ -108,6 +108,8 @@ When('User enters UID field {string}', {timeout: 60 * 1000} , async function (st
 
     When('the Customor clicks on client', {timeout: 60 * 1000} , async function () {
       await element(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/mat-dialog-container[1]/app-adduser[1]/form[1]/mat-form-field[6]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[2]/div[1]")).click();
+      
+      
       let options =  element(By.xpath("//span[@class='mat-option-text'][normalize-space()='Focus']")).click();
         
       console.log("yesssss");
