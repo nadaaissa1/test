@@ -1,0 +1,276 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "test-recruit-application;login-test",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login Test",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I launch Url",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43169000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "User enters UID field \"admin\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10196000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "User enters password \"admin\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10127000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "User clicks on Login button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43633000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "It displays Dashboard Page",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;back-office",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Back-Office",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the Customor clicks on Back-Office",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4066000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the Customor choose to click on client",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:59"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4264000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the Customor clicks on Add client Icone",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:65"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4169000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the customor give details \"focus\", \"focus corporation\",\"chotrana\" ,\"electronique\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:72"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 400000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;drop-down-for-client",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Drop Down for Client",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the Customor clicks on Gestionnaire De Compte",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:89"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 19000000,
+              "error_message": "NoSuchElementError: No element found using locator: By(xpath, /html[1]/body[1]/div[3]/div[2]/div[1]/mat-dialog-container[1]/app-addclient[1]/form[1]/mat-form-field[5]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[2]/div[1])\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (E:\\malek test\\multi-cloudportal-front\\Features\\Step_Definitions\\StepDef.ts:91:195)"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;back-office-2",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Back-Office 2",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the customor continue to give details \"mouhemed\", \"mouhamed@focus.tn\", \"72355190\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 233000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;enregistrer-et-modifier",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "enregistrer et modifier",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "the Customor clicks on save button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:116"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 15000000,
+              "error_message": "NoSuchElementError: No element found using locator: By(xpath, //button[@class='mat-focus-indicator text-white font-bold px-4 rounded mat-raised-button mat-button-base mat-accent'])\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:814:27\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (E:\\malek test\\multi-cloudportal-front\\Features\\Step_Definitions\\StepDef.ts:117:152)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "the Customor clicks on Modifier Icone",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:126"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "the Customor do the Modification  \"chtourou\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:134"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "clicks on Enregistrer button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:147"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "test-recruit-application",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Test Recruit Application",
+    "tags": [],
+    "uri": "Features\\Login.feature",
+    "metadata": {
+      "browser": {
+        "name": "chrome",
+        "version": "103.0.5060.134"
+      },
+      "device": "",
+      "platform": {
+        "name": "",
+        "version": ""
+      }
+    }
+  }
+]

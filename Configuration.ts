@@ -14,7 +14,7 @@ export let config: Config = {
 
     cucumberOpts: {
         require: 'Features/Step_Definitions/StepDef.js',
-        format: 'json:.tmp/results.json'
+        format: 'json:./results/results.json'
     },
 
     plugins: [{

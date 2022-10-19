@@ -1,0 +1,268 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "test-recruit-application;login-test",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login Test",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I launch Url",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 40637000000,
+              "error_message": "Error: Error while running testForAngular: disconnected: unable to send message to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=106.0.5249.119)\n  (Driver info: chromedriver=106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}),platform=Windows NT 10.0.19044 x86_64)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:725:23\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "User enters UID field \"admin\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "User enters password \"admin\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:24"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "User clicks on Login button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:31"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "It displays Dashboard Page",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;back-office",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Back-Office",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the Customor clicks on Back-Office",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:53"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 32306000000,
+              "error_message": "WebDriverError: disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=106.0.5249.119)\n  (Driver info: chromedriver=106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}),platform=Windows NT 10.0.19044 x86_64)\n    at Object.checkLegacyResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:441:30\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\nFrom: Task: Protractor.waitForAngular() - Locator: By(xpath, /html[1]/body[1]/app-root[1]/layout[1]/dense-layout[1]/fuse-vertical-navigation[1]/div[1]/div[2]/fuse-vertical-navigation-collapsable-item[1]/div[1]/div[1])\n    at Driver.schedule (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at ProtractorBrowser.executeAsyncScript_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:423:28)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:454:33\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (E:\\malek test\\multi-cloudportal-front\\Features\\Step_Definitions\\StepDef.ts:54:190)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the Customor choose to click on client",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:59"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the Customor clicks on Add client Icone",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:65"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the customor give details \"focus\", \"focus corporation\",\"chotrana\" ,\"electronique\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:72"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;drop-down-for-client",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Drop Down for Client",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the Customor clicks on Gestionnaire De Compte",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:89"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 32371000000,
+              "error_message": "WebDriverError: disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=106.0.5249.119)\n  (Driver info: chromedriver=106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}),platform=Windows NT 10.0.19044 x86_64)\n    at Object.checkLegacyResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:441:30\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\nFrom: Task: Protractor.waitForAngular() - Locator: By(xpath, /html[1]/body[1]/div[3]/div[2]/div[1]/mat-dialog-container[1]/app-addclient[1]/form[1]/mat-form-field[5]/div[1]/div[1]/div[3]/mat-select[1]/div[1]/div[2]/div[1])\n    at Driver.schedule (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at ProtractorBrowser.executeAsyncScript_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:423:28)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:454:33\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (E:\\malek test\\multi-cloudportal-front\\Features\\Step_Definitions\\StepDef.ts:91:195)"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;back-office-2",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Back-Office 2",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the customor continue to give details \"mouhemed\", \"mouhamed@focus.tn\", \"72355190\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:103"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5028000000,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout._onTimeout (E:\\malek test\\multi-cloudportal-front\\node_modules\\@cucumber\\cucumber\\src\\user_code_runner.ts:80:18)\n    at listOnTimeout (internal/timers.js:557:17)\n    at processTimers (internal/timers.js:500:7)"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test-recruit-application;enregistrer-et-modifier",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "enregistrer et modifier",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "the Customor clicks on save button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:116"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 59672000000,
+              "error_message": "WebDriverError: disconnected: unable to connect to renderer\n  (failed to check if window was closed: disconnected: unable to connect to renderer)\n  (Session info: chrome=106.0.5249.119)\n  (Driver info: chromedriver=106.0.5249.61 (511755355844955cd3e264779baf0dd38212a4d0-refs/branch-heads/5249@{#569}),platform=Windows NT 10.0.19044 x86_64)\n    at Object.checkLegacyResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\http.js:441:30\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\nFrom: Task: Protractor.waitForAngular() - Locator: By(xpath, //button[@class='mat-focus-indicator text-white font-bold px-4 rounded mat-raised-button mat-button-base mat-accent'])\n    at Driver.schedule (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\webdriver.js:807:17)\n    at ProtractorBrowser.executeAsyncScript_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:423:28)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\browser.js:454:33\n    at ManagedPromise.invokeCallback_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:1376:14)\n    at TaskQueue.execute_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3084:14)\n    at TaskQueue.executeNext_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:3067:27)\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:2927:27\n    at C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\node_modules\\selenium-webdriver\\lib\\promise.js:668:7Error\n    at ElementArrayFinder.applyAction_ (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as click] (C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (E:\\malek test\\multi-cloudportal-front\\Features\\Step_Definitions\\StepDef.ts:117:152)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 32,
+            "name": "the Customor clicks on Modifier Icone",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:126"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "the Customor do the Modification  \"chtourou\"",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:134"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "clicks on Enregistrer button",
+            "match": {
+              "location": "Features\\Step_Definitions\\StepDef.ts:147"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "test-recruit-application",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Test Recruit Application",
+    "tags": [],
+    "uri": "Features\\Login.feature"
+  }
+]

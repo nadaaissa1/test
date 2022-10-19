@@ -263,6 +263,17 @@
     "keyword": "Feature",
     "name": "Test Recruit Application",
     "tags": [],
-    "uri": "Features\\Login.feature"
+    "uri": "Features\\Login.feature",
+    "metadata": {
+      "browser": {
+        "name": "chrome",
+        "version": "103.0.5060.134"
+      },
+      "device": "",
+      "platform": {
+        "name": "",
+        "version": ""
+      }
+    }
   }
 ]
